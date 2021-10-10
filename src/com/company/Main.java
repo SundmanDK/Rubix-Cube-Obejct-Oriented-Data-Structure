@@ -53,15 +53,25 @@ public class Main {
         VisualIndexes();
         System.out.println();
 
-        Scramble(20);
+        Scramble(0);
         String command;
-        while (true) {
+        boolean running = true;
+        while (running) {
+            System.out.println("List of commands:");
+            System.out.println("Stop, R, Ri, L, Li, F, Fi, B, Bi, U, Ui, D, Di");
+            System.out.println();
             VisuallizeRubixCube();
             System.out.println();
             System.out.print("Write a command: ");
             command = in.nextLine();
-            if (check(moves, command)) moves(command);
-            else System.out.println("Not a valid command!");
+            if (check(moves, command)){
+                moves(command);
+            } else if (command.equals("Stop")) {
+                running = false;
+                System.out.println("Loop ended");
+            } else {
+                System.out.println("Not a valid command!");
+            }
         }
 
     }
