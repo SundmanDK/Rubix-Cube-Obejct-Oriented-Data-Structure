@@ -1,4 +1,6 @@
 package com.company;
+import java.util.Scanner;
+import java.util.Random;
 
 public class Main {
 
@@ -13,10 +15,14 @@ public class Main {
                             White   White   White
                             White   White   White
      */
+
     public static Cube[][][] rubixCube = new Cube[3][3][3];
     public static Cube tempCube;
+    public static String[] moves = {"R","Ri","L","Li","F","Fi","B","Bi","U","Ui","D","Di"};
 
     public static void main(String[] args){
+        Scanner in = new Scanner(System.in);
+        /*
         //Proof of concept
         String[] colors = {"YELLOW","BLUE","RED","GREEN","ORANGE","WHITE","BLANK"};
         Cube cube = new Cube(colors[0],colors[5],colors[1],colors[3],colors[4],colors[2],0);
@@ -36,6 +42,7 @@ public class Main {
         System.out.println("left:   " + cube.left);
         System.out.println("right:  " + cube.right);
         //End
+        */
 
         //Actual Rubix Cube
         RubixCube();
@@ -46,9 +53,17 @@ public class Main {
         VisualIndexes();
         System.out.println();
 
-        D();
-        VisuallizeRubixCube();
-        System.out.println();
+        Scramble(20);
+        String command;
+        while (true) {
+            VisuallizeRubixCube();
+            System.out.println();
+            System.out.print("Write a command: ");
+            command = in.nextLine();
+            if (check(moves, command)) moves(command);
+            else System.out.println("Not a valid command!");
+        }
+
     }
 
     //Move functions
@@ -218,6 +233,56 @@ public class Main {
         rubixCube[0][1][0] = rubixCube[0][2][1].UDi();
         rubixCube[0][2][1] = rubixCube[0][1][2].UDi();
         rubixCube[0][1][2] = tempCube;
+    }
+
+    public static void Scramble(int scrambleMoves){
+        Random random = new Random();
+        int nrOfMoves = 12; //the 12 moves R, Ri, L, Li, and so on
+        int whichMove;
+
+        for (int move = 0; move < scrambleMoves; move++){
+            whichMove = random.nextInt(nrOfMoves);
+
+            moves(moves[whichMove]);
+        }
+    }
+
+    private static boolean check(String[] arr, String toCheckValue) {
+        for (String element : arr) {
+            if (element.equals(toCheckValue)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static void moves(String moveName){
+
+        if (moveName.equals("R")) {
+            R();
+        } else if (moveName.equals("Ri")){
+            Ri();
+        } else if (moveName.equals("L")){
+            L();
+        } else if (moveName.equals("Li")){
+            Li();
+        } else if (moveName.equals("F")){
+            F();
+        } else if (moveName.equals("Fi")){
+            Fi();
+        } else if (moveName.equals("B")){
+            B();
+        } else if (moveName.equals("Bi")){
+            Bi();
+        } else if (moveName.equals("U")){
+            U();
+        } else if (moveName.equals("Ui")){
+            Ui();
+        } else if (moveName.equals("D")){
+            D();
+        } else if (moveName.equals("Di")){
+            Di();
+        }
     }
 
     //Assign cubes and build rubix cube
