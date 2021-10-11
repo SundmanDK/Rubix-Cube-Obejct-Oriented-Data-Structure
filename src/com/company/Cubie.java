@@ -1,6 +1,6 @@
 package com.company;
 
-public class Cube {
+public class Cubie {
     String top;
     String bottom;
     String front;
@@ -12,7 +12,7 @@ public class Cube {
 
     String temp;
 
-    public Cube(String newtop, String newbottom, String newfront, String newback, String newleft, String newright, int newID){
+    public Cubie(String newtop, String newbottom, String newfront, String newback, String newleft, String newright, int newID){
         top = newtop;
         bottom = newbottom;
         front = newfront;
@@ -22,7 +22,7 @@ public class Cube {
         id = newID;
     } // Constructor
 
-    public Cube RLi(){
+    public Cubie RLi(){
         temp = back;
         back = top;
         top = front;
@@ -31,7 +31,7 @@ public class Cube {
         return this;
     }
 
-    public Cube RiL(){
+    public Cubie RiL(){
         temp = front;
         front = top;
         top = back;
@@ -40,7 +40,7 @@ public class Cube {
         return this;
     }
 
-    public Cube BiF(){
+    public Cubie BiF(){
         temp = right;
         right = top;
         top = left;
@@ -49,7 +49,7 @@ public class Cube {
         return this;
     }
 
-    public Cube BFi(){
+    public Cubie BFi(){
         temp = top;
         top = right;
         right = bottom;
@@ -58,7 +58,7 @@ public class Cube {
         return this;
     }
 
-    public Cube UDi(){
+    public Cubie UDi(){
         temp = front;
         front = right;
         right = back;
@@ -67,7 +67,7 @@ public class Cube {
         return this;
     }
 
-    public Cube UiD(){
+    public Cubie UiD(){
         temp = back;
         back = right;
         right = front;
@@ -75,5 +75,4 @@ public class Cube {
         left = temp;
         return this;
     }
-
 }
