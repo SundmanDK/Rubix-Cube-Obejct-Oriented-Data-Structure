@@ -20,7 +20,7 @@ public class Main {
     public static Cubie[][][] rubixCube;
     public static Cubie tempCubie;
     public static String[] moves = {"R","Ri","L","Li","F","Fi","B","Bi","U","Ui","D","Di"};
-    public static final int size = 4;
+    public static final int size = 3;
     public static final int indexSize = size -1;
 
     public static void main(String[] args){
@@ -73,6 +73,42 @@ public class Main {
         rubixCube[1][0][2] = tempCubie;
     }
 
+    public static void RLi(int side){
+        Cubie[][] cubieRows = new Cubie[size][size];
+        Cubie[][] cubieTransCols = new Cubie[size][size];
+        for (int index1 = indexSize; index1 >= 0; index1--){
+            for (int index2 = indexSize; index2 >= 0; index2--){
+                cubieRows[indexSize-index1][indexSize-index2] = rubixCube[index1][index2][side];
+            }
+        }
+        for (int index1 = indexSize; index1 >= 0; index1--){
+            for (int index2 = indexSize; index2 >= 0; index2--){
+                cubieTransCols[indexSize-index1][indexSize-index2] = cubieRows[indexSize-index2][index1];
+            }
+        }
+
+        for (int index1 = indexSize; index1 >= 0; index1--){
+            for (int index2 = indexSize; index2 >= 0; index2--){
+                rubixCube[index1][index2][side] = cubieTransCols[index1][index2].RLi();
+            }
+        }
+
+        System.out.println();
+        for (int i = 0; i < 3; i++){
+            for (int j = 0; j < 3; j++){
+                System.out.print(cubieRows[i][j].id + "\t");
+            }
+            System.out.print("\n");
+        }
+        System.out.println();
+        for (int i = 0; i < 3; i++){
+            for (int j = 0; j < 3; j++){
+                System.out.print(cubieTransCols[i][j].id + "\t");
+            }
+            System.out.print("\n");
+        }
+    }
+
     public static void Ri(){
         tempCubie = rubixCube[2][0][2].RiL();
         rubixCube[2][0][2] = rubixCube[0][0][2].RiL();
@@ -121,7 +157,7 @@ public class Main {
             }
             System.out.print("\n");
         }
-         */
+        */
     }
 
     public static void L(){
@@ -139,13 +175,13 @@ public class Main {
 
     }
 
-    public static void L2(){
+    public static void RiL(int side){
         Cubie[][] cubieRows = new Cubie[size][size];
         Cubie[][] cubieTransCols = new Cubie[size][size];
 
         for (int index1 = indexSize; index1 >= 0; index1--){
             for (int index2 = indexSize; index2 >= 0; index2--){
-                cubieRows[indexSize-index1][indexSize-index2] = rubixCube[index1][index2][0];
+                cubieRows[indexSize-index1][indexSize-index2] = rubixCube[index1][index2][side];
             }
         }
         for (int index1 = indexSize; index1 >= 0; index1--){
@@ -155,8 +191,22 @@ public class Main {
         }
         for (int index1 = indexSize; index1 >= 0; index1--){
             for (int index2 = indexSize; index2 >= 0; index2--){
-                rubixCube[index1][index2][0] = cubieTransCols[index1][index2].RiL();
+                rubixCube[index1][index2][side] = cubieTransCols[index1][index2].RiL();
             }
+        }
+        System.out.println();
+        for (int i = 0; i < 3; i++){
+            for (int j = 0; j < 3; j++){
+                System.out.print(cubieRows[i][j].id + "\t");
+            }
+            System.out.print("\n");
+        }
+        System.out.println();
+        for (int i = 0; i < 3; i++){
+            for (int j = 0; j < 3; j++){
+                System.out.print(cubieTransCols[i][j].id + "\t");
+            }
+            System.out.print("\n");
         }
     }
 
@@ -310,13 +360,13 @@ public class Main {
     public static void moves(String moveName){
 
         if (moveName.equals("R")) {
-            R();
+            RLi(2);
         } else if (moveName.equals("Ri")){
-            Ri2();
+            RiL(2);
         } else if (moveName.equals("L")){
-            L2();
+            RiL(0);
         } else if (moveName.equals("Li")){
-            Li();
+            RLi(0);
         } else if (moveName.equals("F")){
             F();
         } else if (moveName.equals("Fi")){
