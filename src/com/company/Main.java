@@ -22,6 +22,8 @@ public class Main {
     public static String[] moves = {"R","Ri","L","Li","F","Fi","B","Bi","U","Ui","D","Di"};
     public static final int size = 3;
     public static final int indexSize = size -1;
+    public static Cubie[][] cubieRows = new Cubie[size][size];
+    public static Cubie[][] cubieTransCols = new Cubie[size][size];
 
     public static void main(String[] args){
         Scanner in = new Scanner(System.in);
@@ -74,8 +76,8 @@ public class Main {
     }
 
     public static void RLi(int side){
-        Cubie[][] cubieRows = new Cubie[size][size];
-        Cubie[][] cubieTransCols = new Cubie[size][size];
+        // uses cubieRows
+        // uses cubieTransCols
         for (int index1 = indexSize; index1 >= 0; index1--){
             for (int index2 = indexSize; index2 >= 0; index2--){
                 cubieRows[indexSize-index1][indexSize-index2] = rubixCube[index1][index2][side];
@@ -176,9 +178,8 @@ public class Main {
     }
 
     public static void RiL(int side){
-        Cubie[][] cubieRows = new Cubie[size][size];
-        Cubie[][] cubieTransCols = new Cubie[size][size];
-
+        // uses cubieRows
+        // uses cubieTransCols
         for (int index1 = indexSize; index1 >= 0; index1--){
             for (int index2 = indexSize; index2 >= 0; index2--){
                 cubieRows[indexSize-index1][indexSize-index2] = rubixCube[index1][index2][side];
@@ -586,5 +587,4 @@ public class Main {
             System.out.print("\n");
         }
     }
-
 }
