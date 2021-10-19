@@ -108,8 +108,10 @@ public class Main {
     public static String[] move_list;
     public static void IDA_Star(){
         for (int depth = 1; depth <= 20; depth++){
-            move_list = new String[depth];
-            IDA_Step(depth,0);
+            if (!solved()) {
+                move_list = new String[depth];
+                IDA_Step(depth, 0);
+            }
         }
         System.out.println(Arrays.toString(move_list));
     }
@@ -123,6 +125,7 @@ public class Main {
                     break;
                 } else {
                     IDA_Step(max_Depth, depth++);
+                    cube_move(reverse_move(move));
                 }
             }
         }
@@ -323,16 +326,16 @@ public class Main {
     //Switch? looks good
     public static void cube_move(String moveName){
         switch (moveName) {
-            case "R" -> RLi(2);
-            case "Ri" -> RiL(2);
+            case "R" -> RLi(index_Size);
+            case "Ri" -> RiL(index_Size);
             case "L" -> RiL(0);
             case "Li" -> RLi(0);
-            case "F" -> FBi(2);
-            case "Fi" -> FiB(2);
+            case "F" -> FBi(index_Size);
+            case "Fi" -> FiB(index_Size);
             case "B" -> FiB(0);
             case "Bi" -> FBi(0);
-            case "U" -> UDi(2);
-            case "Ui" -> UiD(2);
+            case "U" -> UDi(index_Size);
+            case "Ui" -> UiD(index_Size);
             case "D" -> UiD(0);
             case "Di" -> UDi(0);
         }
