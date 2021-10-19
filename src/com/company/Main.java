@@ -40,6 +40,7 @@ public class Main {
 
         Scramble(0);
         while (running) {
+
             //System.out.println("2,2,2 id:" + rubixCube[2][2][2].top);
             System.out.println("List of commands:");
             System.out.println("Stop, R, Ri, L, Li, F, Fi, B, Bi, U, Ui, D, Di");
@@ -56,6 +57,8 @@ public class Main {
             } else {
                 System.out.println("Not a valid command!");
             }
+            System.out.println();
+            System.out.println("Is the cube solved: " + isSolved());
         }
     }
 
@@ -491,7 +494,7 @@ public class Main {
         String yellow = "YELLOW";
         String blue = "BLUE";
         String red = "RED\t";
-        String green = "Green";
+        String green = "GREEN";
         String orange = "ORANGE";
         String white = "WHITE";
         String blank = "BLANK";
@@ -611,5 +614,57 @@ public class Main {
             }
             System.out.print("\n");
         }
+    }
+
+    public static boolean isSolved(){
+        //Top
+        for(int index1 = 0; index1 <= indexSize; index1++){
+            for(int index2 = 0; index2 <= indexSize; index2++){
+                if (rubixCube[indexSize][index1][index2].top != "YELLOW"){
+                    return false;
+                }
+            }
+        }
+        //Front
+        for(int index1 = 0; index1 <= indexSize; index1++){
+            for(int index2 = 0; index2 <= indexSize; index2++){
+                if (rubixCube[index1][indexSize][index2].front != "BLUE"){
+                    return false;
+                }
+            }
+        }
+        //Right
+        for(int index1 = 0; index1 <= indexSize; index1++){
+            for(int index2 = 0; index2 <= indexSize; index2++){
+                if (rubixCube[index1][index2][indexSize].right != "RED\t"){
+                    return false;
+                }
+            }
+        }
+        //Back
+        for(int index1 = 0; index1 <= indexSize; index1++){
+            for(int index2 = 0; index2 <= indexSize; index2++){
+                if (rubixCube[index1][0][index2].back != "GREEN"){
+                    return false;
+                }
+            }
+        }
+        //Left
+        for(int index1 = 0; index1 <= indexSize; index1++){
+            for(int index2 = 0; index2 <= indexSize; index2++){
+                if (rubixCube[index1][index2][0].left != "ORANGE"){
+                    return false;
+                }
+            }
+        }
+        //Bottom
+        for(int index1 = 0; index1 <= indexSize; index1++){
+            for(int index2 = 0; index2 <= indexSize; index2++){
+                if (rubixCube[0][index1][index2].bottom != "WHITE"){
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 }
