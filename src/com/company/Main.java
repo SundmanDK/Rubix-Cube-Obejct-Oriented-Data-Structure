@@ -1,5 +1,5 @@
 package com.company;
-import java.util.Arrays;
+import java.lang.*;
 import java.util.Scanner;
 import java.util.Random;
 
@@ -16,13 +16,14 @@ public class Main {
     White   White   White
      */
 
-    public static Cubie[][][] rubixCube;
-    public static Cubie tempCubie;
-    public static String[] moves = {"R","Ri","L","Li","F","Fi","B","Bi","U","Ui","D","Di"};
+    public static Cubie[][][] rubix_Cube;
+    //public static Cubie[][][] scrambledCube;
+    public static Cubie temp_Cubie;
+    public static String[] possible_moves = {"R","Ri","L","Li","F","Fi","B","Bi","U","Ui","D","Di"};
     public static final int size = 3;
-    public static final int indexSize = size -1;
-    public static Cubie[][] cubieRows = new Cubie[size][size];
-    public static Cubie[][] cubieTransCols = new Cubie[size][size];
+    public static final int index_Size = size -1;
+    public static Cubie[][] cubie_Rows = new Cubie[size][size];
+    public static Cubie[][] cubie_Trans_Cols = new Cubie[size][size];
 
     public static void main(String[] args){
         Scanner in = new Scanner(System.in);
@@ -30,27 +31,28 @@ public class Main {
         boolean running = true;
 
         //Actual Rubix Cube
-        RubixCube2();
+        rubixCube();
 
         System.out.println();
-        VisuallizeRubixCube();
+        visuallize_Rubix_Cube();
         System.out.println();
-        VisualIndexes();
+        visual_Indexes();
         System.out.println();
 
-        Scramble(0);
+        Scramble(1);
         while (running) {
 
             //System.out.println("2,2,2 id:" + rubixCube[2][2][2].top);
             System.out.println("List of commands:");
             System.out.println("Stop, R, Ri, L, Li, F, Fi, B, Bi, U, Ui, D, Di");
             System.out.println();
-            VisuallizeRubixCube();
+            visuallize_Rubix_Cube();
             System.out.println();
             System.out.print("Write a command: ");
+            IDA2(0);
             command = in.nextLine();
-            if (check(moves, command)){
-                moves2(command);
+            if (check(possible_moves, command)){
+                cube_move(command);
             } else if (command.equals("Stop")) {
                 running = false;
                 System.out.println("Loop ended");
@@ -58,28 +60,108 @@ public class Main {
                 System.out.println("Not a valid command!");
             }
             System.out.println();
-            System.out.println("Is the cube solved: " + isSolved());
+            System.out.println("Is the cube solved: " + solved());
+
+
         }
+    }
+
+    public static void IDA(){
+        //scrambledCube = Rubix_Cube.clone();
+        String[] moveList = new String[1];
+        int tried_moves = 0;
+        for (int i = 0; i < 12; i++){
+            cube_move(possible_moves[i]);
+            System.out.println(possible_moves[i]);
+            visuallize_Rubix_Cube();
+            System.out.println();
+            if (solved()){
+                break;
+            } else {
+                System.out.println("nr. of tried moves: "+tried_moves++);
+                cube_move(reverse_move(possible_moves[i]));
+                visuallize_Rubix_Cube();
+            }
+        }
+    }
+
+    public static void IDA2(int depth){
+        for (String move : possible_moves){
+            if (solved()){
+                // gives final move list
+                break;
+            } else if (depth != 2){
+                cube_move(move);
+                System.out.println(move);
+                visuallize_Rubix_Cube();
+                System.out.println();
+                IDA2(depth++);
+            }
+            cube_move(reverse_move(move));
+            depth--;
+        }
+    }
+
+    public static String reverse_move(String move){
+        switch (move) {
+            case "R" -> {
+                return "Ri";
+            }
+            case "Ri" -> {
+                return "R";
+            }
+            case "L" -> {
+                return "Li";
+            }
+            case "Li" -> {
+                return "L";
+            }
+            case "F" -> {
+                return "Fi";
+            }
+            case "Fi" -> {
+                return "F";
+            }
+            case "B" -> {
+                return "Bi";
+            }
+            case "Bi" -> {
+                return "B";
+            }
+            case "U" -> {
+                return "Ui";
+            }
+            case "Ui" -> {
+                return "U";
+            }
+            case "D" -> {
+                return "Di";
+            }
+            case "Di" -> {
+                return "D";
+            }
+        }
+        return move;
     }
 
     //Move functions
     public static void RLi(int side){
         // uses cubieRows
         // uses cubieTransCols
-        for (int index1 = indexSize; index1 >= 0; index1--){
-            for (int index2 = indexSize; index2 >= 0; index2--){
-                cubieRows[indexSize-index1][indexSize-index2] = rubixCube[index1][index2][side];
+        for (int index1 = index_Size; index1 >= 0; index1--){
+            for (int index2 = index_Size; index2 >= 0; index2--){
+                cubie_Rows[index_Size -index1][index_Size -index2] = rubix_Cube[index1][index2][side];
             }
         }
-        for (int index1 = indexSize; index1 >= 0; index1--){
-            for (int index2 = indexSize; index2 >= 0; index2--){
-                cubieTransCols[indexSize-index1][indexSize-index2] = cubieRows[indexSize-index2][index1];
+        for (int index1 = index_Size; index1 >= 0; index1--){
+            for (int index2 = index_Size; index2 >= 0; index2--){
+                cubie_Trans_Cols[index_Size -index1][index_Size -index2] = cubie_Rows[index_Size -index2][index1];
             }
         }
 
-        for (int index1 = indexSize; index1 >= 0; index1--){
-            for (int index2 = indexSize; index2 >= 0; index2--){
-                rubixCube[index1][index2][side] = cubieTransCols[index1][index2].RLi();
+        for (int index1 = index_Size; index1 >= 0; index1--){
+            for (int index2 = index_Size; index2 >= 0; index2--){
+                rubix_Cube[index1][index2][side] = cubie_Trans_Cols[index1][index2].RLi();
             }
         }
 
@@ -103,249 +185,91 @@ public class Main {
     public static void RiL(int side){
         // uses cubieRows
         // uses cubieTransCols
-        for (int index1 = indexSize; index1 >= 0; index1--){
-            for (int index2 = indexSize; index2 >= 0; index2--){
-                cubieRows[indexSize-index1][indexSize-index2] = rubixCube[index1][index2][side];
+        for (int index1 = index_Size; index1 >= 0; index1--){
+            for (int index2 = index_Size; index2 >= 0; index2--){
+                cubie_Rows[index_Size -index1][index_Size -index2] = rubix_Cube[index1][index2][side];
             }
         }
-        for (int index1 = indexSize; index1 >= 0; index1--){
-            for (int index2 = indexSize; index2 >= 0; index2--){
-                cubieTransCols[indexSize-index1][indexSize-index2] = cubieRows[index2][indexSize-index1];
+        for (int index1 = index_Size; index1 >= 0; index1--){
+            for (int index2 = index_Size; index2 >= 0; index2--){
+                cubie_Trans_Cols[index_Size -index1][index_Size -index2] = cubie_Rows[index2][index_Size -index1];
             }
         }
-        for (int index1 = indexSize; index1 >= 0; index1--){
-            for (int index2 = indexSize; index2 >= 0; index2--){
-                rubixCube[index1][index2][side] = cubieTransCols[index1][index2].RiL();
+        for (int index1 = index_Size; index1 >= 0; index1--){
+            for (int index2 = index_Size; index2 >= 0; index2--){
+                rubix_Cube[index1][index2][side] = cubie_Trans_Cols[index1][index2].RiL();
             }
         }
     }
     public static void FBi(int side){
-        for (int index1 = indexSize; index1 >= 0; index1--){
-            for (int index2 = indexSize; index2 >= 0; index2--){
-                cubieRows[indexSize-index1][indexSize-index2] = rubixCube[index1][side][index2];
+        for (int index1 = index_Size; index1 >= 0; index1--){
+            for (int index2 = index_Size; index2 >= 0; index2--){
+                cubie_Rows[index_Size -index1][index_Size -index2] = rubix_Cube[index1][side][index2];
             }
         }
-        for (int index1 = indexSize; index1 >= 0; index1--){
-            for (int index2 = indexSize; index2 >= 0; index2--){
-                cubieTransCols[indexSize-index1][indexSize-index2] = cubieRows[index2][indexSize-index1];
+        for (int index1 = index_Size; index1 >= 0; index1--){
+            for (int index2 = index_Size; index2 >= 0; index2--){
+                cubie_Trans_Cols[index_Size -index1][index_Size -index2] = cubie_Rows[index2][index_Size -index1];
             }
         }
-        for (int index1 = indexSize; index1 >= 0; index1--){
-            for (int index2 = indexSize; index2 >= 0; index2--){
-                rubixCube[index1][side][index2] = cubieTransCols[index1][index2].BiF();
+        for (int index1 = index_Size; index1 >= 0; index1--){
+            for (int index2 = index_Size; index2 >= 0; index2--){
+                rubix_Cube[index1][side][index2] = cubie_Trans_Cols[index1][index2].BiF();
             }
         }
     }
     public static void FiB(int side){
-        for (int index1 = indexSize; index1 >= 0; index1--){
-            for (int index2 = indexSize; index2 >= 0; index2--){
-                cubieRows[indexSize-index1][indexSize-index2] = rubixCube[index1][side][index2];
+        for (int index1 = index_Size; index1 >= 0; index1--){
+            for (int index2 = index_Size; index2 >= 0; index2--){
+                cubie_Rows[index_Size -index1][index_Size -index2] = rubix_Cube[index1][side][index2];
             }
         }
-        for (int index1 = indexSize; index1 >= 0; index1--){
-            for (int index2 = indexSize; index2 >= 0; index2--){
-                cubieTransCols[indexSize-index1][indexSize-index2] = cubieRows[indexSize-index2][index1];
+        for (int index1 = index_Size; index1 >= 0; index1--){
+            for (int index2 = index_Size; index2 >= 0; index2--){
+                cubie_Trans_Cols[index_Size -index1][index_Size -index2] = cubie_Rows[index_Size -index2][index1];
             }
         }
 
-        for (int index1 = indexSize; index1 >= 0; index1--){
-            for (int index2 = indexSize; index2 >= 0; index2--){
-                rubixCube[index1][side][index2] = cubieTransCols[index1][index2].BFi();
+        for (int index1 = index_Size; index1 >= 0; index1--){
+            for (int index2 = index_Size; index2 >= 0; index2--){
+                rubix_Cube[index1][side][index2] = cubie_Trans_Cols[index1][index2].BFi();
             }
         }
     }
     public static void UiD(int side){
-        for (int index1 = indexSize; index1 >= 0; index1--){
-            for (int index2 = indexSize; index2 >= 0; index2--){
-                cubieRows[indexSize-index1][indexSize-index2] = rubixCube[side][index1][index2];
+        for (int index1 = index_Size; index1 >= 0; index1--){
+            for (int index2 = index_Size; index2 >= 0; index2--){
+                cubie_Rows[index_Size -index1][index_Size -index2] = rubix_Cube[side][index1][index2];
             }
         }
-        for (int index1 = indexSize; index1 >= 0; index1--){
-            for (int index2 = indexSize; index2 >= 0; index2--){
-                cubieTransCols[indexSize-index1][indexSize-index2] = cubieRows[index2][indexSize-index1];
+        for (int index1 = index_Size; index1 >= 0; index1--){
+            for (int index2 = index_Size; index2 >= 0; index2--){
+                cubie_Trans_Cols[index_Size -index1][index_Size -index2] = cubie_Rows[index2][index_Size -index1];
             }
         }
-        for (int index1 = indexSize; index1 >= 0; index1--){
-            for (int index2 = indexSize; index2 >= 0; index2--){
-                rubixCube[side][index1][index2] = cubieTransCols[index1][index2].UiD();
+        for (int index1 = index_Size; index1 >= 0; index1--){
+            for (int index2 = index_Size; index2 >= 0; index2--){
+                rubix_Cube[side][index1][index2] = cubie_Trans_Cols[index1][index2].UiD();
             }
         }
     }
     public static void UDi(int side){
-        for (int index1 = indexSize; index1 >= 0; index1--){
-            for (int index2 = indexSize; index2 >= 0; index2--){
-                cubieRows[indexSize-index1][indexSize-index2] = rubixCube[side][index1][index2];
+        for (int index1 = index_Size; index1 >= 0; index1--){
+            for (int index2 = index_Size; index2 >= 0; index2--){
+                cubie_Rows[index_Size -index1][index_Size -index2] = rubix_Cube[side][index1][index2];
             }
         }
-        for (int index1 = indexSize; index1 >= 0; index1--){
-            for (int index2 = indexSize; index2 >= 0; index2--){
-                cubieTransCols[indexSize-index1][indexSize-index2] = cubieRows[indexSize-index2][index1];
+        for (int index1 = index_Size; index1 >= 0; index1--){
+            for (int index2 = index_Size; index2 >= 0; index2--){
+                cubie_Trans_Cols[index_Size -index1][index_Size -index2] = cubie_Rows[index_Size -index2][index1];
             }
         }
 
-        for (int index1 = indexSize; index1 >= 0; index1--){
-            for (int index2 = indexSize; index2 >= 0; index2--){
-                rubixCube[side][index1][index2] = cubieTransCols[index1][index2].UDi();
+        for (int index1 = index_Size; index1 >= 0; index1--){
+            for (int index2 = index_Size; index2 >= 0; index2--){
+                rubix_Cube[side][index1][index2] = cubie_Trans_Cols[index1][index2].UDi();
             }
         }
-    }
-
-    public static void R(){
-        tempCubie = rubixCube[2][0][2].RLi();
-        rubixCube[2][0][2] = rubixCube[2][2][2].RLi();
-        rubixCube[2][2][2] = rubixCube[0][2][2].RLi();
-        rubixCube[0][2][2] = rubixCube[0][0][2].RLi();
-        rubixCube[0][0][2] = tempCubie;
-
-        tempCubie = rubixCube[2][1][2].RLi();
-        rubixCube[2][1][2] = rubixCube[1][2][2].RLi();
-        rubixCube[1][2][2] = rubixCube[0][1][2].RLi();
-        rubixCube[0][1][2] = rubixCube[1][0][2].RLi();
-        rubixCube[1][0][2] = tempCubie;
-    }
-    public static void Ri(){
-        tempCubie = rubixCube[2][0][2].RiL();
-        rubixCube[2][0][2] = rubixCube[0][0][2].RiL();
-        rubixCube[0][0][2] = rubixCube[0][2][2].RiL();
-        rubixCube[0][2][2] = rubixCube[2][2][2].RiL();
-        rubixCube[2][2][2] = tempCubie;
-
-        tempCubie = rubixCube[2][1][2].RiL();
-        rubixCube[2][1][2] = rubixCube[1][0][2].RiL();
-        rubixCube[1][0][2] = rubixCube[0][1][2].RiL();
-        rubixCube[0][1][2] = rubixCube[1][2][2].RiL();
-        rubixCube[1][2][2] = tempCubie;
-    }
-    public static void L(){
-        tempCubie = rubixCube[2][0][0].RiL();
-        rubixCube[2][0][0] = rubixCube[0][0][0].RiL();
-        rubixCube[0][0][0] = rubixCube[0][2][0].RiL();
-        rubixCube[0][2][0] = rubixCube[2][2][0].RiL();
-        rubixCube[2][2][0] = tempCubie;
-
-        tempCubie = rubixCube[2][1][0].RiL();
-        rubixCube[2][1][0] = rubixCube[1][0][0].RiL();
-        rubixCube[1][0][0] = rubixCube[0][1][0].RiL();
-        rubixCube[0][1][0] = rubixCube[1][2][0].RiL();
-        rubixCube[1][2][0] = tempCubie;
-
-    }
-    public static void Li(){
-        tempCubie = rubixCube[2][0][0].RLi();
-        rubixCube[2][0][0] = rubixCube[2][2][0].RLi();
-        rubixCube[2][2][0] = rubixCube[0][2][0].RLi();
-        rubixCube[0][2][0] = rubixCube[0][0][0].RLi();
-        rubixCube[0][0][0] = tempCubie;
-
-        tempCubie = rubixCube[2][1][0].RLi();
-        rubixCube[2][1][0] = rubixCube[1][2][0].RLi();
-        rubixCube[1][2][0] = rubixCube[0][1][0].RLi();
-        rubixCube[0][1][0] = rubixCube[1][0][0].RLi();
-        rubixCube[1][0][0] = tempCubie;
-    }
-    public static void F(){
-        tempCubie = rubixCube[2][2][0].BiF();
-        rubixCube[2][2][0] = rubixCube[0][2][0].BiF();
-        rubixCube[0][2][0] = rubixCube[0][2][2].BiF();
-        rubixCube[0][2][2] = rubixCube[2][2][2].BiF();
-        rubixCube[2][2][2] = tempCubie;
-
-        tempCubie = rubixCube[2][2][1].BiF();
-        rubixCube[2][2][1] = rubixCube[1][2][0].BiF();
-        rubixCube[1][2][0] = rubixCube[0][2][1].BiF();
-        rubixCube[0][2][1] = rubixCube[1][2][2].BiF();
-        rubixCube[1][2][2] = tempCubie;
-    }
-    public static void Fi(){
-        tempCubie = rubixCube[2][2][0].BFi();
-        rubixCube[2][2][0] = rubixCube[2][2][2].BFi();
-        rubixCube[2][2][2] = rubixCube[0][2][2].BFi();
-        rubixCube[0][2][2] = rubixCube[0][2][0].BFi();
-        rubixCube[0][2][0] = tempCubie;
-
-        tempCubie = rubixCube[2][2][1].BFi();
-        rubixCube[2][2][1] = rubixCube[1][2][2].BFi();
-        rubixCube[1][2][2] = rubixCube[0][2][1].BFi();
-        rubixCube[0][2][1] = rubixCube[1][2][0].BFi();
-        rubixCube[1][2][0] = tempCubie;
-    }
-    public static void B(){
-        tempCubie = rubixCube[2][0][0].BFi();
-        rubixCube[2][0][0] = rubixCube[2][0][2].BFi();
-        rubixCube[2][0][2] = rubixCube[0][0][2].BFi();
-        rubixCube[0][0][2] = rubixCube[0][0][0].BFi();
-        rubixCube[0][0][0] = tempCubie;
-
-        tempCubie = rubixCube[2][0][1].BFi();
-        rubixCube[2][0][1] = rubixCube[1][0][2].BFi();
-        rubixCube[1][0][2] = rubixCube[0][0][1].BFi();
-        rubixCube[0][0][1] = rubixCube[1][0][0].BFi();
-        rubixCube[1][0][0] = tempCubie;
-    }
-    public static void Bi(){
-        tempCubie = rubixCube[2][0][0].BiF();
-        rubixCube[2][0][0] = rubixCube[0][0][0].BiF();
-        rubixCube[0][0][0] = rubixCube[0][0][2].BiF();
-        rubixCube[0][0][2] = rubixCube[2][0][2].BiF();
-        rubixCube[2][0][2] = tempCubie;
-
-        tempCubie = rubixCube[2][0][1].BiF();
-        rubixCube[2][0][1] = rubixCube[1][0][0].BiF();
-        rubixCube[1][0][0] = rubixCube[0][0][1].BiF();
-        rubixCube[0][0][1] = rubixCube[1][0][2].BiF();
-        rubixCube[1][0][2] = tempCubie;
-    }
-    public static void U(){
-        tempCubie = rubixCube[2][0][0].UDi();
-        rubixCube[2][0][0] = rubixCube[2][2][0].UDi();
-        rubixCube[2][2][0] = rubixCube[2][2][2].UDi();
-        rubixCube[2][2][2] = rubixCube[2][0][2].UDi();
-        rubixCube[2][0][2] = tempCubie;
-
-        tempCubie = rubixCube[2][0][1].UDi();
-        rubixCube[2][0][1] = rubixCube[2][1][0].UDi();
-        rubixCube[2][1][0] = rubixCube[2][2][1].UDi();
-        rubixCube[2][2][1] = rubixCube[2][1][2].UDi();
-        rubixCube[2][1][2] = tempCubie;
-    }
-    public static void Ui(){
-        tempCubie = rubixCube[2][0][0].UiD();
-        rubixCube[2][0][0] = rubixCube[2][0][2].UiD();
-        rubixCube[2][0][2] = rubixCube[2][2][2].UiD();
-        rubixCube[2][2][2] = rubixCube[2][2][0].UiD();
-        rubixCube[2][2][0] = tempCubie;
-
-        tempCubie = rubixCube[2][0][1].UiD();
-        rubixCube[2][0][1] = rubixCube[2][1][2].UiD();
-        rubixCube[2][1][2] = rubixCube[2][2][1].UiD();
-        rubixCube[2][2][1] = rubixCube[2][1][0].UiD();
-        rubixCube[2][1][0] = tempCubie;
-    }
-    public static void D(){
-        tempCubie = rubixCube[0][0][0].UiD();
-        rubixCube[0][0][0] = rubixCube[0][0][2].UiD();
-        rubixCube[0][0][2] = rubixCube[0][2][2].UiD();
-        rubixCube[0][2][2] = rubixCube[0][2][0].UiD();
-        rubixCube[0][2][0] = tempCubie;
-
-        tempCubie = rubixCube[0][0][1].UiD();
-        rubixCube[0][0][1] = rubixCube[0][1][2].UiD();
-        rubixCube[0][1][2] = rubixCube[0][2][1].UiD();
-        rubixCube[0][2][1] = rubixCube[0][1][0].UiD();
-        rubixCube[0][1][0] = tempCubie;
-    }
-    public static void Di(){
-        tempCubie = rubixCube[0][0][0].UDi();
-        rubixCube[0][0][0] = rubixCube[0][2][0].UDi();
-        rubixCube[0][2][0] = rubixCube[0][2][2].UDi();
-        rubixCube[0][2][2] = rubixCube[0][0][2].UDi();
-        rubixCube[0][0][2] = tempCubie;
-
-        tempCubie = rubixCube[0][0][1].UDi();
-        rubixCube[0][0][1] = rubixCube[0][1][0].UDi();
-        rubixCube[0][1][0] = rubixCube[0][2][1].UDi();
-        rubixCube[0][2][1] = rubixCube[0][1][2].UDi();
-        rubixCube[0][1][2] = tempCubie;
     }
 
     public static void Scramble(int scrambleMoves){
@@ -356,7 +280,7 @@ public class Main {
         for (int move = 0; move < scrambleMoves; move++){
             whichMove = random.nextInt(nrOfMoves);
 
-            moves2(moves[whichMove]);
+            cube_move(possible_moves[whichMove]);
         }
     }
 
@@ -369,37 +293,8 @@ public class Main {
         return false;
     }
 
-    public static void moves(String moveName){
-
-        if (moveName.equals("R")) {
-            RLi(2);
-        } else if (moveName.equals("Ri")){
-            RiL(2);
-        } else if (moveName.equals("L")){
-            RiL(0);
-        } else if (moveName.equals("Li")){
-            RLi(0);
-        } else if (moveName.equals("F")){
-            FBi(2);
-        } else if (moveName.equals("Fi")){
-            FiB(2);
-        } else if (moveName.equals("B")){
-            FiB(0);
-        } else if (moveName.equals("Bi")){
-            FBi(0);
-        } else if (moveName.equals("U")){
-            UDi(2);
-        } else if (moveName.equals("Ui")){
-            UiD(2);
-        } else if (moveName.equals("D")){
-            UiD(0);
-        } else if (moveName.equals("Di")){
-            UDi(0);
-        }
-    }
-
     //Switch? looks good
-    public static void moves2(String moveName){
+    public static void cube_move(String moveName){
         switch (moveName) {
             case "R" -> RLi(2);
             case "Ri" -> RiL(2);
@@ -416,81 +311,8 @@ public class Main {
         }
     }
 
-    //Assign cubes and build rubix cube
-    public static void RubixCube (){
-        String yellow = "YELLOW";
-        String blue = "BLUE";
-        String red = "RED\t";
-        String green = "Green";
-        String orange = "ORANGE";
-        String white = "WHITE";
-        String blank = "BLANK";
-        /*
-        //                  Top     Bottom  Front   Back    Left    Right
-        Cube YGO = new Cube(yellow, blank,  blank,  green,  orange, blank, 1);
-        Cube YG  = new Cube(yellow, blank,  blank,  green,  blank,  blank, 2);
-        Cube YGR = new Cube(yellow, blank,  blank,  green,  blank,  red,   3);
-        Cube YO  = new Cube(yellow, blank,  blank,  blank,  orange, blank, 4);
-        Cube Y   = new Cube(yellow, blank,  blank,  blank,  blank,  blank, 5);
-        Cube YR  = new Cube(yellow, blank,  blank,  blank,  blank,  red,   6);
-        Cube YBO = new Cube(yellow, blank,  blue,   blank,  orange, blank, 7);
-        Cube YB  = new Cube(yellow, blank,  blue,   blank,  blank,  blank, 8);
-        Cube YBR = new Cube(yellow, blank,  blue,   blank,  blank,  red,   9);
-        Cube GO  = new Cube(blank,  blank,  blank,  green,  orange, blank, 10);
-        Cube G   = new Cube(blank,  blank,  blank,  green,  blank,  blank, 11);
-        Cube GR  = new Cube(blank,  blank,  blank,  green,  blank,  red,   12);
-        Cube O   = new Cube(blank,  blank,  blank,  blank,  orange, blank, 13);
-        Cube BL  = new Cube(blank,  blank,  blank,  blank,  blank,  blank, 14);
-        Cube R   = new Cube(blank,  blank,  blank,  green,  blank,  red,   15);
-        Cube BO  = new Cube(blank,  blank,  blue,   green,  orange, blank, 16);
-        Cube B   = new Cube(blank,  blank,  blue,   blank,  blank,  blank, 17);
-        Cube BR  = new Cube(blank,  blank,  blue,   blank,  blank,  red,   18);
-        Cube WGO = new Cube(blank,  white,  blank,  green,  orange, blank, 19);
-        Cube WG  = new Cube(blank,  white,  blank,  green,  blank,  blank, 20);
-        Cube WGR = new Cube(blank,  white,  blank,  green,  blank,  red,   21);
-        Cube WO  = new Cube(blank,  white,  blank,  blank,  orange, blank, 22);
-        Cube W   = new Cube(blank,  white,  blank,  blank,  blank,  blank, 23);
-        Cube WR  = new Cube(blank,  white,  blank,  blank,  blank,  red,   24);
-        Cube WBO = new Cube(blank,  white,  blue,   blank,  orange, blank, 25);
-        Cube WB  = new Cube(blank,  white,  blue,   blank,  blank,  blank, 26);
-        Cube WBR = new Cube(blank,  white,  blue,   blank,  blank,  red,   27);
-
-        // top layer (yellow)
-        rubixCube[2][0][0] = YGO;
-        rubixCube[2][0][1] = YG;
-        rubixCube[2][0][2] = YGR;
-        rubixCube[2][1][0] = YO;
-        rubixCube[2][1][1] = Y;
-        rubixCube[2][1][2] = YR;
-        rubixCube[2][2][0] = YBO;
-        rubixCube[2][2][1] = YB;
-        rubixCube[2][2][2] = YBR;
-
-        // middle layer
-        rubixCube[1][0][0] = GO;
-        rubixCube[1][0][1] = G;
-        rubixCube[1][0][2] = GR;
-        rubixCube[1][1][0] = O;
-        rubixCube[1][1][1] = BL;
-        rubixCube[1][1][2] = R;
-        rubixCube[1][2][0] = BO;
-        rubixCube[1][2][1] = B;
-        rubixCube[1][2][2] = BR;
-
-        // bottom layer (white)
-        rubixCube[0][0][0] = WGO;
-        rubixCube[0][0][1] = WG;
-        rubixCube[0][0][2] = WGR;
-        rubixCube[0][1][0] = WO;
-        rubixCube[0][1][1] = W;
-        rubixCube[0][1][2] = WR;
-        rubixCube[0][2][0] = WBO;
-        rubixCube[0][2][1] = WB;
-        rubixCube[0][2][2] = WBR;
-        */
-    }
     //Automated Assigning cubes and building rubix cube
-    public static void RubixCube2(){
+    public static void rubixCube(){
         String yellow = "YELLOW";
         String blue = "BLUE";
         String red = "RED\t";
@@ -505,35 +327,35 @@ public class Main {
         String left;
         String right;
         int id = 0;
-        rubixCube = new Cubie[size][size][size];
+        rubix_Cube = new Cubie[size][size][size];
 
-        for (int index1 = 0; index1 <= indexSize; index1++){
+        for (int index1 = 0; index1 <= index_Size; index1++){
             if (index1 == 0){
                 top = blank;
                 bottom = white;
-            } else if (index1 == indexSize){
+            } else if (index1 == index_Size){
                 top = yellow;
                 bottom =blank;
             } else {
                 top = blank;
                 bottom = blank;
             }
-            for (int index2 = 0; index2 <= indexSize; index2++){
+            for (int index2 = 0; index2 <= index_Size; index2++){
                 if (index2 == 0){
                     front = blank;
                     back = green;
-                } else if (index2 == indexSize){
+                } else if (index2 == index_Size){
                     front = blue;
                     back = blank;
                 } else {
                     front = blank;
                     back = blank;
                 }
-                for (int index3 = 0; index3 <= indexSize; index3++){
+                for (int index3 = 0; index3 <= index_Size; index3++){
                     if (index3 == 0){
                         left = orange;
                         right = blank;
-                    } else if (index3 == indexSize){
+                    } else if (index3 == index_Size){
                         left = blank;
                         right = red;
                     } else {
@@ -542,7 +364,7 @@ public class Main {
                     }
 
                     //System.out.println(id);
-                    rubixCube[index1][index2][index3] = new Cubie(top,bottom,front,back,left,right,id);
+                    rubix_Cube[index1][index2][index3] = new Cubie(top,bottom,front,back,left,right,id);
                     id++;
                 }
             }
@@ -550,117 +372,117 @@ public class Main {
     }
 
     //Print cube
-    public static void VisuallizeRubixCube(){
+    public static void visuallize_Rubix_Cube(){
 
-        for (int outer = 0; outer <= indexSize; outer++){
-            for (int inner = 0; inner <= indexSize; inner++) {
-                System.out.print(rubixCube[indexSize][outer][inner].top + "\t");
+        for (int outer = 0; outer <= index_Size; outer++){
+            for (int inner = 0; inner <= index_Size; inner++) {
+                System.out.print(rubix_Cube[index_Size][outer][inner].top + "\t");
             }
             System.out.print("\n");
         }
 
-        for (int outer = indexSize; outer >= 0; outer--) {
-            for (int inner = 0; inner <= indexSize; inner++) {
-                System.out.print(rubixCube[outer][indexSize][inner].front + "\t");
+        for (int outer = index_Size; outer >= 0; outer--) {
+            for (int inner = 0; inner <= index_Size; inner++) {
+                System.out.print(rubix_Cube[outer][index_Size][inner].front + "\t");
             }
-            for (int inner = indexSize; inner >= 0; inner--) {
-                System.out.print(rubixCube[outer][inner][indexSize].right + "\t");
+            for (int inner = index_Size; inner >= 0; inner--) {
+                System.out.print(rubix_Cube[outer][inner][index_Size].right + "\t");
             }
-            for (int inner = indexSize; inner >= 0; inner--) {
-                System.out.print(rubixCube[outer][0][inner].back + "\t");
+            for (int inner = index_Size; inner >= 0; inner--) {
+                System.out.print(rubix_Cube[outer][0][inner].back + "\t");
             }
-            for (int inner = 0; inner <= indexSize; inner++) {
-                System.out.print(rubixCube[outer][inner][0].left + "\t");
+            for (int inner = 0; inner <= index_Size; inner++) {
+                System.out.print(rubix_Cube[outer][inner][0].left + "\t");
             }
             System.out.print("\n");
         }
 
-        for (int outer = indexSize; outer >= 0; outer--){
-            for (int inner = 0; inner <= indexSize; inner++) {
-                System.out.print(rubixCube[0][outer][inner].bottom + "\t");
+        for (int outer = index_Size; outer >= 0; outer--){
+            for (int inner = 0; inner <= index_Size; inner++) {
+                System.out.print(rubix_Cube[0][outer][inner].bottom + "\t");
             }
             System.out.print("\n");
         }
     }
 
     //Print indexes
-    public static void VisualIndexes(){
-        for (int outer = 0; outer <= indexSize; outer++){
-            for (int inner = 0; inner <= indexSize; inner++) {
-                System.out.print(indexSize+ " " + outer+ " " + inner +"\t");
+    public static void visual_Indexes(){
+        for (int outer = 0; outer <= index_Size; outer++){
+            for (int inner = 0; inner <= index_Size; inner++) {
+                System.out.print(index_Size + " " + outer+ " " + inner +"\t");
             }
             System.out.print("\n");
         }
 
-        for (int outer = indexSize; outer >= 0; outer--) {
-            for (int inner = 0; inner <= indexSize; inner++) {
-                System.out.print(outer +" "+ indexSize +" "+ inner + "\t");
+        for (int outer = index_Size; outer >= 0; outer--) {
+            for (int inner = 0; inner <= index_Size; inner++) {
+                System.out.print(outer +" "+ index_Size +" "+ inner + "\t");
             }
-            for (int inner = indexSize; inner >= 0; inner--) {
-                System.out.print(outer +" "+ inner +" "+ indexSize + "\t");
+            for (int inner = index_Size; inner >= 0; inner--) {
+                System.out.print(outer +" "+ inner +" "+ index_Size + "\t");
             }
-            for (int inner = indexSize; inner >= 0; inner--) {
+            for (int inner = index_Size; inner >= 0; inner--) {
                 System.out.print(outer +" "+ 0 +" "+ inner + "\t");
             }
-            for (int inner = 0; inner <= indexSize; inner++) {
+            for (int inner = 0; inner <= index_Size; inner++) {
                 System.out.print(outer +" "+ inner +" "+ 0 + "\t");
             }
             System.out.print("\n");
         }
 
-        for (int outer = indexSize; outer >= 0; outer--){
-            for (int inner = 0; inner <= indexSize; inner++) {
+        for (int outer = index_Size; outer >= 0; outer--){
+            for (int inner = 0; inner <= index_Size; inner++) {
                 System.out.print(0 +" "+ outer +" "+ inner + "\t");
             }
             System.out.print("\n");
         }
     }
 
-    public static boolean isSolved(){
+    public static boolean solved(){
         //Top
-        for(int index1 = 0; index1 <= indexSize; index1++){
-            for(int index2 = 0; index2 <= indexSize; index2++){
-                if (rubixCube[indexSize][index1][index2].top != "YELLOW"){
+        for(int index1 = 0; index1 <= index_Size; index1++){
+            for(int index2 = 0; index2 <= index_Size; index2++){
+                if (rubix_Cube[index_Size][index1][index2].top != "YELLOW"){
                     return false;
                 }
             }
         }
         //Front
-        for(int index1 = 0; index1 <= indexSize; index1++){
-            for(int index2 = 0; index2 <= indexSize; index2++){
-                if (rubixCube[index1][indexSize][index2].front != "BLUE"){
+        for(int index1 = 0; index1 <= index_Size; index1++){
+            for(int index2 = 0; index2 <= index_Size; index2++){
+                if (rubix_Cube[index1][index_Size][index2].front != "BLUE"){
                     return false;
                 }
             }
         }
         //Right
-        for(int index1 = 0; index1 <= indexSize; index1++){
-            for(int index2 = 0; index2 <= indexSize; index2++){
-                if (rubixCube[index1][index2][indexSize].right != "RED\t"){
+        for(int index1 = 0; index1 <= index_Size; index1++){
+            for(int index2 = 0; index2 <= index_Size; index2++){
+                if (rubix_Cube[index1][index2][index_Size].right != "RED\t"){
                     return false;
                 }
             }
         }
         //Back
-        for(int index1 = 0; index1 <= indexSize; index1++){
-            for(int index2 = 0; index2 <= indexSize; index2++){
-                if (rubixCube[index1][0][index2].back != "GREEN"){
+        for(int index1 = 0; index1 <= index_Size; index1++){
+            for(int index2 = 0; index2 <= index_Size; index2++){
+                if (rubix_Cube[index1][0][index2].back != "GREEN"){
                     return false;
                 }
             }
         }
         //Left
-        for(int index1 = 0; index1 <= indexSize; index1++){
-            for(int index2 = 0; index2 <= indexSize; index2++){
-                if (rubixCube[index1][index2][0].left != "ORANGE"){
+        for(int index1 = 0; index1 <= index_Size; index1++){
+            for(int index2 = 0; index2 <= index_Size; index2++){
+                if (rubix_Cube[index1][index2][0].left != "ORANGE"){
                     return false;
                 }
             }
         }
         //Bottom
-        for(int index1 = 0; index1 <= indexSize; index1++){
-            for(int index2 = 0; index2 <= indexSize; index2++){
-                if (rubixCube[0][index1][index2].bottom != "WHITE"){
+        for(int index1 = 0; index1 <= index_Size; index1++){
+            for(int index2 = 0; index2 <= index_Size; index2++){
+                if (rubix_Cube[0][index1][index2].bottom != "WHITE"){
                     return false;
                 }
             }
