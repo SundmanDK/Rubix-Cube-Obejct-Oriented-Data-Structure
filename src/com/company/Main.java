@@ -1,5 +1,6 @@
 package com.company;
 import java.lang.*;
+import java.util.Arrays;
 import java.util.Scanner;
 import java.util.Random;
 
@@ -49,7 +50,7 @@ public class Main {
             visuallize_Rubix_Cube();
             System.out.println();
             System.out.print("Write a command: ");
-            IDA2(0);
+            IDA_Star();
             command = in.nextLine();
             if (check(possible_moves, command)){
                 cube_move(command);
@@ -101,6 +102,32 @@ public class Main {
             depth--;
         }
     }
+
+
+    // new attempt still doesn't work
+    public static String[] move_list;
+    public static void IDA_Star(){
+        for (int depth = 1; depth <= 20; depth++){
+            move_list = new String[depth];
+            IDA_Step(depth,0);
+        }
+        System.out.println(Arrays.toString(move_list));
+    }
+
+    public static void IDA_Step(int max_Depth, int depth){
+        if (depth <= max_Depth) {
+            for (String move : possible_moves){
+                cube_move(move);
+                move_list[depth] = move;
+                if (solved()){
+                    break;
+                } else {
+                    IDA_Step(max_Depth, depth++);
+                }
+            }
+        }
+    }
+
 
     public static String reverse_move(String move){
         switch (move) {
