@@ -43,12 +43,10 @@ public class Main {
         visual_Indexes();
         System.out.println();
 
-        Scramble(5);
+        Scramble(10);
+        System.out.println("scramble moves:");
+        System.out.println(Arrays.toString(scramble_moves));
         while (running) {
-
-            //System.out.println("2,2,2 id:" + rubixCube[2][2][2].top);
-            System.out.println("List of commands:");
-            System.out.println("Stop, R, Ri, L, Li, F, Fi, B, Bi, U, Ui, D, Di");
             System.out.println();
             visuallize_Rubix_Cube();
 
@@ -61,8 +59,11 @@ public class Main {
                 System.out.println("solution moves:");
                 System.out.println(Arrays.toString(move_list));
                 visuallize_Rubix_Cube();
-                running = false;
+                automatic = false;
             }else {
+                System.out.println();
+                System.out.println("List of commands:");
+                System.out.println("Stop, R, Ri, L, Li, F, Fi, B, Bi, U, Ui, D, Di");
                 System.out.println();
                 System.out.print("Write a command: ");
                 command = in.nextLine();
@@ -129,7 +130,7 @@ public class Main {
                 IDA_Step(depth, 0);
             }
         }
-
+        System.out.println("Couldn't find a solution");
     }
 
     public static void IDA_Step(int max_Depth, int current_Depth){
