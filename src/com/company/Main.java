@@ -40,7 +40,7 @@ public class Main {
         visual_Indexes();
         System.out.println();
 
-        Scramble(1);
+        Scramble(5);
         while (running) {
 
             //System.out.println("2,2,2 id:" + rubixCube[2][2][2].top);
@@ -111,21 +111,36 @@ public class Main {
             if (!solved()) {
                 move_list = new String[depth];
                 IDA_Step(depth, 0);
+            } else {
+                break;
             }
         }
+        System.out.println("scramble moves:");
+        System.out.println(Arrays.toString(scramble_moves));
+        System.out.println("solution moves:");
         System.out.println(Arrays.toString(move_list));
+        visuallize_Rubix_Cube();
     }
 
-    public static void IDA_Step(int max_Depth, int depth){
-        if (depth <= max_Depth) {
+    public static void IDA_Step(int max_Depth, int current_Depth){
+        if (current_Depth < max_Depth){
             for (String move : possible_moves){
                 cube_move(move);
-                move_list[depth] = move;
+                //System.out.println();
+                //System.out.println("IDA move");
+                //visuallize_Rubix_Cube();
+                move_list[current_Depth] = move;
+                //System.out.println(Arrays.toString(move_list));
                 if (solved()){
+                    System.out.println("solved");
+
                     break;
                 } else {
-                    IDA_Step(max_Depth, depth++);
+                    //current_Depth = current_Depth +1;
+                    IDA_Step(max_Depth, current_Depth+1);
                     cube_move(reverse_move(move));
+                    //System.out.println("IDA reverse");
+                    //visuallize_Rubix_Cube();
                 }
             }
         }
@@ -302,14 +317,16 @@ public class Main {
         }
     }
 
+    public static String[] scramble_moves;
     public static void Scramble(int scrambleMoves){
+        scramble_moves = new String[scrambleMoves];
         Random random = new Random();
         int nrOfMoves = 12; //the 12 moves R, Ri, L, Li, and so on
         int whichMove;
 
         for (int move = 0; move < scrambleMoves; move++){
             whichMove = random.nextInt(nrOfMoves);
-
+            scramble_moves[move] = possible_moves[whichMove];
             cube_move(possible_moves[whichMove]);
         }
     }
