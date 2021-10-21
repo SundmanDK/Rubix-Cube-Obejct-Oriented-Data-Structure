@@ -21,18 +21,18 @@ public class Main {
     public static Cubie[][][] rubix_Cube;
     //public static Cubie[][][] scrambledCube;
     public static Cubie temp_Cubie;
-    public static String[] possible_moves = {"R","Ri","L","Li","F","Fi","B","Bi","U","Ui","D","Di"};
+    public static String[] possible_moves = {"R","Ri","R180","L","Li","L180","F","Fi","F180","B","Bi","B180","U","Ui","U180","D","Di","D180"};
     public static final int size = 3;
     public static final int index_Size = size -1;
-    public static Cubie[][] cubie_Rows = new Cubie[size][size];
-    public static Cubie[][] cubie_Trans_Cols = new Cubie[size][size];
+    public static Cubie[][] cube_face = new Cubie[size][size];
+    public static Cubie[][] transformed_cube_face = new Cubie[size][size];
     public static boolean cube_solved = false;
 
     public static void main(String[] args){
         Scanner in = new Scanner(System.in);
         String command;
         boolean running = true;
-        boolean automatic = true;
+        boolean automatic = false;
 
         //Actual Rubix Cube
         rubixCube();
@@ -42,13 +42,18 @@ public class Main {
         System.out.println();
         visual_Indexes();
         System.out.println();
+        visual_ID();
+        System.out.println();
 
-        Scramble(10);
+        Scramble(0);
         System.out.println("scramble moves:");
         System.out.println(Arrays.toString(scramble_moves));
         while (running) {
             System.out.println();
             visuallize_Rubix_Cube();
+            System.out.println();
+            visual_ID();
+            System.out.println();
 
             if (automatic) {
                 IDA_Star();
@@ -204,18 +209,18 @@ public class Main {
         // uses cubieTransCols
         for (int index1 = index_Size; index1 >= 0; index1--){
             for (int index2 = index_Size; index2 >= 0; index2--){
-                cubie_Rows[index_Size -index1][index_Size -index2] = rubix_Cube[index1][index2][side];
+                cube_face[index_Size -index1][index_Size -index2] = rubix_Cube[index1][index2][side];
             }
         }
         for (int index1 = index_Size; index1 >= 0; index1--){
             for (int index2 = index_Size; index2 >= 0; index2--){
-                cubie_Trans_Cols[index_Size -index1][index_Size -index2] = cubie_Rows[index_Size -index2][index1];
+                transformed_cube_face[index_Size -index1][index_Size -index2] = cube_face[index_Size -index2][index1];
             }
         }
 
         for (int index1 = index_Size; index1 >= 0; index1--){
             for (int index2 = index_Size; index2 >= 0; index2--){
-                rubix_Cube[index1][index2][side] = cubie_Trans_Cols[index1][index2].RLi();
+                rubix_Cube[index1][index2][side] = transformed_cube_face[index1][index2].RLi();
             }
         }
 
@@ -241,90 +246,130 @@ public class Main {
         // uses cubieTransCols
         for (int index1 = index_Size; index1 >= 0; index1--){
             for (int index2 = index_Size; index2 >= 0; index2--){
-                cubie_Rows[index_Size -index1][index_Size -index2] = rubix_Cube[index1][index2][side];
+                cube_face[index_Size -index1][index_Size -index2] = rubix_Cube[index1][index2][side];
             }
         }
         for (int index1 = index_Size; index1 >= 0; index1--){
             for (int index2 = index_Size; index2 >= 0; index2--){
-                cubie_Trans_Cols[index_Size -index1][index_Size -index2] = cubie_Rows[index2][index_Size -index1];
+                transformed_cube_face[index_Size -index1][index_Size -index2] = cube_face[index2][index_Size -index1];
             }
         }
         for (int index1 = index_Size; index1 >= 0; index1--){
             for (int index2 = index_Size; index2 >= 0; index2--){
-                rubix_Cube[index1][index2][side] = cubie_Trans_Cols[index1][index2].RiL();
+                rubix_Cube[index1][index2][side] = transformed_cube_face[index1][index2].RiL();
             }
         }
     }
     public static void FBi(int side){
         for (int index1 = index_Size; index1 >= 0; index1--){
             for (int index2 = index_Size; index2 >= 0; index2--){
-                cubie_Rows[index_Size -index1][index_Size -index2] = rubix_Cube[index1][side][index2];
+                cube_face[index_Size -index1][index_Size -index2] = rubix_Cube[index1][side][index2];
             }
         }
         for (int index1 = index_Size; index1 >= 0; index1--){
             for (int index2 = index_Size; index2 >= 0; index2--){
-                cubie_Trans_Cols[index_Size -index1][index_Size -index2] = cubie_Rows[index2][index_Size -index1];
+                transformed_cube_face[index_Size -index1][index_Size -index2] = cube_face[index2][index_Size -index1];
             }
         }
         for (int index1 = index_Size; index1 >= 0; index1--){
             for (int index2 = index_Size; index2 >= 0; index2--){
-                rubix_Cube[index1][side][index2] = cubie_Trans_Cols[index1][index2].BiF();
+                rubix_Cube[index1][side][index2] = transformed_cube_face[index1][index2].BiF();
             }
         }
     }
     public static void FiB(int side){
         for (int index1 = index_Size; index1 >= 0; index1--){
             for (int index2 = index_Size; index2 >= 0; index2--){
-                cubie_Rows[index_Size -index1][index_Size -index2] = rubix_Cube[index1][side][index2];
+                cube_face[index_Size -index1][index_Size -index2] = rubix_Cube[index1][side][index2];
             }
         }
         for (int index1 = index_Size; index1 >= 0; index1--){
             for (int index2 = index_Size; index2 >= 0; index2--){
-                cubie_Trans_Cols[index_Size -index1][index_Size -index2] = cubie_Rows[index_Size -index2][index1];
+                transformed_cube_face[index_Size -index1][index_Size -index2] = cube_face[index_Size -index2][index1];
             }
         }
 
         for (int index1 = index_Size; index1 >= 0; index1--){
             for (int index2 = index_Size; index2 >= 0; index2--){
-                rubix_Cube[index1][side][index2] = cubie_Trans_Cols[index1][index2].BFi();
+                rubix_Cube[index1][side][index2] = transformed_cube_face[index1][index2].BFi();
             }
         }
     }
     public static void UiD(int side){
         for (int index1 = index_Size; index1 >= 0; index1--){
             for (int index2 = index_Size; index2 >= 0; index2--){
-                cubie_Rows[index_Size -index1][index_Size -index2] = rubix_Cube[side][index1][index2];
+                cube_face[index_Size -index1][index_Size -index2] = rubix_Cube[side][index1][index2];
             }
         }
         for (int index1 = index_Size; index1 >= 0; index1--){
             for (int index2 = index_Size; index2 >= 0; index2--){
-                cubie_Trans_Cols[index_Size -index1][index_Size -index2] = cubie_Rows[index2][index_Size -index1];
+                transformed_cube_face[index_Size -index1][index_Size -index2] = cube_face[index2][index_Size -index1];
             }
         }
         for (int index1 = index_Size; index1 >= 0; index1--){
             for (int index2 = index_Size; index2 >= 0; index2--){
-                rubix_Cube[side][index1][index2] = cubie_Trans_Cols[index1][index2].UiD();
+                rubix_Cube[side][index1][index2] = transformed_cube_face[index1][index2].UiD();
             }
         }
     }
     public static void UDi(int side){
         for (int index1 = index_Size; index1 >= 0; index1--){
             for (int index2 = index_Size; index2 >= 0; index2--){
-                cubie_Rows[index_Size -index1][index_Size -index2] = rubix_Cube[side][index1][index2];
+                cube_face[index_Size -index1][index_Size -index2] = rubix_Cube[side][index1][index2];
             }
         }
         for (int index1 = index_Size; index1 >= 0; index1--){
             for (int index2 = index_Size; index2 >= 0; index2--){
-                cubie_Trans_Cols[index_Size -index1][index_Size -index2] = cubie_Rows[index_Size -index2][index1];
+                transformed_cube_face[index_Size -index1][index_Size -index2] = cube_face[index_Size -index2][index1];
             }
         }
 
         for (int index1 = index_Size; index1 >= 0; index1--){
             for (int index2 = index_Size; index2 >= 0; index2--){
-                rubix_Cube[side][index1][index2] = cubie_Trans_Cols[index1][index2].UDi();
+                rubix_Cube[side][index1][index2] = transformed_cube_face[index1][index2].UDi();
             }
         }
     }
+
+    public static void RL180(int side){
+        for (int index1 = index_Size; index1 >= 0; index1--){
+            for (int index2 = index_Size; index2 >= 0; index2--){
+                cube_face[index_Size -index1][index_Size -index2] = rubix_Cube[index1][index2][side];
+            }
+        }
+        for (int index1 = index_Size; index1 >= 0; index1--){
+            for (int index2 = index_Size; index2 >= 0; index2--){
+                rubix_Cube[index1][index2][side] = cube_face[index1][index2].RL180();
+            }
+        }
+    }
+    public static void FB180(int side){
+        for (int index1 = index_Size; index1 >= 0; index1--){
+            for (int index2 = index_Size; index2 >= 0; index2--){
+                cube_face[index_Size -index1][index_Size -index2] = rubix_Cube[index1][side][index2];
+            }
+        }
+        for (int index1 = index_Size; index1 >= 0; index1--){
+            for (int index2 = index_Size; index2 >= 0; index2--){
+                rubix_Cube[index1][side][index2] = cube_face[index1][index2].BF180();
+            }
+        }
+    }
+    public static void UD180(int side){
+        for (int index1 = index_Size; index1 >= 0; index1--){
+            for (int index2 = index_Size; index2 >= 0; index2--){
+                cube_face[index_Size -index1][index_Size -index2] = rubix_Cube[side][index1][index2];
+            }
+        }
+        for (int index1 = index_Size; index1 >= 0; index1--){
+            for (int index2 = index_Size; index2 >= 0; index2--){
+                rubix_Cube[side][index1][index2] = cube_face[index1][index2].UD180();
+            }
+        }
+    }
+
+
+
 
     public static String[] scramble_moves;
     public static void Scramble(int scrambleMoves){
@@ -354,16 +399,22 @@ public class Main {
         switch (moveName) {
             case "R" -> RLi(index_Size);
             case "Ri" -> RiL(index_Size);
+            case "R180" -> RL180(index_Size);
             case "L" -> RiL(0);
             case "Li" -> RLi(0);
+            case "L180" -> RL180(0);
             case "F" -> FBi(index_Size);
             case "Fi" -> FiB(index_Size);
+            case "F180" -> FB180(index_Size);
             case "B" -> FiB(0);
             case "Bi" -> FBi(0);
+            case "B180" -> FB180(0);
             case "U" -> UDi(index_Size);
             case "Ui" -> UiD(index_Size);
+            case "U180" -> UD180(index_Size);
             case "D" -> UiD(0);
             case "Di" -> UDi(0);
+            case "D180" -> UD180(0);
         }
     }
 
@@ -489,6 +540,38 @@ public class Main {
         for (int outer = index_Size; outer >= 0; outer--){
             for (int inner = 0; inner <= index_Size; inner++) {
                 System.out.print(0 +" "+ outer +" "+ inner + "\t");
+            }
+            System.out.print("\n");
+        }
+    }
+
+    public static void visual_ID(){
+        for (int outer = 0; outer <= index_Size; outer++){
+            for (int inner = 0; inner <= index_Size; inner++) {
+                System.out.print(rubix_Cube[index_Size][outer][inner].id + "\t");
+            }
+            System.out.print("\n");
+        }
+
+        for (int outer = index_Size; outer >= 0; outer--) {
+            for (int inner = 0; inner <= index_Size; inner++) {
+                System.out.print(rubix_Cube[outer][index_Size][inner].id + "\t");
+            }
+            for (int inner = index_Size; inner >= 0; inner--) {
+                System.out.print(rubix_Cube[outer][inner][index_Size].id + "\t");
+            }
+            for (int inner = index_Size; inner >= 0; inner--) {
+                System.out.print(rubix_Cube[outer][0][inner].id + "\t");
+            }
+            for (int inner = 0; inner <= index_Size; inner++) {
+                System.out.print(rubix_Cube[outer][inner][0].id + "\t");
+            }
+            System.out.print("\n");
+        }
+
+        for (int outer = index_Size; outer >= 0; outer--){
+            for (int inner = 0; inner <= index_Size; inner++) {
+                System.out.print(rubix_Cube[0][outer][inner].id + "\t");
             }
             System.out.print("\n");
         }

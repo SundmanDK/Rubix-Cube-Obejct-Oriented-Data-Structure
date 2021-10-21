@@ -40,6 +40,16 @@ public class Cubie {
         return this;
     }
 
+    public Cubie RL180(){
+        temp = top;
+        top = bottom;
+        bottom = temp;
+        temp = front;
+        front = back;
+        back = temp;
+        return this;
+    }
+
     public Cubie BiF(){
         temp = right;
         right = top;
@@ -58,6 +68,16 @@ public class Cubie {
         return this;
     }
 
+    public Cubie BF180(){
+        temp = top;
+        top = bottom;
+        bottom = temp;
+        temp = left;
+        left = right;
+        right = temp;
+        return this;
+    }
+
     public Cubie UDi(){
         temp = front;
         front = right;
@@ -73,6 +93,16 @@ public class Cubie {
         right = front;
         front = left;
         left = temp;
+        return this;
+    }
+
+    public Cubie UD180(){
+        temp = front;
+        front = back;
+        back = temp;
+        temp = left;
+        left = right;
+        right = temp;
         return this;
     }
 }
