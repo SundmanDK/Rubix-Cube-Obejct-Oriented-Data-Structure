@@ -32,7 +32,7 @@ public class Main {
         Scanner in = new Scanner(System.in);
         String command;
         boolean running = true;
-        boolean automatic = false;
+        boolean automatic = true;
 
         //Actual Rubix Cube
         rubixCube();
@@ -45,15 +45,15 @@ public class Main {
         visual_ID();
         System.out.println();
 
-        Scramble(0);
+        scramble(10);
         System.out.println("scramble moves:");
         System.out.println(Arrays.toString(scramble_moves));
         while (running) {
             System.out.println();
             visuallize_Rubix_Cube();
             System.out.println();
-            visual_ID();
-            System.out.println();
+            //visual_ID();
+            //System.out.println();
 
             if (automatic) {
                 IDA_Star();
@@ -72,7 +72,7 @@ public class Main {
                 System.out.println();
                 System.out.print("Write a command: ");
                 command = in.nextLine();
-                if (check(possible_moves, command)) {
+                if (string_in_array(possible_moves, command)) {
                     cube_move(command);
                 } else if (command.equals("Stop")) {
                     running = false;
@@ -134,6 +134,7 @@ public class Main {
                 move_list = new String[depth];
                 IDA_Step(depth, 0);
             }
+            System.out.println("Depth: " +depth);
         }
         System.out.println("Couldn't find a solution");
     }
@@ -203,7 +204,7 @@ public class Main {
         return move;
     }
 
-    //Move functions
+    //Move functions 90 degree
     public static void RLi(int side){
         // uses cubieRows
         // uses cubieTransCols
@@ -220,7 +221,7 @@ public class Main {
 
         for (int index1 = index_Size; index1 >= 0; index1--){
             for (int index2 = index_Size; index2 >= 0; index2--){
-                rubix_Cube[index1][index2][side] = transformed_cube_face[index1][index2].RLi();
+                rubix_Cube[index1][index2][side] = transformed_cube_face[index1][index2].LiR();
             }
         }
 
@@ -256,7 +257,7 @@ public class Main {
         }
         for (int index1 = index_Size; index1 >= 0; index1--){
             for (int index2 = index_Size; index2 >= 0; index2--){
-                rubix_Cube[index1][index2][side] = transformed_cube_face[index1][index2].RiL();
+                rubix_Cube[index1][index2][side] = transformed_cube_face[index1][index2].LRi();
             }
         }
     }
@@ -308,7 +309,7 @@ public class Main {
         }
         for (int index1 = index_Size; index1 >= 0; index1--){
             for (int index2 = index_Size; index2 >= 0; index2--){
-                rubix_Cube[side][index1][index2] = transformed_cube_face[index1][index2].UiD();
+                rubix_Cube[side][index1][index2] = transformed_cube_face[index1][index2].DUi();
             }
         }
     }
@@ -326,11 +327,11 @@ public class Main {
 
         for (int index1 = index_Size; index1 >= 0; index1--){
             for (int index2 = index_Size; index2 >= 0; index2--){
-                rubix_Cube[side][index1][index2] = transformed_cube_face[index1][index2].UDi();
+                rubix_Cube[side][index1][index2] = transformed_cube_face[index1][index2].DiU();
             }
         }
     }
-
+    //180 degree
     public static void RL180(int side){
         for (int index1 = index_Size; index1 >= 0; index1--){
             for (int index2 = index_Size; index2 >= 0; index2--){
@@ -339,7 +340,7 @@ public class Main {
         }
         for (int index1 = index_Size; index1 >= 0; index1--){
             for (int index2 = index_Size; index2 >= 0; index2--){
-                rubix_Cube[index1][index2][side] = cube_face[index1][index2].RL180();
+                rubix_Cube[index1][index2][side] = cube_face[index1][index2].LR180();
             }
         }
     }
@@ -363,31 +364,34 @@ public class Main {
         }
         for (int index1 = index_Size; index1 >= 0; index1--){
             for (int index2 = index_Size; index2 >= 0; index2--){
-                rubix_Cube[side][index1][index2] = cube_face[index1][index2].UD180();
+                rubix_Cube[side][index1][index2] = cube_face[index1][index2].DU180();
             }
         }
     }
 
-
-
-
+    public static Random random = new Random();
     public static String[] scramble_moves;
-    public static void Scramble(int scrambleMoves){
+    public static void scramble(int scrambleMoves){
         scramble_moves = new String[scrambleMoves];
-        Random random = new Random();
-        int nrOfMoves = 12; //the 12 moves R, Ri, L, Li, and so on
-        int whichMove;
-
         for (int move = 0; move < scrambleMoves; move++){
-            whichMove = random.nextInt(nrOfMoves);
-            scramble_moves[move] = possible_moves[whichMove];
-            cube_move(possible_moves[whichMove]);
+            scramble_step(move);
         }
     }
+    public static int nr_of_moves = possible_moves.length; //the 18 moves R, Ri, R180, L, Li, L180 and so on
+    public static int which_move;
+    public static String previous_move = "";
+    public static void scramble_step(int move){
+        which_move = random.nextInt(nr_of_moves);
+        if (!Objects.equals(possible_moves[which_move], previous_move) && !Objects.equals(possible_moves[which_move], reverse_move(previous_move))) {
+            scramble_moves[move] = possible_moves[which_move];
+            cube_move(possible_moves[which_move]);
+        } else scramble_step(move);
+    }
 
-    private static boolean check(String[] arr, String toCheckValue) {
-        for (String element : arr) {
-            if (element.equals(toCheckValue)) {
+
+    private static boolean string_in_array(String[] array, String word) {
+        for (String element : array) {
+            if (element.equals(word)) {
                 return true;
             }
         }

@@ -22,7 +22,7 @@ public class Cubie {
         id = newID;
     } // Constructor
 
-    public Cubie RLi(){
+    public Cubie LiR(){
         temp = back;
         back = top;
         top = front;
@@ -31,7 +31,7 @@ public class Cubie {
         return this;
     }
 
-    public Cubie RiL(){
+    public Cubie LRi(){
         temp = front;
         front = top;
         top = back;
@@ -40,7 +40,7 @@ public class Cubie {
         return this;
     }
 
-    public Cubie RL180(){
+    public Cubie LR180(){
         temp = top;
         top = bottom;
         bottom = temp;
@@ -78,7 +78,7 @@ public class Cubie {
         return this;
     }
 
-    public Cubie UDi(){
+    public Cubie DiU(){
         temp = front;
         front = right;
         right = back;
@@ -87,7 +87,7 @@ public class Cubie {
         return this;
     }
 
-    public Cubie UiD(){
+    public Cubie DUi(){
         temp = back;
         back = right;
         right = front;
@@ -96,7 +96,7 @@ public class Cubie {
         return this;
     }
 
-    public Cubie UD180(){
+    public Cubie DU180(){
         temp = front;
         front = back;
         back = temp;
