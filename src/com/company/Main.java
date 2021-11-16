@@ -1,9 +1,6 @@
 package com.company;
 import java.lang.*;
-import java.util.Arrays;
-import java.util.Objects;
-import java.util.Scanner;
-import java.util.Random;
+import java.util.*;
 
 public class Main {
     /*
@@ -27,13 +24,19 @@ public class Main {
     public static Cubie[][] cube_face = new Cubie[size][size];
     public static Cubie[][] transformed_cube_face = new Cubie[size][size];
     public static boolean cube_solved = false;
+    public static String[] move_list;
+    public static Random random = new Random();
+    public static String[] scramble_moves;
+    public static int nr_of_moves = possible_moves.length; //the 18 moves R, Ri, R180, L, Li, L180 and so on
+    public static int which_move;
+    public static String previous_move = "";
+    public static ArrayList<Open_Node> all_open_nodes = new ArrayList<Open_Node>();
 
     public static void main(String[] args){
         Scanner in = new Scanner(System.in);
         String command;
         boolean running = true;
         boolean automatic = true;
-
         //Actual Rubix Cube
         rubixCube();
 
@@ -45,10 +48,11 @@ public class Main {
         visual_ID();
         System.out.println();
 
-        scramble(10);
+        scramble(8);
         System.out.println("scramble moves:");
         System.out.println(Arrays.toString(scramble_moves));
         while (running) {
+            System.out.println("-------------------------------------------------------------------------------------");
             System.out.println();
             visuallize_Rubix_Cube();
             System.out.println();
@@ -64,103 +68,106 @@ public class Main {
                 System.out.println("solution moves:");
                 System.out.println(Arrays.toString(move_list));
                 visuallize_Rubix_Cube();
+                runGC();
                 automatic = false;
             }else {
                 System.out.println();
                 System.out.println("List of commands:");
-                System.out.println("Stop, R, Ri, L, Li, F, Fi, B, Bi, U, Ui, D, Di");
+                System.out.println("Stop, R, Ri, R180, L, Li, L180, F, Fi, F180, B, Bi, B180, U, Ui, U180, D, Di, D180");
                 System.out.println();
                 System.out.print("Write a command: ");
                 command = in.nextLine();
                 if (string_in_array(possible_moves, command)) {
                     cube_move(command);
+                    System.out.println("is it solved: " + solved());
                 } else if (command.equals("Stop")) {
                     running = false;
                     System.out.println("Loop ended");
                 } else {
                     System.out.println("Not a valid command!");
                 }
+
+                for (int index1 = 0; index1 < 2; index1++){
+                    for (int index2 = 0; index2 < 2; index2++){
+                        for (int index3 = 0; index3 < 2; index3++){
+                            if (rubix_Cube[index1][index2][index3].id == 25){
+                                System.out.println("orientation: " + rubix_Cube[index1][index2][index3]);
+                            }
+                        }
+                    }
+                }
+
                 System.out.println();
-                System.out.println("Is the cube solved: " + solved());
+                System.out.println("how many are solved " + (amount_solved()-1));
 
             }
         }
     }
 
-    public static void IDA(){
-        //scrambledCube = Rubix_Cube.clone();
-        String[] moveList = new String[1];
-        int tried_moves = 0;
-        for (int i = 0; i < 12; i++){
-            cube_move(possible_moves[i]);
-            System.out.println(possible_moves[i]);
-            visuallize_Rubix_Cube();
-            System.out.println();
-            if (solved()){
-                break;
-            } else {
-                System.out.println("nr. of tried moves: "+tried_moves++);
-                cube_move(reverse_move(possible_moves[i]));
-                visuallize_Rubix_Cube();
-            }
-        }
-    }
-
-    public static void IDA2(int depth){
-        for (String move : possible_moves){
-            if (solved()){
-                // gives final move list
-                break;
-            } else if (depth != 2){
-                cube_move(move);
-                System.out.println(move);
-                visuallize_Rubix_Cube();
-                System.out.println();
-                IDA2(depth++);
-            }
-            cube_move(reverse_move(move));
-            depth--;
-        }
-    }
-
-
-    // new attempt still doesn't work
-    public static String[] move_list;
     public static void IDA_Star(){
         for (int depth = 1; depth <= 20; depth++){
-            if (cube_solved) {
+            System.out.println("Depth: " +depth);
+            if (solved()) {
                 return;
             } else {
                 move_list = new String[depth];
-                IDA_Step(depth, 0);
+                IDA_step(new Open_Node(1, new String[]{}), depth);
             }
-            System.out.println("Depth: " +depth);
         }
         System.out.println("Couldn't find a solution");
     }
 
-    public static void IDA_Step(int max_Depth, int current_Depth){
-        if (current_Depth < max_Depth){
-            for (String move : possible_moves){
-                if (cube_solved){
-                    return;
-                } else {
-                    cube_move(move);
-                    move_list[current_Depth] = move;
-                    //System.out.println();
-                    //System.out.println("move: "+current_Depth);
-                    //visuallize_Rubix_Cube();
-                    cube_solved = solved();
+    public static void IDA_step(Open_Node node, int max_depth){
+        if (node.get_path().length < max_depth){
+            make_open_nodes_at(node);
+            Open_Node best_node = pick_best_node();
 
-                    IDA_Step(max_Depth, current_Depth+1);
-                    if (!cube_solved) {
-                        cube_move(reverse_move(move));
-                    }
-                }
+            if (solved()){
+                return;
+            } else {
+                IDA_step(best_node, max_depth);
             }
         }
     }
 
+    public static Open_Node pick_best_node(){
+        ArrayList<Double> all_fitness = new ArrayList<Double>();
+
+        for (Open_Node node : all_open_nodes){
+            all_fitness.add(node.get_fitnes());
+        }
+
+        Open_Node best_node = all_open_nodes.get(get_index_of_lowest(all_fitness));
+        cube_move(best_node.get_path()[best_node.get_path().length -1]);
+
+        return best_node;
+    }
+
+    public static int get_index_of_lowest(ArrayList<Double> list){
+        return list.indexOf(Collections.min(list));
+    }
+
+    public static void make_open_nodes_at(Open_Node node){
+        String[] new_path = new String[node.get_path().length + 1];
+        array_to_new_array(node.get_path(), new_path);
+
+        for (String move : possible_moves){
+            cube_move(move);
+            new_path[new_path.length - 1] = move;
+            all_open_nodes.add(new Open_Node(fitness(), new_path));
+            iterate_back(move);
+        }
+    }
+
+    public static void array_to_new_array(String[] old_array, String[] new_array){
+        for (int index = 0; index < old_array.length; index++){
+            new_array[index] = old_array[index];
+        }
+    }
+
+    public static void iterate_back(String move){
+        cube_move(reverse_move(move));
+    }
 
     public static String reverse_move(String move){
         switch (move) {
@@ -369,25 +376,22 @@ public class Main {
         }
     }
 
-    public static Random random = new Random();
-    public static String[] scramble_moves;
     public static void scramble(int scrambleMoves){
         scramble_moves = new String[scrambleMoves];
         for (int move = 0; move < scrambleMoves; move++){
             scramble_step(move);
         }
     }
-    public static int nr_of_moves = possible_moves.length; //the 18 moves R, Ri, R180, L, Li, L180 and so on
-    public static int which_move;
-    public static String previous_move = "";
+
     public static void scramble_step(int move){
         which_move = random.nextInt(nr_of_moves);
-        if (!Objects.equals(possible_moves[which_move], previous_move) && !Objects.equals(possible_moves[which_move], reverse_move(previous_move))) {
+        String the_move = possible_moves[which_move];
+        if (!Objects.equals(the_move, previous_move) && !Objects.equals(the_move, reverse_move(previous_move))) {
             scramble_moves[move] = possible_moves[which_move];
             cube_move(possible_moves[which_move]);
+            previous_move = possible_moves[which_move];
         } else scramble_step(move);
     }
-
 
     private static boolean string_in_array(String[] array, String word) {
         for (String element : array) {
@@ -401,24 +405,24 @@ public class Main {
     //Switch? looks good
     public static void cube_move(String moveName){
         switch (moveName) {
-            case "R" -> RLi(index_Size);
-            case "Ri" -> RiL(index_Size);
-            case "R180" -> RL180(index_Size);
-            case "L" -> RiL(0);
-            case "Li" -> RLi(0);
-            case "L180" -> RL180(0);
-            case "F" -> FBi(index_Size);
-            case "Fi" -> FiB(index_Size);
-            case "F180" -> FB180(index_Size);
-            case "B" -> FiB(0);
-            case "Bi" -> FBi(0);
-            case "B180" -> FB180(0);
-            case "U" -> UDi(index_Size);
-            case "Ui" -> UiD(index_Size);
-            case "U180" -> UD180(index_Size);
-            case "D" -> UiD(0);
-            case "Di" -> UDi(0);
-            case "D180" -> UD180(0);
+            case "R"    ->  RLi(index_Size);
+            case "Ri"   ->  RiL(index_Size);
+            case "R180" ->  RL180(index_Size);
+            case "L"    ->  RiL(0);
+            case "Li"   ->  RLi(0);
+            case "L180" ->  RL180(0);
+            case "F"    ->  FBi(index_Size);
+            case "Fi"   ->  FiB(index_Size);
+            case "F180" ->  FB180(index_Size);
+            case "B"    ->  FiB(0);
+            case "Bi"   ->  FBi(0);
+            case "B180" ->  FB180(0);
+            case "U"    ->  UDi(index_Size);
+            case "Ui"   ->  UiD(index_Size);
+            case "U180" ->  UD180(index_Size);
+            case "D"    ->  UiD(0);
+            case "Di"   ->  UDi(0);
+            case "D180" ->  UD180(0);
         }
     }
 
@@ -437,45 +441,51 @@ public class Main {
         String back;
         String left;
         String right;
+        int[] coord;
         int id = 0;
         rubix_Cube = new Cubie[size][size][size];
 
         for (int index1 = 0; index1 <= index_Size; index1++){
             if (index1 == 0){
-                top = blank;
+                top = null;
                 bottom = white;
             } else if (index1 == index_Size){
                 top = yellow;
-                bottom =blank;
+                bottom =null;
             } else {
-                top = blank;
-                bottom = blank;
+                top = null;
+                bottom = null;
             }
             for (int index2 = 0; index2 <= index_Size; index2++){
                 if (index2 == 0){
-                    front = blank;
+                    front = null;
                     back = green;
                 } else if (index2 == index_Size){
                     front = blue;
-                    back = blank;
+                    back = null;
                 } else {
-                    front = blank;
-                    back = blank;
+                    front = null;
+                    back = null;
                 }
                 for (int index3 = 0; index3 <= index_Size; index3++){
                     if (index3 == 0){
                         left = orange;
-                        right = blank;
+                        right = null;
                     } else if (index3 == index_Size){
-                        left = blank;
+                        left = null;
                         right = red;
                     } else {
-                        left = blank;
-                        right = blank;
+                        left = null;
+                        right = null;
+                    }
+                    //rubix_Cube[index1][index2][index3] = new Cubie(top, bottom, front, back, left, right, id);
+                    coord = new int[]{index1, index2, index3};
+                    if ((index1 == 1 || index2 == 1 || index3 == 1)){ // && (!(index1 == 1 && index2 == 1) || !(index1 == 1 && index3 == 1) || !(index2 == 1 && index3 == 1))) {
+                        rubix_Cube[index1][index2][index3] = new Edge_Cubie(top, bottom, front, back, left, right, id, coord);
+                    } else {
+                        rubix_Cube[index1][index2][index3] = new Corner_Cubie(top, bottom, front, back, left, right, id, coord);
                     }
 
-                    //System.out.println(id);
-                    rubix_Cube[index1][index2][index3] = new Cubie(top,bottom,front,back,left,right,id);
                     id++;
                 }
             }
@@ -581,55 +591,151 @@ public class Main {
         }
     }
 
-    public static boolean solved(){
-        //Top
-        for(int index1 = 0; index1 <= index_Size; index1++){
-            for(int index2 = 0; index2 <= index_Size; index2++){
-                if (!Objects.equals(rubix_Cube[index_Size][index1][index2].top, "YELLOW")){
-                    return false;
+    public static double fitness(){
+
+        return 1 - ((double) amount_on_correct_place()/26*2 + (double) amount_correct_orientation()/26*2);
+    }
+
+    public static int amount_solved(){
+        int counter = 0;
+        for (int z = 0; z <= index_Size; z++) {
+            for (int y = 0; y <= index_Size; y++) {
+                for (int x = 0; x <= index_Size; x++) {
+                    if (is_this_cubie_correct(rubix_Cube[z][y][x], z, y, x)) {
+                        counter++;
+                    }
                 }
             }
         }
-        //Front
-        for(int index1 = 0; index1 <= index_Size; index1++){
-            for(int index2 = 0; index2 <= index_Size; index2++){
-                if (!Objects.equals(rubix_Cube[index1][index_Size][index2].front, "BLUE")){
-                    return false;
+        return counter;
+    }
+
+    public static int amount_on_correct_place(){
+        int counter = 0;
+        for (int z = 0; z <= index_Size; z++) {
+            for (int y = 0; y <= index_Size; y++) {
+                for (int x = 0; x <= index_Size; x++) {
+                    if (Arrays.equals(rubix_Cube[z][y][x].correct_coordinate, new int[]{z, y, x})) {
+                        counter++;
+                    }
                 }
             }
         }
-        //Right
-        for(int index1 = 0; index1 <= index_Size; index1++){
-            for(int index2 = 0; index2 <= index_Size; index2++){
-                if (!Objects.equals(rubix_Cube[index1][index2][index_Size].right, "RED\t")){
-                    return false;
+        return counter;
+    }
+
+    public static int amount_correct_orientation(){
+        int orientation = 1;
+        int counter = 0;
+        for (int z = 0; z <= index_Size; z++) {
+            for (int y = 0; y <= index_Size; y++) {
+                for (int x = 0; x <= index_Size; x++) {
+                    if (rubix_Cube[z][y][x].getClass() == Edge_Cubie.class) {
+                        orientation = is_orientation_correct_edge(rubix_Cube[z][y][x], z,y,x);
+                    } else if (rubix_Cube[z][y][x].getClass() == Corner_Cubie.class){
+                        orientation = is_orientation_correct_corner(z, rubix_Cube[z][y][x]);
+                    }
+                    if (orientation == 0){
+                        counter++;
+                    }
                 }
             }
         }
-        //Back
-        for(int index1 = 0; index1 <= index_Size; index1++){
-            for(int index2 = 0; index2 <= index_Size; index2++){
-                if (!Objects.equals(rubix_Cube[index1][0][index2].back, "GREEN")){
-                    return false;
-                }
+        return counter;
+    }
+
+    public static boolean is_this_cubie_correct(Cubie cubie, int z, int y, int x) {
+        int orientation = 1;
+        boolean yes_no = false;
+        boolean position = Arrays.equals(cubie.correct_coordinate, new int[]{z, y, x});
+
+        if (cubie.getClass() == Edge_Cubie.class) {
+            orientation = is_orientation_correct_edge(cubie, z,y,x);
+        } else if (cubie.getClass() == Corner_Cubie.class){
+            orientation = is_orientation_correct_corner(z, cubie);
+        }
+        //System.out.println(""+ z+y+x+ " " +orientation);
+
+        if (position && orientation == 0) yes_no = true;
+        return yes_no;
+    }
+
+    public static int is_orientation_correct_edge(Cubie cubie, int z, int y, int x){
+        if (Arrays.equals(new int[]{y, x}, new int[]{1, 1})){
+            return 0; // Correct orientation for center cubies
+        }
+
+        int face = cubie.correct_coordinate[1];
+        if (face == 2){ // front
+            if (rubix_Cube[1][face][1].side_color[2].equals(cubie.side_color[2])){
+                return 0;
+            }
+            return 1;
+        } else if (face == 0){ //back
+            if (rubix_Cube[1][face][1].side_color[3].equals(cubie.side_color[3])){
+                return 0;
+            }
+            return 1;
+        }
+
+        // followed by left and right
+        face = cubie.correct_coordinate[2];
+        if (face == 0){ // left
+            if (rubix_Cube[1][1][face].side_color[4].equals(cubie.side_color[4])){
+                return 0;
+            }
+            return 1;
+        } else if (face == 2){ // right
+            if (rubix_Cube[1][1][face].side_color[5].equals(cubie.side_color[5])){
+                return 0;
+            }
+            return 1;
+        }
+        return 1;
+    }
+
+    public static int is_orientation_correct_corner(int layer, Cubie cubie){
+        if (layer == 2) { //top
+            if (cubie.correct_top()){
+                return 0;
+            } else if (cubie.left_turned_top()){
+                return -1;
+            } else if (cubie.right_turned_top()){
+                return -1;
             }
         }
-        //Left
-        for(int index1 = 0; index1 <= index_Size; index1++){
-            for(int index2 = 0; index2 <= index_Size; index2++){
-                if (!Objects.equals(rubix_Cube[index1][index2][0].left, "ORANGE")){
-                    return false;
-                }
-            }
+        if (cubie.correct_bottom()){
+            return 0;
+        } else if (cubie.left_turned_bottom()){
+            return -1;
+        } else if (cubie.right_turned_bottom()){
+            return -1;
         }
-        //Bottom
-        for(int index1 = 0; index1 <= index_Size; index1++){
-            for(int index2 = 0; index2 <= index_Size; index2++){
-                if (!Objects.equals(rubix_Cube[0][index1][index2].bottom, "WHITE")){
-                    return false;
+        return Integer.parseInt(null);
+    }
+
+    public static boolean solved() {
+
+        for (int z = 0; z <= index_Size; z++) {
+            for (int y = 0; y <= index_Size; y++) {
+                for (int x = 0; x <= index_Size; x++) {
+                    if (!is_this_cubie_correct(rubix_Cube[z][y][x], z,y,x)) {
+                        return false;
+                    }
                 }
             }
         }
         return true;
     }
+
+    public static void runGC() {
+        Runtime runtime = Runtime.getRuntime();
+        long memoryMax = runtime.maxMemory();
+        long memoryUsed = runtime.totalMemory() - runtime.freeMemory();
+        double memoryUsedPercent = (memoryUsed * 100.0) / memoryMax;
+        System.out.println("memory Used: " + memoryUsed/1000000 + "mb");
+        if (memoryUsedPercent > 90.0)
+            System.gc();
+    }
 }
+
