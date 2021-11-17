@@ -30,7 +30,7 @@ public class Main {
     public static int nr_of_moves = possible_moves.length; //the 18 moves R, Ri, R180, L, Li, L180 and so on
     public static int which_move;
     public static String previous_move = "";
-    public static ArrayList<Open_Node> all_open_nodes = new ArrayList<Open_Node>();
+    public static PriorityQueue<Open_Node> all_open_nodes = new PriorityQueue<Open_Node>();
 
     public static void main(String[] args){
         Scanner in = new Scanner(System.in);
@@ -48,7 +48,7 @@ public class Main {
         visual_ID();
         System.out.println();
 
-        scramble(8);
+        scramble(6);
         System.out.println("scramble moves:");
         System.out.println(Arrays.toString(scramble_moves));
         while (running) {
@@ -110,7 +110,7 @@ public class Main {
             if (solved()) {
                 return;
             } else {
-                move_list = new String[depth];
+                //move_list = new String[depth];
                 IDA_step(new Open_Node(1, new String[]{}), depth);
             }
         }
@@ -120,8 +120,11 @@ public class Main {
     public static void IDA_step(Open_Node node, int max_depth){
         if (node.get_path().length < max_depth){
             make_open_nodes_at(node);
-            Open_Node best_node = pick_best_node();
+            Open_Node best_node = all_open_nodes.poll();
+            move_list = best_node.get_path();
+            cube_move(best_node.get_path()[best_node.get_path().length -1]);
 
+            System.out.println("best node fit: " + best_node.get_fitnes());
             if (solved()){
                 return;
             } else {
@@ -129,7 +132,7 @@ public class Main {
             }
         }
     }
-
+    /*
     public static Open_Node pick_best_node(){
         ArrayList<Double> all_fitness = new ArrayList<Double>();
 
@@ -143,6 +146,8 @@ public class Main {
         return best_node;
     }
 
+     */
+
     public static int get_index_of_lowest(ArrayList<Double> list){
         return list.indexOf(Collections.min(list));
     }
@@ -154,7 +159,7 @@ public class Main {
         for (String move : possible_moves){
             cube_move(move);
             new_path[new_path.length - 1] = move;
-            all_open_nodes.add(new Open_Node(fitness(), new_path));
+            all_open_nodes.offer(new Open_Node(fitness(new_path), new_path));
             iterate_back(move);
         }
     }
@@ -591,9 +596,9 @@ public class Main {
         }
     }
 
-    public static double fitness(){
+    public static double fitness(String[] path){
 
-        return 1 - ((double) amount_on_correct_place()/26*2 + (double) amount_correct_orientation()/26*2);
+        return 27*2+20 - (amount_on_correct_place() + amount_correct_orientation() + path.length);
     }
 
     public static int amount_solved(){
