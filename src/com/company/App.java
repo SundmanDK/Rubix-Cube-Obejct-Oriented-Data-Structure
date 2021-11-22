@@ -1,18 +1,19 @@
 package com.company;
 
 import java.util.Arrays;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class App {
     Cube cube;
     Solver solver;
     public App(){
-        Scanner in = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         String command;
         boolean running = true;
-        boolean automatic = true;
-        //Actual Rubix Cube
+        boolean automatic = false;
         cube = new Cube();
+        solver = new Solver(cube);
         /*
         System.out.println();
         cube.show();
@@ -22,43 +23,43 @@ public class App {
         cube.show_id();
         System.out.println();
         */
-        System.out.println("scramble moves:");
-        System.out.println(Arrays.toString(cube.scramble(5)));
-        solver = new Solver(cube);
-        System.out.println("-------------------------------------------------------------------------------------");
         while (running) {
-            System.out.println();
+            System.out.println("-------------------------------------------------------------------------------------");
+            System.out.println("Above");
             cube.show();
-            System.out.println();
-
+            System.out.println("below");
             if (automatic) {
                 System.out.println();
-                System.out.println("solution moves:");
+                System.out.println("Solution moves:");
                 System.out.println(Arrays.toString(solver.IDA_step(new Open_Node(20, new String[]{}) ,20)));
                 runGC();
                 automatic = false;
-            }else {
-                System.out.println();
-                System.out.println("List of commands:");
-                System.out.println("Stop, R, Ri, R180, L, Li, L180, F, Fi, F180, B, Bi, B180, U, Ui, U180, D, Di, D180");
-                System.out.println();
+            } else {
                 System.out.print("Write a command: ");
-                command = in.nextLine();
+                command = sc.nextLine();
                 if (string_in_array(Cube.possible_moves, command)) {
                     cube.move(command);
                     System.out.println("is it solved: " + cube.is_solved());
-                } else if (command.equals("Stop")) {
+                } else if (command.trim().toLowerCase(Locale.ROOT).equals("stop")) {
                     running = false;
                     System.out.println("Loop ended");
+                } else if (command.trim().toLowerCase(Locale.ROOT).equals("solve")) {
+                    automatic = true;
+                } else if (command.trim().toLowerCase(Locale.ROOT).equals("scramble")){
+                    System.out.println("how many scrambles? ");
+                    int scrable_amount = sc.nextInt();
+                    System.out.println("scramble moves:");
+                    System.out.println(Arrays.toString(cube.scramble(scrable_amount)));
+                } else if (command.trim().toLowerCase(Locale.ROOT).equals("help")){
+                    System.out.println("List of commands:");
+                    System.out.println("stop, help, scramble, solve, R, Ri, R180, L, Li, L180, F, Fi, F180, B, Bi, B180, U, Ui, U180, D, Di, D180");
                 } else {
                     System.out.println("Not a valid command!");
                 }
-
-
             }
         }
-
     }
+
     public void runGC() {
         Runtime runtime = Runtime.getRuntime();
         long memoryMax = runtime.maxMemory();
@@ -68,6 +69,7 @@ public class App {
         if (memoryUsedPercent > 90.0)
             System.gc();
     }
+
     private boolean string_in_array(String[] array, String word) {
         for (String element : array) {
             if (element.equals(word)) {

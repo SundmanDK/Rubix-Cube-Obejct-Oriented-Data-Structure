@@ -7,9 +7,11 @@ public class Solver {
     public Cube cube;
     public  PriorityQueue<Open_Node> all_open_nodes = new PriorityQueue<Open_Node>();
     public  ArrayList<Open_Node> all_nodes = new ArrayList<Open_Node>();
+
     public Solver(Cube cube_to_solve){
         cube = cube_to_solve;
     }
+
     public void IDA_Star(){
         for (int depth = 1; depth <= 20; depth++){
             System.out.println("Depth: " + depth);
