@@ -39,9 +39,7 @@ public class Cubie{
     public boolean correct_top(){
         return side_color[0].equals(guide_color_1);
     }
-    public boolean correct_bottom(){
-        return side_color[1].equals(guide_color_1);
-    }
+    public boolean correct_bottom(){ return side_color[1].equals(guide_color_1); }
 
     public boolean left_turned_top(){
         return side_color[0].equals(guide_color_2);
@@ -53,10 +51,7 @@ public class Cubie{
     public boolean right_turned_top(){
         return side_color[0].equals(guide_color_3);
     }
-    public boolean right_turned_bottom(){
-
-        return side_color[1].equals(guide_color_2);
-    }
+    public boolean right_turned_bottom(){ return side_color[1].equals(guide_color_2); }
 
     public String get_top(){
         return side_color[0];

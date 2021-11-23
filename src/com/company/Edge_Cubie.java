@@ -11,6 +11,7 @@ public class Edge_Cubie extends Cubie{
         this.back = back;
         this.left = left;
         this.right = right;
+        this.correct_coordinate = coord;
 
         side_color[0] = top;
         side_color[1] = bottom;
@@ -18,9 +19,6 @@ public class Edge_Cubie extends Cubie{
         side_color[3] = back;
         side_color[4] = left;
         side_color[5] = right;
-
-        this.correct_coordinate = coord;
-
 
         this.id = id;
     } // Constructor

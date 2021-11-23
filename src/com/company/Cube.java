@@ -10,7 +10,7 @@ public class Cube {
     public Cubie[][] cube_face;
     public int cube_dimension;
     public Cubie[][] transformed_cube_face;
-    public String[] scrambled_path;
+    public String[] scrambled_path = new String[0];
     public static String[] possible_moves = {"R","Ri","R180","L","Li","L180","F","Fi","F180","B","Bi","B180","U","Ui","U180","D","Di","D180"};
 
     public Cube(){
@@ -245,16 +245,19 @@ public class Cube {
     }
 
     public String[] scramble(int amount_scrambles){
-        String[] scramble_moves = new String[amount_scrambles];
-        String previous_move = "";
+        String previous_move;
+        if (scrambled_path.length > 0){
+            previous_move = scrambled_path[scrambled_path.length - 1];
+        } else {
+            previous_move = "";
+        }
         for (int move = 0; move < amount_scrambles; move++){
             String current_move = scramble_step(previous_move);
             move(current_move);
-            scramble_moves[move] = current_move;
+            add_to_scrambled_path(current_move);
             previous_move = current_move;
         }
-        scrambled_path = scramble_moves;
-        return scramble_moves;
+        return scrambled_path;
     }
 
     public String scramble_step(String previous_move){
@@ -267,9 +270,22 @@ public class Cube {
         }
         else {
             return scramble_step(previous_move);
-
         }
 
+    }
+
+    public void add_to_scrambled_path(String move){
+        String[] old_scramble = scrambled_path;
+        scrambled_path = new String[scrambled_path.length + 1];
+
+        inherit_from_array(old_scramble, scrambled_path);
+        scrambled_path[scrambled_path.length - 1] = move;
+    }
+
+    public void inherit_from_array(String[] old_array, String[] new_array){
+        for (int index = 0; index < old_array.length; index++){
+            new_array[index] = old_array[index];
+        }
     }
     //Move functions 90 degree
     public  void iterate_back(String move){

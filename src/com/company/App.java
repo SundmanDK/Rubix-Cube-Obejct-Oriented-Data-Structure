@@ -38,21 +38,31 @@ public class App {
                 System.out.print("Write a command: ");
                 command = sc.nextLine();
                 if (string_in_array(Cube.possible_moves, command)) {
+
                     cube.move(command);
+                    cube.add_to_scrambled_path(command);
                     System.out.println("is it solved: " + cube.is_solved());
+
                 } else if (command.trim().toLowerCase(Locale.ROOT).equals("stop")) {
+
                     running = false;
                     System.out.println("Loop ended");
+
                 } else if (command.trim().toLowerCase(Locale.ROOT).equals("solve")) {
+
                     automatic = true;
                 } else if (command.trim().toLowerCase(Locale.ROOT).equals("scramble")){
+
                     System.out.println("how many scrambles? ");
-                    int scrable_amount = sc.nextInt();
+                    int scrable_amount = Integer.parseInt(sc.nextLine());
                     System.out.println("scramble moves:");
                     System.out.println(Arrays.toString(cube.scramble(scrable_amount)));
+
                 } else if (command.trim().toLowerCase(Locale.ROOT).equals("help")){
+
                     System.out.println("List of commands:");
                     System.out.println("stop, help, scramble, solve, R, Ri, R180, L, Li, L180, F, Fi, F180, B, Bi, B180, U, Ui, U180, D, Di, D180");
+
                 } else {
                     System.out.println("Not a valid command!");
                 }
