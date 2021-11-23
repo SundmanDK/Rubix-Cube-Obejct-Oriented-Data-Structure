@@ -1,6 +1,7 @@
 package com.company;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.PriorityQueue;
 
 public class Solver {
@@ -27,22 +28,26 @@ public class Solver {
 
     public String[] IDA_step(Open_Node node, int max_depth){
         String[] move_list = {};
-        if (node.get_path().length < max_depth){
-            make_new_nodes(node);
+        make_new_nodes(node);
+        while (node.get_path().length < max_depth && !cube.is_solved()){
             Open_Node best_node = all_open_nodes.poll();
             assert best_node != null;
             move_list = best_node.get_path();
+            //System.out.println(Arrays.toString(move_list));
             // cube_move(best_node.get_path()[best_node.get_path().length - 1]);
             if (all_nodes.size() > Math.pow(18, 6)) {
                 WriteToFile.write_to_file(all_nodes);
                 return best_node.get_path();
             }
-            if (!cube.is_solved()){
+            //if (!cube.is_solved()){
                 cube.create_cube();
                 cube.go_to_path(cube.scrambled_path);
                 cube.go_to_path(move_list);
-                return IDA_step(best_node, max_depth);
-            }
+                make_new_nodes(best_node);
+                //return IDA_step(best_node, max_depth);
+            //} else {
+                //return move_list;
+            //}
         }
         return move_list;
     }
@@ -86,12 +91,16 @@ public class Solver {
     }
 
     public  double fitness(String[] path){
-        double fitness_position = 10 - ((double) cube.amount_on_correct_place() / 27) * 10;
-        double fitness_orientation = 10 - ((double) cube.amount_correct_orientation() / 27) * 10;
+        double fitness_position = 10 - ((double) cube.amount_on_correct_place() / 20) * 10;
+        double fitness_orientation = 10 - ((double) cube.amount_correct_orientation() / 20) * 10;
         int g = path.length;
         double h = fitness_orientation + fitness_position;
         double f = g + h;
         return f;
+
+
+
+
     }
 
 

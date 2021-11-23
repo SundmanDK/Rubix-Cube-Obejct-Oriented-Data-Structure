@@ -155,11 +155,11 @@ public class Cube {
                     front = null;
                     back = null;
                 }
-                for (int index3 = 0; index3 <= index_Size; index3++){
-                    if (index3 == 0){
+                for (int index3 = 0; index3 <= index_Size; index3++) {
+                    if (index3 == 0) {
                         left = orange;
                         right = null;
-                    } else if (index3 == index_Size){
+                    } else if (index3 == index_Size) {
                         left = null;
                         right = red;
                     } else {
@@ -168,8 +168,10 @@ public class Cube {
                     }
                     //rubix_Cube[index1][index2][index3] = new Cubie(top, bottom, front, back, left, right, id);
                     coord = new int[]{index1, index2, index3};
-                    if ((index1 == 1 || index2 == 1 || index3 == 1)){ // && (!(index1 == 1 && index2 == 1) || !(index1 == 1 && index3 == 1) || !(index2 == 1 && index3 == 1))) {
+                    if ((amount_of_1s(coord) >= 1)) { // && (!(index1 == 1 && index2 == 1) || !(index1 == 1 && index3 == 1) || !(index2 == 1 && index3 == 1))) {
                         rubix_Cube[index1][index2][index3] = new Edge_Cubie(top, bottom, front, back, left, right, id, coord);
+                    //} else if (amount_of_1s(coord) > 1){
+                    //    rubix_Cube[index1][index2][index3] = new Center_Cubie(top, bottom, front, back, left, right, id, coord);
                     } else {
                         rubix_Cube[index1][index2][index3] = new Corner_Cubie(top, bottom, front, back, left, right, id, coord);
                     }
@@ -178,6 +180,16 @@ public class Cube {
                 }
             }
         }
+    }
+
+    public int amount_of_1s(int[] list){
+        int counter = 0;
+        for (int number : list){
+            if (number == 1){
+                counter++;
+            }
+        }
+        return counter;
     }
 
     public void show_indexes(){
@@ -591,7 +603,6 @@ public class Cube {
         } else if (cubie.getClass() == Corner_Cubie.class){
             orientation = is_orientation_correct_corner(z, cubie);
         }
-        //System.out.println(""+ z+y+x+ " " +orientation);
         return position && orientation == 0;
     }
 

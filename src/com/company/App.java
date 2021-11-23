@@ -33,6 +33,7 @@ public class App {
                 System.out.println("Solution moves:");
                 System.out.println(Arrays.toString(solver.IDA_step(new Open_Node(20, new String[]{}) ,20)));
                 runGC();
+                cube.scrambled_path = new String[0];
                 automatic = false;
             } else {
                 System.out.print("Write a command: ");
@@ -56,7 +57,8 @@ public class App {
                     System.out.println("how many scrambles? ");
                     int scrable_amount = Integer.parseInt(sc.nextLine());
                     System.out.println("scramble moves:");
-                    System.out.println(Arrays.toString(cube.scramble(scrable_amount)));
+                    cube.scramble(scrable_amount);
+                    System.out.println(Arrays.toString(cube.scrambled_path)); //cube.scramble(scrable_amount)));
 
                 } else if (command.trim().toLowerCase(Locale.ROOT).equals("help")){
 
