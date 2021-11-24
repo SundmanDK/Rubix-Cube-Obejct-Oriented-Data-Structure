@@ -1,10 +1,9 @@
 package com.company;
 
-public class Edge_Cubie extends Cubie{
+public class Edge_Cubie extends Cubie {
 
-
-
-    public Edge_Cubie(String top, String bottom, String front, String back, String left, String right, int id, int[] coord){
+    // Constructor
+    public Edge_Cubie(String top, String bottom, String front, String back, String left, String right, int id, int[] coord) {
         this.top = top;
         this.bottom = bottom;
         this.front = front;
@@ -21,9 +20,5 @@ public class Edge_Cubie extends Cubie{
         side_color[5] = right;
 
         this.id = id;
-    } // Constructor
-
-
-
-
+    }
 }

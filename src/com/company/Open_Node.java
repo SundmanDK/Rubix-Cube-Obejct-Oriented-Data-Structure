@@ -2,11 +2,12 @@ package com.company;
 
 public class Open_Node implements Comparable<Open_Node>{
     double fitness;
-    String[] path;
+    byte[] byte_path;
+    //String[] path;
 
-    public Open_Node(double fitness, String[] path){
+    public Open_Node(double fitness, byte[] path){
         this.fitness = fitness;
-        this.path = path;
+        this.byte_path = path;
     }
 
     @Override
@@ -26,8 +27,8 @@ public class Open_Node implements Comparable<Open_Node>{
 
     }
 
-    public String[] get_path(){
-        return path;
+    public byte[] get_path(){
+        return byte_path;
     }
 
 

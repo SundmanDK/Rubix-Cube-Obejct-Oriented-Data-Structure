@@ -12,12 +12,16 @@ public class Cube {
     public Cubie[][] transformed_cube_face;
     public String[] scrambled_path = new String[0];
     public static String[] possible_moves = {"R","Ri","R180","L","Li","L180","F","Fi","F180","B","Bi","B180","U","Ui","U180","D","Di","D180"};
+    public  byte[] byte_moves = new byte[18];
 
     public Cube(){
         cube_dimension = 3;
         index_Size = cube_dimension -1;
         cube_face= new Cubie[cube_dimension][cube_dimension];
         transformed_cube_face = new Cubie[cube_dimension][cube_dimension];
+        for (int i = 0; i < possible_moves.length; i++) {
+            byte_moves[i] = string_to_byte(possible_moves[i]);
+        }
         create_cube();
     }
     public void show_orientation(){
@@ -48,24 +52,24 @@ public class Cube {
 
     public void move(String moveName){
         switch (moveName) {
-            case "R"    ->  RLi(index_Size);
-            case "Ri"   ->  RiL(index_Size);
-            case "R180" ->  RL180(index_Size);
-            case "L"    ->  RiL(0);
-            case "Li"   ->  RLi(0);
-            case "L180" ->  RL180(0);
-            case "F"    ->  FBi(index_Size);
-            case "Fi"   ->  FiB(index_Size);
-            case "F180" ->  FB180(index_Size);
-            case "B"    ->  FiB(0);
-            case "Bi"   ->  FBi(0);
-            case "B180" ->  FB180(0);
-            case "U"    ->  UDi(index_Size);
-            case "Ui"   ->  UiD(index_Size);
-            case "U180" ->  UD180(index_Size);
-            case "D"    ->  UiD(0);
-            case "Di"   ->  UDi(0);
-            case "D180" ->  UD180(0);
+            case "R"    ->  RLi(index_Size); // byte = 1
+            case "Ri"   ->  RiL(index_Size); // byte = 2
+            case "R180" ->  RL180(index_Size); // byte = 3
+            case "L"    ->  RiL(0); // byte = 4
+            case "Li"   ->  RLi(0); // byte = 5
+            case "L180" ->  RL180(0); // byte = 6
+            case "F"    ->  FBi(index_Size); // byte = 7
+            case "Fi"   ->  FiB(index_Size); // byte = 8
+            case "F180" ->  FB180(index_Size); // byte = 9
+            case "B"    ->  FiB(0); // byte = 10
+            case "Bi"   ->  FBi(0); // byte = 11
+            case "B180" ->  FB180(0); // byte = 12
+            case "U"    ->  UDi(index_Size); // byte = 13
+            case "Ui"   ->  UiD(index_Size); // byte = 14
+            case "U180" ->  UD180(index_Size); // byte = 15
+            case "D"    ->  UiD(0); // byte = 16
+            case "Di"   ->  UDi(0); // byte = 17
+            case "D180" ->  UD180(0); // byte = 18
         }
     }
 
@@ -92,7 +96,6 @@ public class Cube {
             }
             System.out.print("\n");
         }
-
         for (int outer = index_Size; outer >= 0; outer--) {
             for (int inner = 0; inner <= index_Size; inner++) {
                 System.out.print(rubix_Cube[outer][index_Size][inner].front + "\t");
@@ -108,7 +111,6 @@ public class Cube {
             }
             System.out.print("\n");
         }
-
         for (int outer = index_Size; outer >= 0; outer--){
             for (int inner = 0; inner <= index_Size; inner++) {
                 System.out.print(rubix_Cube[0][outer][inner].bottom + "\t");
@@ -116,13 +118,80 @@ public class Cube {
             System.out.print("\n");
         }
     }
+
+    public String byte_to_string(byte byte_move){
+        String string_move = "";
+
+        switch (byte_move) {
+            case 1    ->  string_move = "R";
+            case 2   ->  string_move = "Ri";
+            case 3 ->  string_move = "R180";
+            case 4    ->  string_move = "L";
+            case 5   ->  string_move = "Li";
+            case 6  ->  string_move = "L180";
+            case 7    ->  string_move = "F";
+            case 8   ->  string_move = "Fi";
+            case 9  ->  string_move = "F180";
+            case 10    ->  string_move = "B";
+            case 11   ->  string_move = "Bi";
+            case 12 ->  string_move = "B180";
+            case 13    ->  string_move = "U";
+            case 14   ->  string_move = "Ui";
+            case 15 ->  string_move = "U180";
+            case 16    ->  string_move = "D";
+            case 17   ->  string_move = "Di";
+            case 18 ->  string_move = "D180";
+            default -> throw new IllegalStateException("Unexpected value: " + byte_move);
+        }
+        return string_move;
+    }
+
+    public byte string_to_byte(String string_move){
+        byte byte_move;
+        byte R = 1;
+        byte Ri = 2;
+        byte R180 = 3;
+        byte L = 4;
+        byte Li = 5;
+        byte L180 = 6;
+        byte F = 7;
+        byte Fi = 8;
+        byte F180 = 9;
+        byte B = 10;
+        byte Bi = 11;
+        byte B180 = 12;
+        byte U = 13;
+        byte Ui = 14;
+        byte U180 = 15;
+        byte D = 16;
+        byte Di = 17;
+        byte D180 = 18;
+
+        switch (string_move) {
+            case "R"    ->  byte_move =  R;
+            case "Ri"   ->  byte_move = Ri;
+            case "R180" ->  byte_move = R180;
+            case "L"    ->  byte_move = L;
+            case "Li"   ->  byte_move = Li;
+            case "L180" ->  byte_move = L180;
+            case "F"    ->  byte_move = F;
+            case "Fi"   ->  byte_move = Fi;
+            case "F180" ->  byte_move = F180;
+            case "B"    ->  byte_move = B;
+            case "Bi"   ->  byte_move = Bi;
+            case "B180" ->  byte_move = B180;
+            case "U"    ->  byte_move = U;
+            case "Ui"   ->  byte_move = Ui;
+            case "U180" ->  byte_move = U180;
+            case "D"    ->  byte_move = D;
+            case "Di"   ->  byte_move = Di;
+            case "D180" ->  byte_move = D180;
+            default -> throw new IllegalStateException("Unexpected value: " + string_move);
+        }
+        return byte_move;
+    }
+
     public void create_cube(){
-        String yellow = "YELLOW";
-        String blue = "BLUE";
-        String red = "RED\t";
-        String green = "GREEN";
-        String orange = "ORANGE";
-        String white = "WHITE";
         String top;
         String bottom;
         String front;
@@ -136,9 +205,9 @@ public class Cube {
         for (int index1 = 0; index1 <= index_Size; index1++){
             if (index1 == 0){
                 top = null;
-                bottom = white;
+                bottom = "WHITE";
             } else if (index1 == index_Size){
-                top = yellow;
+                top = "YELLOW";
                 bottom =null;
             } else {
                 top = null;
@@ -147,9 +216,9 @@ public class Cube {
             for (int index2 = 0; index2 <= index_Size; index2++){
                 if (index2 == 0){
                     front = null;
-                    back = green;
+                    back = "GREEN";
                 } else if (index2 == index_Size){
-                    front = blue;
+                    front = "BLUE";
                     back = null;
                 } else {
                     front = null;
@@ -157,11 +226,11 @@ public class Cube {
                 }
                 for (int index3 = 0; index3 <= index_Size; index3++) {
                     if (index3 == 0) {
-                        left = orange;
+                        left = "ORANGE";
                         right = null;
                     } else if (index3 == index_Size) {
                         left = null;
-                        right = red;
+                        right = "RED";
                     } else {
                         left = null;
                         right = null;
@@ -606,9 +675,9 @@ public class Cube {
         return position && orientation == 0;
     }
 
-    public  void go_to_path(String[] path){
-        for (String move: path) {
-            move(move);
+    public  void go_to_path(byte[] path){
+        for (byte move: path) {
+            move(byte_to_string(move));
 
         }
     }

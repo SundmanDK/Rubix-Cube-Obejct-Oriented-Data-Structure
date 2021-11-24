@@ -12,6 +12,10 @@ public class App {
         String command;
         boolean running = true;
         boolean automatic = false;
+        byte[] solution_byte;
+        long start_time;
+        long stop_time;
+        long time_to_solve;
         cube = new Cube();
         solver = new Solver(cube);
         /*
@@ -25,14 +29,25 @@ public class App {
         */
         while (running) {
             System.out.println("-------------------------------------------------------------------------------------");
-            System.out.println("Above");
             cube.show();
-            System.out.println("below");
             if (automatic) {
-                System.out.println();
-                System.out.println("Solution moves:");
-                System.out.println(Arrays.toString(solver.IDA_step(new Open_Node(20, new String[]{}) ,20)));
+                start_time = System.currentTimeMillis();
+                System.out.println("before solving");
                 runGC();
+
+                System.out.println("Solution moves:");
+                solution_byte = solver.IDA_step(new Open_Node(20, new byte[]{}) ,20);
+                stop_time = System.currentTimeMillis();
+                time_to_solve = stop_time - start_time;
+                System.out.println("time to compute: " + time_to_solve + "ms or " + time_to_solve/1000 + " seconds" );
+                String[] solution_string = new String[solution_byte.length];
+                for (int i = 0; i < solution_byte.length; i++) {
+                    solution_string[i] = cube.byte_to_string(solution_byte[i]);
+                }
+                System.out.println(Arrays.toString(solution_string));
+                System.out.println("after solver");
+                runGC();
+                System.out.println(solver.all_nodes.size());
                 cube.scrambled_path = new String[0];
                 automatic = false;
             } else {
@@ -50,7 +65,6 @@ public class App {
                     System.out.println("Loop ended");
 
                 } else if (command.trim().toLowerCase(Locale.ROOT).equals("solve")) {
-
                     automatic = true;
                 } else if (command.trim().toLowerCase(Locale.ROOT).equals("scramble")){
 
