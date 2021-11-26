@@ -36,7 +36,7 @@ public class App {
                 runGC();
 
                 System.out.println("Solution moves:");
-                solution_byte = solver.IDA_step(new Open_Node(20, new byte[]{}) ,20);
+                solution_byte = solver.algorithm(20);
                 stop_time = System.currentTimeMillis();
                 time_to_solve = stop_time - start_time;
                 System.out.println("time to compute: " + time_to_solve + "ms or " + time_to_solve/1000 + " seconds" );

@@ -13,14 +13,14 @@ public class Solver {
         cube = cube_to_solve;
     }
 
-    public byte[] IDA_step(Open_Node node, int max_depth){
+    public byte[] algorithm(int max_depth){
         byte[] move_list = {};
+        Open_Node best_node = new Open_Node(20, new byte[]{});
+        make_new_nodes(best_node);
 
-        make_new_nodes(node);
-
-        while (node.get_path().length < max_depth && !cube.is_solved()){
+        while (best_node.get_path().length < max_depth && !cube.is_solved()){
             byte[] byte_scramble_path = new byte[cube.scrambled_path.length];
-            Open_Node best_node = all_open_nodes.poll();
+            best_node = all_open_nodes.poll();
             assert best_node != null;
             move_list = best_node.get_path();
 

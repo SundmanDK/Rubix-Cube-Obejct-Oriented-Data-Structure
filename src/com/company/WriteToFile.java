@@ -15,7 +15,7 @@ public class WriteToFile {
                 myWriter.write("depth: " + node.get_path().length + ", path: " + Arrays.toString(node.get_path()) + ", fitness: " + node.get_fitnes() + "\n ");
             }
             myWriter.close();
-            System.out.println("Successfully wrote to the file.");
+            //System.out.println("Successfully wrote to the file.");
 
         } catch (IOException e) {
             System.out.println("An error occurred.");
