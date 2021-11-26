@@ -1,217 +1,1243 @@
-depth: 1, path: [1], fitness: 9.25
- depth: 1, path: [2], fitness: 8.5
- depth: 1, path: [3], fitness: 9.75
- depth: 1, path: [4], fitness: 10.75
- depth: 1, path: [5], fitness: 10.75
- depth: 1, path: [6], fitness: 10.25
- depth: 1, path: [7], fitness: 9.25
- depth: 1, path: [8], fitness: 9.5
- depth: 1, path: [9], fitness: 9.75
- depth: 1, path: [10], fitness: 9.75
- depth: 1, path: [11], fitness: 9.75
- depth: 1, path: [12], fitness: 9.75
- depth: 1, path: [13], fitness: 9.75
- depth: 1, path: [14], fitness: 9.75
- depth: 1, path: [15], fitness: 8.25
- depth: 1, path: [16], fitness: 9.25
- depth: 1, path: [17], fitness: 10.0
- depth: 1, path: [18], fitness: 10.0
- depth: 2, path: [15, 1], fitness: 9.75
- depth: 2, path: [15, 2], fitness: 9.25
- depth: 2, path: [15, 3], fitness: 9.75
- depth: 2, path: [15, 4], fitness: 9.5
- depth: 2, path: [15, 5], fitness: 9.5
- depth: 2, path: [15, 6], fitness: 9.75
- depth: 2, path: [15, 7], fitness: 8.0
- depth: 2, path: [15, 8], fitness: 8.75
- depth: 2, path: [15, 9], fitness: 9.25
- depth: 2, path: [15, 10], fitness: 10.0
- depth: 2, path: [15, 11], fitness: 10.0
- depth: 2, path: [15, 12], fitness: 9.75
- depth: 2, path: [15, 13], fitness: 10.75
- depth: 2, path: [15, 14], fitness: 10.75
- depth: 2, path: [15, 15], fitness: 10.75
- depth: 2, path: [15, 16], fitness: 8.75
- depth: 2, path: [15, 17], fitness: 9.5
- depth: 2, path: [15, 18], fitness: 9.5
- depth: 3, path: [15, 7, 1], fitness: 10.5
- depth: 3, path: [15, 7, 2], fitness: 10.0
- depth: 3, path: [15, 7, 3], fitness: 10.25
- depth: 3, path: [15, 7, 4], fitness: 9.75
- depth: 3, path: [15, 7, 5], fitness: 10.25
- depth: 3, path: [15, 7, 6], fitness: 10.0
- depth: 3, path: [15, 7, 7], fitness: 10.25
- depth: 3, path: [15, 7, 8], fitness: 10.25
- depth: 3, path: [15, 7, 9], fitness: 9.75
- depth: 3, path: [15, 7, 10], fitness: 9.75
- depth: 3, path: [15, 7, 11], fitness: 9.75
- depth: 3, path: [15, 7, 12], fitness: 9.5
- depth: 3, path: [15, 7, 13], fitness: 10.25
- depth: 3, path: [15, 7, 14], fitness: 10.0
- depth: 3, path: [15, 7, 15], fitness: 10.25
- depth: 3, path: [15, 7, 16], fitness: 8.5
- depth: 3, path: [15, 7, 17], fitness: 9.25
- depth: 3, path: [15, 7, 18], fitness: 9.5
- depth: 2, path: [2, 1], fitness: 10.75
- depth: 2, path: [2, 2], fitness: 10.75
- depth: 2, path: [2, 3], fitness: 10.25
- depth: 2, path: [2, 4], fitness: 10.5
- depth: 2, path: [2, 5], fitness: 10.5
+depth: 1, path: [1], fitness: 10.0
+ depth: 1, path: [2], fitness: 9.0
+ depth: 1, path: [3], fitness: 10.5
+ depth: 1, path: [4], fitness: 9.0
+ depth: 1, path: [5], fitness: 10.0
+ depth: 1, path: [6], fitness: 10.5
+ depth: 1, path: [7], fitness: 10.5
+ depth: 1, path: [8], fitness: 10.25
+ depth: 1, path: [9], fitness: 10.5
+ depth: 1, path: [10], fitness: 10.25
+ depth: 1, path: [11], fitness: 10.25
+ depth: 1, path: [12], fitness: 10.5
+ depth: 1, path: [13], fitness: 10.5
+ depth: 1, path: [14], fitness: 9.5
+ depth: 1, path: [15], fitness: 10.5
+ depth: 1, path: [16], fitness: 10.5
+ depth: 1, path: [17], fitness: 10.5
+ depth: 1, path: [18], fitness: 9.5
+ depth: 2, path: [2, 1], fitness: 11.5
+ depth: 2, path: [2, 2], fitness: 11.5
+ depth: 2, path: [2, 3], fitness: 11.0
+ depth: 2, path: [2, 4], fitness: 8.5
+ depth: 2, path: [2, 5], fitness: 9.5
  depth: 2, path: [2, 6], fitness: 10.0
- depth: 2, path: [2, 7], fitness: 8.75
- depth: 2, path: [2, 8], fitness: 9.5
- depth: 2, path: [2, 9], fitness: 9.5
- depth: 2, path: [2, 10], fitness: 10.0
- depth: 2, path: [2, 11], fitness: 10.0
- depth: 2, path: [2, 12], fitness: 10.0
- depth: 2, path: [2, 13], fitness: 9.5
+ depth: 2, path: [2, 7], fitness: 9.25
+ depth: 2, path: [2, 8], fitness: 9.0
+ depth: 2, path: [2, 9], fitness: 9.75
+ depth: 2, path: [2, 10], fitness: 11.0
+ depth: 2, path: [2, 11], fitness: 11.0
+ depth: 2, path: [2, 12], fitness: 10.5
+ depth: 2, path: [2, 13], fitness: 10.0
  depth: 2, path: [2, 14], fitness: 9.5
- depth: 2, path: [2, 15], fitness: 7.25
- depth: 2, path: [2, 16], fitness: 8.25
- depth: 2, path: [2, 17], fitness: 9.75
+ depth: 2, path: [2, 15], fitness: 9.75
+ depth: 2, path: [2, 16], fitness: 10.75
+ depth: 2, path: [2, 17], fitness: 10.75
  depth: 2, path: [2, 18], fitness: 9.75
- depth: 3, path: [2, 15, 1], fitness: 10.0
- depth: 3, path: [2, 15, 2], fitness: 10.0
- depth: 3, path: [2, 15, 3], fitness: 9.5
- depth: 3, path: [2, 15, 4], fitness: 9.75
- depth: 3, path: [2, 15, 5], fitness: 9.75
- depth: 3, path: [2, 15, 6], fitness: 9.25
- depth: 3, path: [2, 15, 7], fitness: 6.0
- depth: 3, path: [2, 15, 8], fitness: 7.25
- depth: 3, path: [2, 15, 9], fitness: 8.25
- depth: 3, path: [2, 15, 10], fitness: 10.5
- depth: 3, path: [2, 15, 11], fitness: 10.5
- depth: 3, path: [2, 15, 12], fitness: 9.5
- depth: 3, path: [2, 15, 13], fitness: 10.5
- depth: 3, path: [2, 15, 14], fitness: 10.5
- depth: 3, path: [2, 15, 15], fitness: 10.5
- depth: 3, path: [2, 15, 16], fitness: 7.0
- depth: 3, path: [2, 15, 17], fitness: 8.5
- depth: 3, path: [2, 15, 18], fitness: 8.5
- depth: 4, path: [2, 15, 7, 1], fitness: 9.75
- depth: 4, path: [2, 15, 7, 2], fitness: 9.75
- depth: 4, path: [2, 15, 7, 3], fitness: 8.75
- depth: 4, path: [2, 15, 7, 4], fitness: 9.75
- depth: 4, path: [2, 15, 7, 5], fitness: 9.75
- depth: 4, path: [2, 15, 7, 6], fitness: 8.75
- depth: 4, path: [2, 15, 7, 7], fitness: 9.25
- depth: 4, path: [2, 15, 7, 8], fitness: 9.25
- depth: 4, path: [2, 15, 7, 9], fitness: 8.25
- depth: 4, path: [2, 15, 7, 10], fitness: 9.25
- depth: 4, path: [2, 15, 7, 11], fitness: 9.25
- depth: 4, path: [2, 15, 7, 12], fitness: 8.25
- depth: 4, path: [2, 15, 7, 13], fitness: 8.75
- depth: 4, path: [2, 15, 7, 14], fitness: 8.75
- depth: 4, path: [2, 15, 7, 15], fitness: 9.0
- depth: 4, path: [2, 15, 7, 16], fitness: 6.5
- depth: 4, path: [2, 15, 7, 17], fitness: 8.0
- depth: 4, path: [2, 15, 7, 18], fitness: 8.0
- depth: 5, path: [2, 15, 7, 16, 1], fitness: 10.0
- depth: 5, path: [2, 15, 7, 16, 2], fitness: 10.0
- depth: 5, path: [2, 15, 7, 16, 3], fitness: 9.0
- depth: 5, path: [2, 15, 7, 16, 4], fitness: 10.5
- depth: 5, path: [2, 15, 7, 16, 5], fitness: 10.5
- depth: 5, path: [2, 15, 7, 16, 6], fitness: 9.5
- depth: 5, path: [2, 15, 7, 16, 7], fitness: 9.0
- depth: 5, path: [2, 15, 7, 16, 8], fitness: 9.0
- depth: 5, path: [2, 15, 7, 16, 9], fitness: 7.5
- depth: 5, path: [2, 15, 7, 16, 10], fitness: 10.25
- depth: 5, path: [2, 15, 7, 16, 11], fitness: 10.25
- depth: 5, path: [2, 15, 7, 16, 12], fitness: 9.25
- depth: 5, path: [2, 15, 7, 16, 13], fitness: 9.25
- depth: 5, path: [2, 15, 7, 16, 14], fitness: 9.25
- depth: 5, path: [2, 15, 7, 16, 15], fitness: 9.5
- depth: 5, path: [2, 15, 7, 16, 16], fitness: 9.0
- depth: 5, path: [2, 15, 7, 16, 17], fitness: 8.0
- depth: 5, path: [2, 15, 7, 16, 18], fitness: 9.0
- depth: 4, path: [2, 15, 16, 1], fitness: 9.0
- depth: 4, path: [2, 15, 16, 2], fitness: 8.75
- depth: 4, path: [2, 15, 16, 3], fitness: 9.25
- depth: 4, path: [2, 15, 16, 4], fitness: 10.25
- depth: 4, path: [2, 15, 16, 5], fitness: 10.25
- depth: 4, path: [2, 15, 16, 6], fitness: 9.5
- depth: 4, path: [2, 15, 16, 7], fitness: 7.0
- depth: 4, path: [2, 15, 16, 8], fitness: 7.75
- depth: 4, path: [2, 15, 16, 9], fitness: 7.5
- depth: 4, path: [2, 15, 16, 10], fitness: 10.5
- depth: 4, path: [2, 15, 16, 11], fitness: 10.5
- depth: 4, path: [2, 15, 16, 12], fitness: 9.75
- depth: 4, path: [2, 15, 16, 13], fitness: 10.25
- depth: 4, path: [2, 15, 16, 14], fitness: 10.25
- depth: 4, path: [2, 15, 16, 15], fitness: 10.25
- depth: 4, path: [2, 15, 16, 16], fitness: 9.5
- depth: 4, path: [2, 15, 16, 17], fitness: 9.25
- depth: 4, path: [2, 15, 16, 18], fitness: 9.5
- depth: 5, path: [2, 15, 16, 7, 1], fitness: 10.25
- depth: 5, path: [2, 15, 16, 7, 2], fitness: 10.25
- depth: 5, path: [2, 15, 16, 7, 3], fitness: 9.75
- depth: 5, path: [2, 15, 16, 7, 4], fitness: 10.0
- depth: 5, path: [2, 15, 16, 7, 5], fitness: 10.0
- depth: 5, path: [2, 15, 16, 7, 6], fitness: 9.75
- depth: 5, path: [2, 15, 16, 7, 7], fitness: 8.5
- depth: 5, path: [2, 15, 16, 7, 8], fitness: 9.0
- depth: 5, path: [2, 15, 16, 7, 9], fitness: 8.75
- depth: 5, path: [2, 15, 16, 7, 10], fitness: 10.5
- depth: 5, path: [2, 15, 16, 7, 11], fitness: 10.5
- depth: 5, path: [2, 15, 16, 7, 12], fitness: 9.75
- depth: 5, path: [2, 15, 16, 7, 13], fitness: 9.75
- depth: 5, path: [2, 15, 16, 7, 14], fitness: 9.75
- depth: 5, path: [2, 15, 16, 7, 15], fitness: 10.0
- depth: 5, path: [2, 15, 16, 7, 16], fitness: 10.0
- depth: 5, path: [2, 15, 16, 7, 17], fitness: 9.75
- depth: 5, path: [2, 15, 16, 7, 18], fitness: 10.0
- depth: 4, path: [2, 15, 8, 1], fitness: 10.5
- depth: 4, path: [2, 15, 8, 2], fitness: 10.5
- depth: 4, path: [2, 15, 8, 3], fitness: 9.5
- depth: 4, path: [2, 15, 8, 4], fitness: 10.5
- depth: 4, path: [2, 15, 8, 5], fitness: 10.5
- depth: 4, path: [2, 15, 8, 6], fitness: 9.5
- depth: 4, path: [2, 15, 8, 7], fitness: 9.25
- depth: 4, path: [2, 15, 8, 8], fitness: 9.25
- depth: 4, path: [2, 15, 8, 9], fitness: 7.0
- depth: 4, path: [2, 15, 8, 10], fitness: 10.5
- depth: 4, path: [2, 15, 8, 11], fitness: 10.5
- depth: 4, path: [2, 15, 8, 12], fitness: 9.5
- depth: 4, path: [2, 15, 8, 13], fitness: 10.5
- depth: 4, path: [2, 15, 8, 14], fitness: 10.5
- depth: 4, path: [2, 15, 8, 15], fitness: 10.5
- depth: 4, path: [2, 15, 8, 16], fitness: 6.0
- depth: 4, path: [2, 15, 8, 17], fitness: 8.25
- depth: 4, path: [2, 15, 8, 18], fitness: 8.25
- depth: 5, path: [2, 15, 8, 16, 1], fitness: 9.75
- depth: 5, path: [2, 15, 8, 16, 2], fitness: 9.75
- depth: 5, path: [2, 15, 8, 16, 3], fitness: 8.75
- depth: 5, path: [2, 15, 8, 16, 4], fitness: 9.75
- depth: 5, path: [2, 15, 8, 16, 5], fitness: 9.75
- depth: 5, path: [2, 15, 8, 16, 6], fitness: 8.75
- depth: 5, path: [2, 15, 8, 16, 7], fitness: 8.0
- depth: 5, path: [2, 15, 8, 16, 8], fitness: 8.0
- depth: 5, path: [2, 15, 8, 16, 9], fitness: 5.0
- depth: 5, path: [2, 15, 8, 16, 10], fitness: 10.0
- depth: 5, path: [2, 15, 8, 16, 11], fitness: 10.0
- depth: 5, path: [2, 15, 8, 16, 12], fitness: 9.0
- depth: 5, path: [2, 15, 8, 16, 13], fitness: 9.25
- depth: 5, path: [2, 15, 8, 16, 14], fitness: 9.25
- depth: 5, path: [2, 15, 8, 16, 15], fitness: 9.25
- depth: 5, path: [2, 15, 8, 16, 16], fitness: 9.25
- depth: 5, path: [2, 15, 8, 16, 17], fitness: 9.25
- depth: 5, path: [2, 15, 8, 16, 18], fitness: 9.25
- depth: 6, path: [2, 15, 8, 16, 9, 1], fitness: 9.5
- depth: 6, path: [2, 15, 8, 16, 9, 2], fitness: 9.5
- depth: 6, path: [2, 15, 8, 16, 9, 3], fitness: 8.5
- depth: 6, path: [2, 15, 8, 16, 9, 4], fitness: 9.5
- depth: 6, path: [2, 15, 8, 16, 9, 5], fitness: 9.5
- depth: 6, path: [2, 15, 8, 16, 9, 6], fitness: 8.5
- depth: 6, path: [2, 15, 8, 16, 9, 7], fitness: 9.0
- depth: 6, path: [2, 15, 8, 16, 9, 8], fitness: 9.0
- depth: 6, path: [2, 15, 8, 16, 9, 9], fitness: 8.0
- depth: 6, path: [2, 15, 8, 16, 9, 10], fitness: 9.0
- depth: 6, path: [2, 15, 8, 16, 9, 11], fitness: 9.0
- depth: 6, path: [2, 15, 8, 16, 9, 12], fitness: 8.0
- depth: 6, path: [2, 15, 8, 16, 9, 13], fitness: 9.0
- depth: 6, path: [2, 15, 8, 16, 9, 14], fitness: 9.0
- depth: 6, path: [2, 15, 8, 16, 9, 15], fitness: 9.0
- depth: 6, path: [2, 15, 8, 16, 9, 16], fitness: 9.0
- depth: 6, path: [2, 15, 8, 16, 9, 17], fitness: 9.0
- depth: 6, path: [2, 15, 8, 16, 9, 18], fitness: 9.0
+ depth: 3, path: [2, 4, 1], fitness: 11.0
+ depth: 3, path: [2, 4, 2], fitness: 11.0
+ depth: 3, path: [2, 4, 3], fitness: 10.5
+ depth: 3, path: [2, 4, 4], fitness: 11.0
+ depth: 3, path: [2, 4, 5], fitness: 11.0
+ depth: 3, path: [2, 4, 6], fitness: 10.5
+ depth: 3, path: [2, 4, 7], fitness: 8.5
+ depth: 3, path: [2, 4, 8], fitness: 8.0
+ depth: 3, path: [2, 4, 9], fitness: 9.5
+ depth: 3, path: [2, 4, 10], fitness: 11.5
+ depth: 3, path: [2, 4, 11], fitness: 11.5
+ depth: 3, path: [2, 4, 12], fitness: 10.0
+ depth: 3, path: [2, 4, 13], fitness: 10.25
+ depth: 3, path: [2, 4, 14], fitness: 10.25
+ depth: 3, path: [2, 4, 15], fitness: 10.0
+ depth: 3, path: [2, 4, 16], fitness: 10.25
+ depth: 3, path: [2, 4, 17], fitness: 10.25
+ depth: 3, path: [2, 4, 18], fitness: 9.0
+ depth: 4, path: [2, 4, 8, 1], fitness: 11.25
+ depth: 4, path: [2, 4, 8, 2], fitness: 11.25
+ depth: 4, path: [2, 4, 8, 3], fitness: 10.0
+ depth: 4, path: [2, 4, 8, 4], fitness: 11.25
+ depth: 4, path: [2, 4, 8, 5], fitness: 11.25
+ depth: 4, path: [2, 4, 8, 6], fitness: 10.25
+ depth: 4, path: [2, 4, 8, 7], fitness: 10.5
+ depth: 4, path: [2, 4, 8, 8], fitness: 10.5
+ depth: 4, path: [2, 4, 8, 9], fitness: 9.5
+ depth: 4, path: [2, 4, 8, 10], fitness: 11.0
+ depth: 4, path: [2, 4, 8, 11], fitness: 11.0
+ depth: 4, path: [2, 4, 8, 12], fitness: 9.5
+ depth: 4, path: [2, 4, 8, 13], fitness: 10.0
+ depth: 4, path: [2, 4, 8, 14], fitness: 10.0
+ depth: 4, path: [2, 4, 8, 15], fitness: 10.0
+ depth: 4, path: [2, 4, 8, 16], fitness: 10.0
+ depth: 4, path: [2, 4, 8, 17], fitness: 10.0
+ depth: 4, path: [2, 4, 8, 18], fitness: 9.25
+ depth: 4, path: [2, 4, 7, 1], fitness: 11.5
+ depth: 4, path: [2, 4, 7, 2], fitness: 11.5
+ depth: 4, path: [2, 4, 7, 3], fitness: 10.5
+ depth: 4, path: [2, 4, 7, 4], fitness: 11.75
+ depth: 4, path: [2, 4, 7, 5], fitness: 11.75
+ depth: 4, path: [2, 4, 7, 6], fitness: 10.5
+ depth: 4, path: [2, 4, 7, 7], fitness: 10.5
+ depth: 4, path: [2, 4, 7, 8], fitness: 10.5
+ depth: 4, path: [2, 4, 7, 9], fitness: 9.0
+ depth: 4, path: [2, 4, 7, 10], fitness: 11.5
+ depth: 4, path: [2, 4, 7, 11], fitness: 11.5
+ depth: 4, path: [2, 4, 7, 12], fitness: 10.0
+ depth: 4, path: [2, 4, 7, 13], fitness: 10.25
+ depth: 4, path: [2, 4, 7, 14], fitness: 10.25
+ depth: 4, path: [2, 4, 7, 15], fitness: 10.0
+ depth: 4, path: [2, 4, 7, 16], fitness: 10.5
+ depth: 4, path: [2, 4, 7, 17], fitness: 10.5
+ depth: 4, path: [2, 4, 7, 18], fitness: 9.75
+ depth: 2, path: [4, 1], fitness: 9.5
+ depth: 2, path: [4, 2], fitness: 8.5
+ depth: 2, path: [4, 3], fitness: 10.0
+ depth: 2, path: [4, 4], fitness: 11.5
+ depth: 2, path: [4, 5], fitness: 11.5
+ depth: 2, path: [4, 6], fitness: 11.0
+ depth: 2, path: [4, 7], fitness: 9.75
+ depth: 2, path: [4, 8], fitness: 9.25
+ depth: 2, path: [4, 9], fitness: 10.25
+ depth: 2, path: [4, 10], fitness: 10.75
+ depth: 2, path: [4, 11], fitness: 10.75
+ depth: 2, path: [4, 12], fitness: 10.0
+ depth: 2, path: [4, 13], fitness: 10.75
+ depth: 2, path: [4, 14], fitness: 10.25
+ depth: 2, path: [4, 15], fitness: 10.75
+ depth: 2, path: [4, 16], fitness: 10.0
+ depth: 2, path: [4, 17], fitness: 10.0
+ depth: 2, path: [4, 18], fitness: 8.75
+ depth: 3, path: [4, 2, 1], fitness: 11.0
+ depth: 3, path: [4, 2, 2], fitness: 11.0
+ depth: 3, path: [4, 2, 3], fitness: 10.5
+ depth: 3, path: [4, 2, 4], fitness: 11.0
+ depth: 3, path: [4, 2, 5], fitness: 11.0
+ depth: 3, path: [4, 2, 6], fitness: 10.5
+ depth: 3, path: [4, 2, 7], fitness: 8.5
+ depth: 3, path: [4, 2, 8], fitness: 8.0
+ depth: 3, path: [4, 2, 9], fitness: 9.5
+ depth: 3, path: [4, 2, 10], fitness: 11.5
+ depth: 3, path: [4, 2, 11], fitness: 11.5
+ depth: 3, path: [4, 2, 12], fitness: 10.0
+ depth: 3, path: [4, 2, 13], fitness: 10.25
+ depth: 3, path: [4, 2, 14], fitness: 10.25
+ depth: 3, path: [4, 2, 15], fitness: 10.0
+ depth: 3, path: [4, 2, 16], fitness: 10.25
+ depth: 3, path: [4, 2, 17], fitness: 10.25
+ depth: 3, path: [4, 2, 18], fitness: 9.0
+ depth: 4, path: [4, 2, 8, 1], fitness: 11.25
+ depth: 4, path: [4, 2, 8, 2], fitness: 11.25
+ depth: 4, path: [4, 2, 8, 3], fitness: 10.0
+ depth: 4, path: [4, 2, 8, 4], fitness: 11.25
+ depth: 4, path: [4, 2, 8, 5], fitness: 11.25
+ depth: 4, path: [4, 2, 8, 6], fitness: 10.25
+ depth: 4, path: [4, 2, 8, 7], fitness: 10.5
+ depth: 4, path: [4, 2, 8, 8], fitness: 10.5
+ depth: 4, path: [4, 2, 8, 9], fitness: 9.5
+ depth: 4, path: [4, 2, 8, 10], fitness: 11.0
+ depth: 4, path: [4, 2, 8, 11], fitness: 11.0
+ depth: 4, path: [4, 2, 8, 12], fitness: 9.5
+ depth: 4, path: [4, 2, 8, 13], fitness: 10.0
+ depth: 4, path: [4, 2, 8, 14], fitness: 10.0
+ depth: 4, path: [4, 2, 8, 15], fitness: 10.0
+ depth: 4, path: [4, 2, 8, 16], fitness: 10.0
+ depth: 4, path: [4, 2, 8, 17], fitness: 10.0
+ depth: 4, path: [4, 2, 8, 18], fitness: 9.25
+ depth: 4, path: [4, 2, 7, 1], fitness: 11.5
+ depth: 4, path: [4, 2, 7, 2], fitness: 11.5
+ depth: 4, path: [4, 2, 7, 3], fitness: 10.5
+ depth: 4, path: [4, 2, 7, 4], fitness: 11.75
+ depth: 4, path: [4, 2, 7, 5], fitness: 11.75
+ depth: 4, path: [4, 2, 7, 6], fitness: 10.5
+ depth: 4, path: [4, 2, 7, 7], fitness: 10.5
+ depth: 4, path: [4, 2, 7, 8], fitness: 10.5
+ depth: 4, path: [4, 2, 7, 9], fitness: 9.0
+ depth: 4, path: [4, 2, 7, 10], fitness: 11.5
+ depth: 4, path: [4, 2, 7, 11], fitness: 11.5
+ depth: 4, path: [4, 2, 7, 12], fitness: 10.0
+ depth: 4, path: [4, 2, 7, 13], fitness: 10.25
+ depth: 4, path: [4, 2, 7, 14], fitness: 10.25
+ depth: 4, path: [4, 2, 7, 15], fitness: 10.0
+ depth: 4, path: [4, 2, 7, 16], fitness: 10.5
+ depth: 4, path: [4, 2, 7, 17], fitness: 10.5
+ depth: 4, path: [4, 2, 7, 18], fitness: 9.75
+ depth: 3, path: [4, 18, 1], fitness: 10.0
+ depth: 3, path: [4, 18, 2], fitness: 9.75
+ depth: 3, path: [4, 18, 3], fitness: 9.25
+ depth: 3, path: [4, 18, 4], fitness: 10.0
+ depth: 3, path: [4, 18, 5], fitness: 10.5
+ depth: 3, path: [4, 18, 6], fitness: 10.75
+ depth: 3, path: [4, 18, 7], fitness: 10.25
+ depth: 3, path: [4, 18, 8], fitness: 10.0
+ depth: 3, path: [4, 18, 9], fitness: 10.25
+ depth: 3, path: [4, 18, 10], fitness: 10.25
+ depth: 3, path: [4, 18, 11], fitness: 10.25
+ depth: 3, path: [4, 18, 12], fitness: 10.25
+ depth: 3, path: [4, 18, 13], fitness: 10.5
+ depth: 3, path: [4, 18, 14], fitness: 10.0
+ depth: 3, path: [4, 18, 15], fitness: 10.5
+ depth: 3, path: [4, 18, 16], fitness: 11.0
+ depth: 3, path: [4, 18, 17], fitness: 11.0
+ depth: 3, path: [4, 18, 18], fitness: 11.0
+ depth: 5, path: [2, 4, 7, 9, 1], fitness: 12.25
+ depth: 5, path: [2, 4, 7, 9, 2], fitness: 12.25
+ depth: 5, path: [2, 4, 7, 9, 3], fitness: 11.0
+ depth: 5, path: [2, 4, 7, 9, 4], fitness: 12.25
+ depth: 5, path: [2, 4, 7, 9, 5], fitness: 12.25
+ depth: 5, path: [2, 4, 7, 9, 6], fitness: 11.25
+ depth: 5, path: [2, 4, 7, 9, 7], fitness: 11.5
+ depth: 5, path: [2, 4, 7, 9, 8], fitness: 11.5
+ depth: 5, path: [2, 4, 7, 9, 9], fitness: 10.5
+ depth: 5, path: [2, 4, 7, 9, 10], fitness: 12.0
+ depth: 5, path: [2, 4, 7, 9, 11], fitness: 12.0
+ depth: 5, path: [2, 4, 7, 9, 12], fitness: 10.5
+ depth: 5, path: [2, 4, 7, 9, 13], fitness: 11.0
+ depth: 5, path: [2, 4, 7, 9, 14], fitness: 11.0
+ depth: 5, path: [2, 4, 7, 9, 15], fitness: 11.0
+ depth: 5, path: [2, 4, 7, 9, 16], fitness: 11.0
+ depth: 5, path: [2, 4, 7, 9, 17], fitness: 11.0
+ depth: 5, path: [2, 4, 7, 9, 18], fitness: 10.25
+ depth: 5, path: [4, 2, 7, 9, 1], fitness: 12.25
+ depth: 5, path: [4, 2, 7, 9, 2], fitness: 12.25
+ depth: 5, path: [4, 2, 7, 9, 3], fitness: 11.0
+ depth: 5, path: [4, 2, 7, 9, 4], fitness: 12.25
+ depth: 5, path: [4, 2, 7, 9, 5], fitness: 12.25
+ depth: 5, path: [4, 2, 7, 9, 6], fitness: 11.25
+ depth: 5, path: [4, 2, 7, 9, 7], fitness: 11.5
+ depth: 5, path: [4, 2, 7, 9, 8], fitness: 11.5
+ depth: 5, path: [4, 2, 7, 9, 9], fitness: 10.5
+ depth: 5, path: [4, 2, 7, 9, 10], fitness: 12.0
+ depth: 5, path: [4, 2, 7, 9, 11], fitness: 12.0
+ depth: 5, path: [4, 2, 7, 9, 12], fitness: 10.5
+ depth: 5, path: [4, 2, 7, 9, 13], fitness: 11.0
+ depth: 5, path: [4, 2, 7, 9, 14], fitness: 11.0
+ depth: 5, path: [4, 2, 7, 9, 15], fitness: 11.0
+ depth: 5, path: [4, 2, 7, 9, 16], fitness: 11.0
+ depth: 5, path: [4, 2, 7, 9, 17], fitness: 11.0
+ depth: 5, path: [4, 2, 7, 9, 18], fitness: 10.25
+ depth: 3, path: [2, 8, 1], fitness: 11.5
+ depth: 3, path: [2, 8, 2], fitness: 11.5
+ depth: 3, path: [2, 8, 3], fitness: 10.75
+ depth: 3, path: [2, 8, 4], fitness: 9.5
+ depth: 3, path: [2, 8, 5], fitness: 10.5
+ depth: 3, path: [2, 8, 6], fitness: 10.25
+ depth: 3, path: [2, 8, 7], fitness: 11.0
+ depth: 3, path: [2, 8, 8], fitness: 10.75
+ depth: 3, path: [2, 8, 9], fitness: 10.25
+ depth: 3, path: [2, 8, 10], fitness: 11.0
+ depth: 3, path: [2, 8, 11], fitness: 11.0
+ depth: 3, path: [2, 8, 12], fitness: 10.5
+ depth: 3, path: [2, 8, 13], fitness: 10.25
+ depth: 3, path: [2, 8, 14], fitness: 9.75
+ depth: 3, path: [2, 8, 15], fitness: 10.25
+ depth: 3, path: [2, 8, 16], fitness: 10.5
+ depth: 3, path: [2, 8, 17], fitness: 10.75
+ depth: 3, path: [2, 8, 18], fitness: 10.25
+ depth: 4, path: [2, 4, 18, 1], fitness: 11.0
+ depth: 4, path: [2, 4, 18, 2], fitness: 11.0
+ depth: 4, path: [2, 4, 18, 3], fitness: 10.0
+ depth: 4, path: [2, 4, 18, 4], fitness: 11.5
+ depth: 4, path: [2, 4, 18, 5], fitness: 11.5
+ depth: 4, path: [2, 4, 18, 6], fitness: 11.0
+ depth: 4, path: [2, 4, 18, 7], fitness: 10.5
+ depth: 4, path: [2, 4, 18, 8], fitness: 10.0
+ depth: 4, path: [2, 4, 18, 9], fitness: 10.25
+ depth: 4, path: [2, 4, 18, 10], fitness: 11.0
+ depth: 4, path: [2, 4, 18, 11], fitness: 11.0
+ depth: 4, path: [2, 4, 18, 12], fitness: 10.75
+ depth: 4, path: [2, 4, 18, 13], fitness: 10.75
+ depth: 4, path: [2, 4, 18, 14], fitness: 10.75
+ depth: 4, path: [2, 4, 18, 15], fitness: 10.5
+ depth: 4, path: [2, 4, 18, 16], fitness: 11.25
+ depth: 4, path: [2, 4, 18, 17], fitness: 11.25
+ depth: 4, path: [2, 4, 18, 18], fitness: 10.5
+ depth: 4, path: [4, 2, 18, 1], fitness: 11.0
+ depth: 4, path: [4, 2, 18, 2], fitness: 11.0
+ depth: 4, path: [4, 2, 18, 3], fitness: 10.0
+ depth: 4, path: [4, 2, 18, 4], fitness: 11.5
+ depth: 4, path: [4, 2, 18, 5], fitness: 11.5
+ depth: 4, path: [4, 2, 18, 6], fitness: 11.0
+ depth: 4, path: [4, 2, 18, 7], fitness: 10.5
+ depth: 4, path: [4, 2, 18, 8], fitness: 10.0
+ depth: 4, path: [4, 2, 18, 9], fitness: 10.25
+ depth: 4, path: [4, 2, 18, 10], fitness: 11.0
+ depth: 4, path: [4, 2, 18, 11], fitness: 11.0
+ depth: 4, path: [4, 2, 18, 12], fitness: 10.75
+ depth: 4, path: [4, 2, 18, 13], fitness: 10.75
+ depth: 4, path: [4, 2, 18, 14], fitness: 10.75
+ depth: 4, path: [4, 2, 18, 15], fitness: 10.5
+ depth: 4, path: [4, 2, 18, 16], fitness: 11.25
+ depth: 4, path: [4, 2, 18, 17], fitness: 11.25
+ depth: 4, path: [4, 2, 18, 18], fitness: 10.5
+ depth: 5, path: [4, 2, 8, 18, 1], fitness: 11.75
+ depth: 5, path: [4, 2, 8, 18, 2], fitness: 11.75
+ depth: 5, path: [4, 2, 8, 18, 3], fitness: 9.75
+ depth: 5, path: [4, 2, 8, 18, 4], fitness: 12.5
+ depth: 5, path: [4, 2, 8, 18, 5], fitness: 12.5
+ depth: 5, path: [4, 2, 8, 18, 6], fitness: 11.5
+ depth: 5, path: [4, 2, 8, 18, 7], fitness: 11.75
+ depth: 5, path: [4, 2, 8, 18, 8], fitness: 11.75
+ depth: 5, path: [4, 2, 8, 18, 9], fitness: 10.75
+ depth: 5, path: [4, 2, 8, 18, 10], fitness: 12.0
+ depth: 5, path: [4, 2, 8, 18, 11], fitness: 12.0
+ depth: 5, path: [4, 2, 8, 18, 12], fitness: 10.75
+ depth: 5, path: [4, 2, 8, 18, 13], fitness: 11.25
+ depth: 5, path: [4, 2, 8, 18, 14], fitness: 11.25
+ depth: 5, path: [4, 2, 8, 18, 15], fitness: 11.25
+ depth: 5, path: [4, 2, 8, 18, 16], fitness: 11.0
+ depth: 5, path: [4, 2, 8, 18, 17], fitness: 11.0
+ depth: 5, path: [4, 2, 8, 18, 18], fitness: 10.0
+ depth: 4, path: [4, 18, 3, 1], fitness: 10.75
+ depth: 4, path: [4, 18, 3, 2], fitness: 11.0
+ depth: 4, path: [4, 18, 3, 3], fitness: 10.75
+ depth: 4, path: [4, 18, 3, 4], fitness: 10.5
+ depth: 4, path: [4, 18, 3, 5], fitness: 11.0
+ depth: 4, path: [4, 18, 3, 6], fitness: 11.25
+ depth: 4, path: [4, 18, 3, 7], fitness: 9.75
+ depth: 4, path: [4, 18, 3, 8], fitness: 9.75
+ depth: 4, path: [4, 18, 3, 9], fitness: 10.25
+ depth: 4, path: [4, 18, 3, 10], fitness: 11.75
+ depth: 4, path: [4, 18, 3, 11], fitness: 11.75
+ depth: 4, path: [4, 18, 3, 12], fitness: 11.5
+ depth: 4, path: [4, 18, 3, 13], fitness: 11.75
+ depth: 4, path: [4, 18, 3, 14], fitness: 11.75
+ depth: 4, path: [4, 18, 3, 15], fitness: 11.75
+ depth: 4, path: [4, 18, 3, 16], fitness: 11.0
+ depth: 4, path: [4, 18, 3, 17], fitness: 11.25
+ depth: 4, path: [4, 18, 3, 18], fitness: 11.25
+ depth: 5, path: [2, 4, 8, 18, 1], fitness: 11.75
+ depth: 5, path: [2, 4, 8, 18, 2], fitness: 11.75
+ depth: 5, path: [2, 4, 8, 18, 3], fitness: 9.75
+ depth: 5, path: [2, 4, 8, 18, 4], fitness: 12.5
+ depth: 5, path: [2, 4, 8, 18, 5], fitness: 12.5
+ depth: 5, path: [2, 4, 8, 18, 6], fitness: 11.5
+ depth: 5, path: [2, 4, 8, 18, 7], fitness: 11.75
+ depth: 5, path: [2, 4, 8, 18, 8], fitness: 11.75
+ depth: 5, path: [2, 4, 8, 18, 9], fitness: 10.75
+ depth: 5, path: [2, 4, 8, 18, 10], fitness: 12.0
+ depth: 5, path: [2, 4, 8, 18, 11], fitness: 12.0
+ depth: 5, path: [2, 4, 8, 18, 12], fitness: 10.75
+ depth: 5, path: [2, 4, 8, 18, 13], fitness: 11.25
+ depth: 5, path: [2, 4, 8, 18, 14], fitness: 11.25
+ depth: 5, path: [2, 4, 8, 18, 15], fitness: 11.25
+ depth: 5, path: [2, 4, 8, 18, 16], fitness: 11.0
+ depth: 5, path: [2, 4, 8, 18, 17], fitness: 11.0
+ depth: 5, path: [2, 4, 8, 18, 18], fitness: 10.0
+ depth: 3, path: [4, 8, 1], fitness: 10.25
+ depth: 3, path: [4, 8, 2], fitness: 9.75
+ depth: 3, path: [4, 8, 3], fitness: 10.25
+ depth: 3, path: [4, 8, 4], fitness: 12.25
+ depth: 3, path: [4, 8, 5], fitness: 12.25
+ depth: 3, path: [4, 8, 6], fitness: 11.25
+ depth: 3, path: [4, 8, 7], fitness: 11.0
+ depth: 3, path: [4, 8, 8], fitness: 11.25
+ depth: 3, path: [4, 8, 9], fitness: 10.75
+ depth: 3, path: [4, 8, 10], fitness: 11.0
+ depth: 3, path: [4, 8, 11], fitness: 11.0
+ depth: 3, path: [4, 8, 12], fitness: 10.25
+ depth: 3, path: [4, 8, 13], fitness: 11.0
+ depth: 3, path: [4, 8, 14], fitness: 10.5
+ depth: 3, path: [4, 8, 15], fitness: 11.0
+ depth: 3, path: [4, 8, 16], fitness: 10.5
+ depth: 3, path: [4, 8, 17], fitness: 10.5
+ depth: 3, path: [4, 8, 18], fitness: 9.75
+ depth: 3, path: [2, 7, 1], fitness: 12.0
+ depth: 3, path: [2, 7, 2], fitness: 12.0
+ depth: 3, path: [2, 7, 3], fitness: 11.0
+ depth: 3, path: [2, 7, 4], fitness: 9.25
+ depth: 3, path: [2, 7, 5], fitness: 10.25
+ depth: 3, path: [2, 7, 6], fitness: 10.25
+ depth: 3, path: [2, 7, 7], fitness: 10.75
+ depth: 3, path: [2, 7, 8], fitness: 11.0
+ depth: 3, path: [2, 7, 9], fitness: 10.0
+ depth: 3, path: [2, 7, 10], fitness: 11.25
+ depth: 3, path: [2, 7, 11], fitness: 11.25
+ depth: 3, path: [2, 7, 12], fitness: 10.75
+ depth: 3, path: [2, 7, 13], fitness: 10.25
+ depth: 3, path: [2, 7, 14], fitness: 10.0
+ depth: 3, path: [2, 7, 15], fitness: 10.0
+ depth: 3, path: [2, 7, 16], fitness: 11.25
+ depth: 3, path: [2, 7, 17], fitness: 11.25
+ depth: 3, path: [2, 7, 18], fitness: 10.75
+ depth: 4, path: [2, 7, 4, 1], fitness: 12.0
+ depth: 4, path: [2, 7, 4, 2], fitness: 12.0
+ depth: 4, path: [2, 7, 4, 3], fitness: 11.0
+ depth: 4, path: [2, 7, 4, 4], fitness: 11.25
+ depth: 4, path: [2, 7, 4, 5], fitness: 11.25
+ depth: 4, path: [2, 7, 4, 6], fitness: 11.25
+ depth: 4, path: [2, 7, 4, 7], fitness: 10.25
+ depth: 4, path: [2, 7, 4, 8], fitness: 10.5
+ depth: 4, path: [2, 7, 4, 9], fitness: 9.75
+ depth: 4, path: [2, 7, 4, 10], fitness: 12.0
+ depth: 4, path: [2, 7, 4, 11], fitness: 12.0
+ depth: 4, path: [2, 7, 4, 12], fitness: 11.0
+ depth: 4, path: [2, 7, 4, 13], fitness: 11.0
+ depth: 4, path: [2, 7, 4, 14], fitness: 11.25
+ depth: 4, path: [2, 7, 4, 15], fitness: 10.75
+ depth: 4, path: [2, 7, 4, 16], fitness: 11.0
+ depth: 4, path: [2, 7, 4, 17], fitness: 11.25
+ depth: 4, path: [2, 7, 4, 18], fitness: 10.5
+ depth: 5, path: [4, 2, 8, 9, 1], fitness: 12.5
+ depth: 5, path: [4, 2, 8, 9, 2], fitness: 12.5
+ depth: 5, path: [4, 2, 8, 9, 3], fitness: 11.5
+ depth: 5, path: [4, 2, 8, 9, 4], fitness: 12.75
+ depth: 5, path: [4, 2, 8, 9, 5], fitness: 12.75
+ depth: 5, path: [4, 2, 8, 9, 6], fitness: 11.5
+ depth: 5, path: [4, 2, 8, 9, 7], fitness: 11.5
+ depth: 5, path: [4, 2, 8, 9, 8], fitness: 11.5
+ depth: 5, path: [4, 2, 8, 9, 9], fitness: 10.0
+ depth: 5, path: [4, 2, 8, 9, 10], fitness: 12.5
+ depth: 5, path: [4, 2, 8, 9, 11], fitness: 12.5
+ depth: 5, path: [4, 2, 8, 9, 12], fitness: 11.0
+ depth: 5, path: [4, 2, 8, 9, 13], fitness: 11.25
+ depth: 5, path: [4, 2, 8, 9, 14], fitness: 11.25
+ depth: 5, path: [4, 2, 8, 9, 15], fitness: 11.0
+ depth: 5, path: [4, 2, 8, 9, 16], fitness: 11.5
+ depth: 5, path: [4, 2, 8, 9, 17], fitness: 11.5
+ depth: 5, path: [4, 2, 8, 9, 18], fitness: 10.75
+ depth: 5, path: [4, 2, 8, 12, 1], fitness: 12.5
+ depth: 5, path: [4, 2, 8, 12, 2], fitness: 12.5
+ depth: 5, path: [4, 2, 8, 12, 3], fitness: 11.25
+ depth: 5, path: [4, 2, 8, 12, 4], fitness: 12.5
+ depth: 5, path: [4, 2, 8, 12, 5], fitness: 12.5
+ depth: 5, path: [4, 2, 8, 12, 6], fitness: 11.5
+ depth: 5, path: [4, 2, 8, 12, 7], fitness: 12.0
+ depth: 5, path: [4, 2, 8, 12, 8], fitness: 12.0
+ depth: 5, path: [4, 2, 8, 12, 9], fitness: 11.0
+ depth: 5, path: [4, 2, 8, 12, 10], fitness: 12.0
+ depth: 5, path: [4, 2, 8, 12, 11], fitness: 12.0
+ depth: 5, path: [4, 2, 8, 12, 12], fitness: 10.0
+ depth: 5, path: [4, 2, 8, 12, 13], fitness: 11.5
+ depth: 5, path: [4, 2, 8, 12, 14], fitness: 11.5
+ depth: 5, path: [4, 2, 8, 12, 15], fitness: 11.25
+ depth: 5, path: [4, 2, 8, 12, 16], fitness: 11.5
+ depth: 5, path: [4, 2, 8, 12, 17], fitness: 11.5
+ depth: 5, path: [4, 2, 8, 12, 18], fitness: 11.25
+ depth: 2, path: [18, 1], fitness: 10.0
+ depth: 2, path: [18, 2], fitness: 9.25
+ depth: 2, path: [18, 3], fitness: 10.5
+ depth: 2, path: [18, 4], fitness: 9.25
+ depth: 2, path: [18, 5], fitness: 10.0
+ depth: 2, path: [18, 6], fitness: 10.5
+ depth: 2, path: [18, 7], fitness: 10.75
+ depth: 2, path: [18, 8], fitness: 10.5
+ depth: 2, path: [18, 9], fitness: 10.75
+ depth: 2, path: [18, 10], fitness: 10.5
+ depth: 2, path: [18, 11], fitness: 10.5
+ depth: 2, path: [18, 12], fitness: 10.75
+ depth: 2, path: [18, 13], fitness: 10.5
+ depth: 2, path: [18, 14], fitness: 9.5
+ depth: 2, path: [18, 15], fitness: 10.5
+ depth: 2, path: [18, 16], fitness: 11.5
+ depth: 2, path: [18, 17], fitness: 11.5
+ depth: 2, path: [18, 18], fitness: 11.5
+ depth: 3, path: [18, 2, 1], fitness: 11.5
+ depth: 3, path: [18, 2, 2], fitness: 11.5
+ depth: 3, path: [18, 2, 3], fitness: 11.0
+ depth: 3, path: [18, 2, 4], fitness: 9.0
+ depth: 3, path: [18, 2, 5], fitness: 9.75
+ depth: 3, path: [18, 2, 6], fitness: 10.25
+ depth: 3, path: [18, 2, 7], fitness: 9.75
+ depth: 3, path: [18, 2, 8], fitness: 9.5
+ depth: 3, path: [18, 2, 9], fitness: 10.25
+ depth: 3, path: [18, 2, 10], fitness: 11.25
+ depth: 3, path: [18, 2, 11], fitness: 11.25
+ depth: 3, path: [18, 2, 12], fitness: 10.5
+ depth: 3, path: [18, 2, 13], fitness: 10.5
+ depth: 3, path: [18, 2, 14], fitness: 10.0
+ depth: 3, path: [18, 2, 15], fitness: 10.25
+ depth: 3, path: [18, 2, 16], fitness: 11.75
+ depth: 3, path: [18, 2, 17], fitness: 11.75
+ depth: 3, path: [18, 2, 18], fitness: 11.75
+ depth: 4, path: [18, 2, 4, 1], fitness: 11.25
+ depth: 4, path: [18, 2, 4, 2], fitness: 11.25
+ depth: 4, path: [18, 2, 4, 3], fitness: 10.75
+ depth: 4, path: [18, 2, 4, 4], fitness: 11.25
+ depth: 4, path: [18, 2, 4, 5], fitness: 11.25
+ depth: 4, path: [18, 2, 4, 6], fitness: 10.75
+ depth: 4, path: [18, 2, 4, 7], fitness: 9.25
+ depth: 4, path: [18, 2, 4, 8], fitness: 8.75
+ depth: 4, path: [18, 2, 4, 9], fitness: 10.25
+ depth: 4, path: [18, 2, 4, 10], fitness: 11.75
+ depth: 4, path: [18, 2, 4, 11], fitness: 11.75
+ depth: 4, path: [18, 2, 4, 12], fitness: 9.75
+ depth: 4, path: [18, 2, 4, 13], fitness: 10.75
+ depth: 4, path: [18, 2, 4, 14], fitness: 10.75
+ depth: 4, path: [18, 2, 4, 15], fitness: 10.5
+ depth: 4, path: [18, 2, 4, 16], fitness: 11.75
+ depth: 4, path: [18, 2, 4, 17], fitness: 11.75
+ depth: 4, path: [18, 2, 4, 18], fitness: 11.5
+ depth: 5, path: [18, 2, 4, 8, 1], fitness: 12.0
+ depth: 5, path: [18, 2, 4, 8, 2], fitness: 12.0
+ depth: 5, path: [18, 2, 4, 8, 3], fitness: 11.0
+ depth: 5, path: [18, 2, 4, 8, 4], fitness: 11.75
+ depth: 5, path: [18, 2, 4, 8, 5], fitness: 11.75
+ depth: 5, path: [18, 2, 4, 8, 6], fitness: 10.75
+ depth: 5, path: [18, 2, 4, 8, 7], fitness: 11.0
+ depth: 5, path: [18, 2, 4, 8, 8], fitness: 11.25
+ depth: 5, path: [18, 2, 4, 8, 9], fitness: 10.25
+ depth: 5, path: [18, 2, 4, 8, 10], fitness: 11.5
+ depth: 5, path: [18, 2, 4, 8, 11], fitness: 11.5
+ depth: 5, path: [18, 2, 4, 8, 12], fitness: 9.5
+ depth: 5, path: [18, 2, 4, 8, 13], fitness: 10.75
+ depth: 5, path: [18, 2, 4, 8, 14], fitness: 10.75
+ depth: 5, path: [18, 2, 4, 8, 15], fitness: 10.75
+ depth: 5, path: [18, 2, 4, 8, 16], fitness: 11.25
+ depth: 5, path: [18, 2, 4, 8, 17], fitness: 11.25
+ depth: 5, path: [18, 2, 4, 8, 18], fitness: 11.0
+ depth: 3, path: [18, 4, 1], fitness: 9.75
+ depth: 3, path: [18, 4, 2], fitness: 9.0
+ depth: 3, path: [18, 4, 3], fitness: 10.25
+ depth: 3, path: [18, 4, 4], fitness: 11.5
+ depth: 3, path: [18, 4, 5], fitness: 11.5
+ depth: 3, path: [18, 4, 6], fitness: 11.0
+ depth: 3, path: [18, 4, 7], fitness: 10.25
+ depth: 3, path: [18, 4, 8], fitness: 9.75
+ depth: 3, path: [18, 4, 9], fitness: 10.75
+ depth: 3, path: [18, 4, 10], fitness: 11.0
+ depth: 3, path: [18, 4, 11], fitness: 11.0
+ depth: 3, path: [18, 4, 12], fitness: 10.0
+ depth: 3, path: [18, 4, 13], fitness: 10.75
+ depth: 3, path: [18, 4, 14], fitness: 10.25
+ depth: 3, path: [18, 4, 15], fitness: 10.75
+ depth: 3, path: [18, 4, 16], fitness: 11.5
+ depth: 3, path: [18, 4, 17], fitness: 11.5
+ depth: 3, path: [18, 4, 18], fitness: 11.25
+ depth: 4, path: [18, 4, 2, 1], fitness: 11.25
+ depth: 4, path: [18, 4, 2, 2], fitness: 11.25
+ depth: 4, path: [18, 4, 2, 3], fitness: 10.75
+ depth: 4, path: [18, 4, 2, 4], fitness: 11.25
+ depth: 4, path: [18, 4, 2, 5], fitness: 11.25
+ depth: 4, path: [18, 4, 2, 6], fitness: 10.75
+ depth: 4, path: [18, 4, 2, 7], fitness: 9.25
+ depth: 4, path: [18, 4, 2, 8], fitness: 8.75
+ depth: 4, path: [18, 4, 2, 9], fitness: 10.25
+ depth: 4, path: [18, 4, 2, 10], fitness: 11.75
+ depth: 4, path: [18, 4, 2, 11], fitness: 11.75
+ depth: 4, path: [18, 4, 2, 12], fitness: 9.75
+ depth: 4, path: [18, 4, 2, 13], fitness: 10.75
+ depth: 4, path: [18, 4, 2, 14], fitness: 10.75
+ depth: 4, path: [18, 4, 2, 15], fitness: 10.5
+ depth: 4, path: [18, 4, 2, 16], fitness: 11.75
+ depth: 4, path: [18, 4, 2, 17], fitness: 11.75
+ depth: 4, path: [18, 4, 2, 18], fitness: 11.5
+ depth: 5, path: [18, 4, 2, 8, 1], fitness: 12.0
+ depth: 5, path: [18, 4, 2, 8, 2], fitness: 12.0
+ depth: 5, path: [18, 4, 2, 8, 3], fitness: 11.0
+ depth: 5, path: [18, 4, 2, 8, 4], fitness: 11.75
+ depth: 5, path: [18, 4, 2, 8, 5], fitness: 11.75
+ depth: 5, path: [18, 4, 2, 8, 6], fitness: 10.75
+ depth: 5, path: [18, 4, 2, 8, 7], fitness: 11.0
+ depth: 5, path: [18, 4, 2, 8, 8], fitness: 11.25
+ depth: 5, path: [18, 4, 2, 8, 9], fitness: 10.25
+ depth: 5, path: [18, 4, 2, 8, 10], fitness: 11.5
+ depth: 5, path: [18, 4, 2, 8, 11], fitness: 11.5
+ depth: 5, path: [18, 4, 2, 8, 12], fitness: 9.5
+ depth: 5, path: [18, 4, 2, 8, 13], fitness: 10.75
+ depth: 5, path: [18, 4, 2, 8, 14], fitness: 10.75
+ depth: 5, path: [18, 4, 2, 8, 15], fitness: 10.75
+ depth: 5, path: [18, 4, 2, 8, 16], fitness: 11.25
+ depth: 5, path: [18, 4, 2, 8, 17], fitness: 11.25
+ depth: 5, path: [18, 4, 2, 8, 18], fitness: 11.0
+ depth: 5, path: [18, 2, 4, 7, 1], fitness: 12.0
+ depth: 5, path: [18, 2, 4, 7, 2], fitness: 12.0
+ depth: 5, path: [18, 2, 4, 7, 3], fitness: 11.0
+ depth: 5, path: [18, 2, 4, 7, 4], fitness: 12.5
+ depth: 5, path: [18, 2, 4, 7, 5], fitness: 12.5
+ depth: 5, path: [18, 2, 4, 7, 6], fitness: 11.5
+ depth: 5, path: [18, 2, 4, 7, 7], fitness: 11.25
+ depth: 5, path: [18, 2, 4, 7, 8], fitness: 11.0
+ depth: 5, path: [18, 2, 4, 7, 9], fitness: 9.75
+ depth: 5, path: [18, 2, 4, 7, 10], fitness: 12.0
+ depth: 5, path: [18, 2, 4, 7, 11], fitness: 12.0
+ depth: 5, path: [18, 2, 4, 7, 12], fitness: 10.0
+ depth: 5, path: [18, 2, 4, 7, 13], fitness: 11.0
+ depth: 5, path: [18, 2, 4, 7, 14], fitness: 11.0
+ depth: 5, path: [18, 2, 4, 7, 15], fitness: 10.75
+ depth: 5, path: [18, 2, 4, 7, 16], fitness: 11.75
+ depth: 5, path: [18, 2, 4, 7, 17], fitness: 11.75
+ depth: 5, path: [18, 2, 4, 7, 18], fitness: 11.5
+ depth: 5, path: [18, 4, 2, 7, 1], fitness: 12.0
+ depth: 5, path: [18, 4, 2, 7, 2], fitness: 12.0
+ depth: 5, path: [18, 4, 2, 7, 3], fitness: 11.0
+ depth: 5, path: [18, 4, 2, 7, 4], fitness: 12.5
+ depth: 5, path: [18, 4, 2, 7, 5], fitness: 12.5
+ depth: 5, path: [18, 4, 2, 7, 6], fitness: 11.5
+ depth: 5, path: [18, 4, 2, 7, 7], fitness: 11.25
+ depth: 5, path: [18, 4, 2, 7, 8], fitness: 11.0
+ depth: 5, path: [18, 4, 2, 7, 9], fitness: 9.75
+ depth: 5, path: [18, 4, 2, 7, 10], fitness: 12.0
+ depth: 5, path: [18, 4, 2, 7, 11], fitness: 12.0
+ depth: 5, path: [18, 4, 2, 7, 12], fitness: 10.0
+ depth: 5, path: [18, 4, 2, 7, 13], fitness: 11.0
+ depth: 5, path: [18, 4, 2, 7, 14], fitness: 11.0
+ depth: 5, path: [18, 4, 2, 7, 15], fitness: 10.75
+ depth: 5, path: [18, 4, 2, 7, 16], fitness: 11.75
+ depth: 5, path: [18, 4, 2, 7, 17], fitness: 11.75
+ depth: 5, path: [18, 4, 2, 7, 18], fitness: 11.5
+ depth: 4, path: [2, 4, 9, 1], fitness: 12.0
+ depth: 4, path: [2, 4, 9, 2], fitness: 12.0
+ depth: 4, path: [2, 4, 9, 3], fitness: 11.5
+ depth: 4, path: [2, 4, 9, 4], fitness: 12.0
+ depth: 4, path: [2, 4, 9, 5], fitness: 12.0
+ depth: 4, path: [2, 4, 9, 6], fitness: 11.5
+ depth: 4, path: [2, 4, 9, 7], fitness: 9.0
+ depth: 4, path: [2, 4, 9, 8], fitness: 9.5
+ depth: 4, path: [2, 4, 9, 9], fitness: 10.5
+ depth: 4, path: [2, 4, 9, 10], fitness: 12.5
+ depth: 4, path: [2, 4, 9, 11], fitness: 12.5
+ depth: 4, path: [2, 4, 9, 12], fitness: 11.0
+ depth: 4, path: [2, 4, 9, 13], fitness: 11.25
+ depth: 4, path: [2, 4, 9, 14], fitness: 11.25
+ depth: 4, path: [2, 4, 9, 15], fitness: 10.75
+ depth: 4, path: [2, 4, 9, 16], fitness: 11.25
+ depth: 4, path: [2, 4, 9, 17], fitness: 11.25
+ depth: 4, path: [2, 4, 9, 18], fitness: 10.5
+ depth: 5, path: [2, 4, 9, 7, 1], fitness: 12.25
+ depth: 5, path: [2, 4, 9, 7, 2], fitness: 12.25
+ depth: 5, path: [2, 4, 9, 7, 3], fitness: 11.0
+ depth: 5, path: [2, 4, 9, 7, 4], fitness: 12.25
+ depth: 5, path: [2, 4, 9, 7, 5], fitness: 12.25
+ depth: 5, path: [2, 4, 9, 7, 6], fitness: 11.25
+ depth: 5, path: [2, 4, 9, 7, 7], fitness: 11.5
+ depth: 5, path: [2, 4, 9, 7, 8], fitness: 11.5
+ depth: 5, path: [2, 4, 9, 7, 9], fitness: 10.5
+ depth: 5, path: [2, 4, 9, 7, 10], fitness: 12.0
+ depth: 5, path: [2, 4, 9, 7, 11], fitness: 12.0
+ depth: 5, path: [2, 4, 9, 7, 12], fitness: 10.5
+ depth: 5, path: [2, 4, 9, 7, 13], fitness: 11.0
+ depth: 5, path: [2, 4, 9, 7, 14], fitness: 11.0
+ depth: 5, path: [2, 4, 9, 7, 15], fitness: 11.0
+ depth: 5, path: [2, 4, 9, 7, 16], fitness: 11.0
+ depth: 5, path: [2, 4, 9, 7, 17], fitness: 11.0
+ depth: 5, path: [2, 4, 9, 7, 18], fitness: 10.25
+ depth: 3, path: [4, 1, 1], fitness: 11.0
+ depth: 3, path: [4, 1, 2], fitness: 11.0
+ depth: 3, path: [4, 1, 3], fitness: 9.5
+ depth: 3, path: [4, 1, 4], fitness: 12.0
+ depth: 3, path: [4, 1, 5], fitness: 12.0
+ depth: 3, path: [4, 1, 6], fitness: 11.5
+ depth: 3, path: [4, 1, 7], fitness: 10.75
+ depth: 3, path: [4, 1, 8], fitness: 10.25
+ depth: 3, path: [4, 1, 9], fitness: 10.5
+ depth: 3, path: [4, 1, 10], fitness: 11.25
+ depth: 3, path: [4, 1, 11], fitness: 11.0
+ depth: 3, path: [4, 1, 12], fitness: 10.75
+ depth: 3, path: [4, 1, 13], fitness: 11.5
+ depth: 3, path: [4, 1, 14], fitness: 11.5
+ depth: 3, path: [4, 1, 15], fitness: 11.5
+ depth: 3, path: [4, 1, 16], fitness: 10.5
+ depth: 3, path: [4, 1, 17], fitness: 10.5
+ depth: 3, path: [4, 1, 18], fitness: 8.5
+ depth: 4, path: [4, 1, 18, 1], fitness: 10.0
+ depth: 4, path: [4, 1, 18, 2], fitness: 10.0
+ depth: 4, path: [4, 1, 18, 3], fitness: 8.0
+ depth: 4, path: [4, 1, 18, 4], fitness: 11.5
+ depth: 4, path: [4, 1, 18, 5], fitness: 11.5
+ depth: 4, path: [4, 1, 18, 6], fitness: 11.0
+ depth: 4, path: [4, 1, 18, 7], fitness: 9.75
+ depth: 4, path: [4, 1, 18, 8], fitness: 9.75
+ depth: 4, path: [4, 1, 18, 9], fitness: 9.75
+ depth: 4, path: [4, 1, 18, 10], fitness: 10.75
+ depth: 4, path: [4, 1, 18, 11], fitness: 10.5
+ depth: 4, path: [4, 1, 18, 12], fitness: 10.5
+ depth: 4, path: [4, 1, 18, 13], fitness: 10.5
+ depth: 4, path: [4, 1, 18, 14], fitness: 10.5
+ depth: 4, path: [4, 1, 18, 15], fitness: 10.5
+ depth: 4, path: [4, 1, 18, 16], fitness: 11.5
+ depth: 4, path: [4, 1, 18, 17], fitness: 11.5
+ depth: 4, path: [4, 1, 18, 18], fitness: 11.5
+ depth: 5, path: [4, 1, 18, 3, 1], fitness: 11.0
+ depth: 5, path: [4, 1, 18, 3, 2], fitness: 11.0
+ depth: 5, path: [4, 1, 18, 3, 3], fitness: 10.5
+ depth: 5, path: [4, 1, 18, 3, 4], fitness: 11.0
+ depth: 5, path: [4, 1, 18, 3, 5], fitness: 11.0
+ depth: 5, path: [4, 1, 18, 3, 6], fitness: 10.5
+ depth: 5, path: [4, 1, 18, 3, 7], fitness: 7.75
+ depth: 5, path: [4, 1, 18, 3, 8], fitness: 8.25
+ depth: 5, path: [4, 1, 18, 3, 9], fitness: 9.25
+ depth: 5, path: [4, 1, 18, 3, 10], fitness: 11.75
+ depth: 5, path: [4, 1, 18, 3, 11], fitness: 11.75
+ depth: 5, path: [4, 1, 18, 3, 12], fitness: 10.75
+ depth: 5, path: [4, 1, 18, 3, 13], fitness: 10.5
+ depth: 5, path: [4, 1, 18, 3, 14], fitness: 10.5
+ depth: 5, path: [4, 1, 18, 3, 15], fitness: 10.5
+ depth: 5, path: [4, 1, 18, 3, 16], fitness: 11.5
+ depth: 5, path: [4, 1, 18, 3, 17], fitness: 11.5
+ depth: 5, path: [4, 1, 18, 3, 18], fitness: 11.5
+ depth: 6, path: [4, 1, 18, 3, 7, 1], fitness: 11.5
+ depth: 6, path: [4, 1, 18, 3, 7, 2], fitness: 11.5
+ depth: 6, path: [4, 1, 18, 3, 7, 3], fitness: 10.5
+ depth: 6, path: [4, 1, 18, 3, 7, 4], fitness: 12.0
+ depth: 6, path: [4, 1, 18, 3, 7, 5], fitness: 12.0
+ depth: 6, path: [4, 1, 18, 3, 7, 6], fitness: 11.0
+ depth: 6, path: [4, 1, 18, 3, 7, 7], fitness: 10.25
+ depth: 6, path: [4, 1, 18, 3, 7, 8], fitness: 10.0
+ depth: 6, path: [4, 1, 18, 3, 7, 9], fitness: 9.25
+ depth: 6, path: [4, 1, 18, 3, 7, 10], fitness: 11.5
+ depth: 6, path: [4, 1, 18, 3, 7, 11], fitness: 11.5
+ depth: 6, path: [4, 1, 18, 3, 7, 12], fitness: 10.5
+ depth: 6, path: [4, 1, 18, 3, 7, 13], fitness: 10.5
+ depth: 6, path: [4, 1, 18, 3, 7, 14], fitness: 10.5
+ depth: 6, path: [4, 1, 18, 3, 7, 15], fitness: 10.5
+ depth: 6, path: [4, 1, 18, 3, 7, 16], fitness: 11.25
+ depth: 6, path: [4, 1, 18, 3, 7, 17], fitness: 11.25
+ depth: 6, path: [4, 1, 18, 3, 7, 18], fitness: 11.25
+ depth: 6, path: [4, 1, 18, 3, 8, 1], fitness: 12.0
+ depth: 6, path: [4, 1, 18, 3, 8, 2], fitness: 12.0
+ depth: 6, path: [4, 1, 18, 3, 8, 3], fitness: 11.0
+ depth: 6, path: [4, 1, 18, 3, 8, 4], fitness: 11.75
+ depth: 6, path: [4, 1, 18, 3, 8, 5], fitness: 11.75
+ depth: 6, path: [4, 1, 18, 3, 8, 6], fitness: 10.75
+ depth: 6, path: [4, 1, 18, 3, 8, 7], fitness: 10.0
+ depth: 6, path: [4, 1, 18, 3, 8, 8], fitness: 10.25
+ depth: 6, path: [4, 1, 18, 3, 8, 9], fitness: 8.75
+ depth: 6, path: [4, 1, 18, 3, 8, 10], fitness: 12.0
+ depth: 6, path: [4, 1, 18, 3, 8, 11], fitness: 12.0
+ depth: 6, path: [4, 1, 18, 3, 8, 12], fitness: 11.0
+ depth: 6, path: [4, 1, 18, 3, 8, 13], fitness: 10.75
+ depth: 6, path: [4, 1, 18, 3, 8, 14], fitness: 10.75
+ depth: 6, path: [4, 1, 18, 3, 8, 15], fitness: 11.0
+ depth: 6, path: [4, 1, 18, 3, 8, 16], fitness: 11.25
+ depth: 6, path: [4, 1, 18, 3, 8, 17], fitness: 11.25
+ depth: 6, path: [4, 1, 18, 3, 8, 18], fitness: 11.25
+ depth: 7, path: [4, 1, 18, 3, 8, 9, 1], fitness: 12.5
+ depth: 7, path: [4, 1, 18, 3, 8, 9, 2], fitness: 12.5
+ depth: 7, path: [4, 1, 18, 3, 8, 9, 3], fitness: 11.5
+ depth: 7, path: [4, 1, 18, 3, 8, 9, 4], fitness: 13.0
+ depth: 7, path: [4, 1, 18, 3, 8, 9, 5], fitness: 13.0
+ depth: 7, path: [4, 1, 18, 3, 8, 9, 6], fitness: 12.0
+ depth: 7, path: [4, 1, 18, 3, 8, 9, 7], fitness: 11.25
+ depth: 7, path: [4, 1, 18, 3, 8, 9, 8], fitness: 11.0
+ depth: 7, path: [4, 1, 18, 3, 8, 9, 9], fitness: 10.25
+ depth: 7, path: [4, 1, 18, 3, 8, 9, 10], fitness: 12.5
+ depth: 7, path: [4, 1, 18, 3, 8, 9, 11], fitness: 12.5
+ depth: 7, path: [4, 1, 18, 3, 8, 9, 12], fitness: 11.5
+ depth: 7, path: [4, 1, 18, 3, 8, 9, 13], fitness: 11.5
+ depth: 7, path: [4, 1, 18, 3, 8, 9, 14], fitness: 11.5
+ depth: 7, path: [4, 1, 18, 3, 8, 9, 15], fitness: 11.5
+ depth: 7, path: [4, 1, 18, 3, 8, 9, 16], fitness: 12.25
+ depth: 7, path: [4, 1, 18, 3, 8, 9, 17], fitness: 12.25
+ depth: 7, path: [4, 1, 18, 3, 8, 9, 18], fitness: 12.25
+ depth: 6, path: [4, 1, 18, 3, 9, 1], fitness: 12.25
+ depth: 6, path: [4, 1, 18, 3, 9, 2], fitness: 12.25
+ depth: 6, path: [4, 1, 18, 3, 9, 3], fitness: 11.75
+ depth: 6, path: [4, 1, 18, 3, 9, 4], fitness: 12.25
+ depth: 6, path: [4, 1, 18, 3, 9, 5], fitness: 12.25
+ depth: 6, path: [4, 1, 18, 3, 9, 6], fitness: 11.75
+ depth: 6, path: [4, 1, 18, 3, 9, 7], fitness: 9.25
+ depth: 6, path: [4, 1, 18, 3, 9, 8], fitness: 8.75
+ depth: 6, path: [4, 1, 18, 3, 9, 9], fitness: 10.0
+ depth: 6, path: [4, 1, 18, 3, 9, 10], fitness: 13.0
+ depth: 6, path: [4, 1, 18, 3, 9, 11], fitness: 13.0
+ depth: 6, path: [4, 1, 18, 3, 9, 12], fitness: 12.0
+ depth: 6, path: [4, 1, 18, 3, 9, 13], fitness: 12.0
+ depth: 6, path: [4, 1, 18, 3, 9, 14], fitness: 12.0
+ depth: 6, path: [4, 1, 18, 3, 9, 15], fitness: 12.0
+ depth: 6, path: [4, 1, 18, 3, 9, 16], fitness: 12.25
+ depth: 6, path: [4, 1, 18, 3, 9, 17], fitness: 12.25
+ depth: 6, path: [4, 1, 18, 3, 9, 18], fitness: 12.25
+ depth: 7, path: [4, 1, 18, 3, 9, 8, 1], fitness: 12.5
+ depth: 7, path: [4, 1, 18, 3, 9, 8, 2], fitness: 12.5
+ depth: 7, path: [4, 1, 18, 3, 9, 8, 3], fitness: 11.5
+ depth: 7, path: [4, 1, 18, 3, 9, 8, 4], fitness: 13.0
+ depth: 7, path: [4, 1, 18, 3, 9, 8, 5], fitness: 13.0
+ depth: 7, path: [4, 1, 18, 3, 9, 8, 6], fitness: 12.0
+ depth: 7, path: [4, 1, 18, 3, 9, 8, 7], fitness: 11.25
+ depth: 7, path: [4, 1, 18, 3, 9, 8, 8], fitness: 11.0
+ depth: 7, path: [4, 1, 18, 3, 9, 8, 9], fitness: 10.25
+ depth: 7, path: [4, 1, 18, 3, 9, 8, 10], fitness: 12.5
+ depth: 7, path: [4, 1, 18, 3, 9, 8, 11], fitness: 12.5
+ depth: 7, path: [4, 1, 18, 3, 9, 8, 12], fitness: 11.5
+ depth: 7, path: [4, 1, 18, 3, 9, 8, 13], fitness: 11.5
+ depth: 7, path: [4, 1, 18, 3, 9, 8, 14], fitness: 11.5
+ depth: 7, path: [4, 1, 18, 3, 9, 8, 15], fitness: 11.5
+ depth: 7, path: [4, 1, 18, 3, 9, 8, 16], fitness: 12.25
+ depth: 7, path: [4, 1, 18, 3, 9, 8, 17], fitness: 12.25
+ depth: 7, path: [4, 1, 18, 3, 9, 8, 18], fitness: 12.25
+ depth: 7, path: [4, 1, 18, 3, 7, 9, 1], fitness: 13.0
+ depth: 7, path: [4, 1, 18, 3, 7, 9, 2], fitness: 13.0
+ depth: 7, path: [4, 1, 18, 3, 7, 9, 3], fitness: 12.0
+ depth: 7, path: [4, 1, 18, 3, 7, 9, 4], fitness: 12.75
+ depth: 7, path: [4, 1, 18, 3, 7, 9, 5], fitness: 12.75
+ depth: 7, path: [4, 1, 18, 3, 7, 9, 6], fitness: 11.75
+ depth: 7, path: [4, 1, 18, 3, 7, 9, 7], fitness: 11.0
+ depth: 7, path: [4, 1, 18, 3, 7, 9, 8], fitness: 11.25
+ depth: 7, path: [4, 1, 18, 3, 7, 9, 9], fitness: 9.75
+ depth: 7, path: [4, 1, 18, 3, 7, 9, 10], fitness: 13.0
+ depth: 7, path: [4, 1, 18, 3, 7, 9, 11], fitness: 13.0
+ depth: 7, path: [4, 1, 18, 3, 7, 9, 12], fitness: 12.0
+ depth: 7, path: [4, 1, 18, 3, 7, 9, 13], fitness: 11.75
+ depth: 7, path: [4, 1, 18, 3, 7, 9, 14], fitness: 11.75
+ depth: 7, path: [4, 1, 18, 3, 7, 9, 15], fitness: 12.0
+ depth: 7, path: [4, 1, 18, 3, 7, 9, 16], fitness: 12.25
+ depth: 7, path: [4, 1, 18, 3, 7, 9, 17], fitness: 12.25
+ depth: 7, path: [4, 1, 18, 3, 7, 9, 18], fitness: 12.25
+ depth: 7, path: [4, 1, 18, 3, 9, 7, 1], fitness: 13.0
+ depth: 7, path: [4, 1, 18, 3, 9, 7, 2], fitness: 13.0
+ depth: 7, path: [4, 1, 18, 3, 9, 7, 3], fitness: 12.0
+ depth: 7, path: [4, 1, 18, 3, 9, 7, 4], fitness: 12.75
+ depth: 7, path: [4, 1, 18, 3, 9, 7, 5], fitness: 12.75
+ depth: 7, path: [4, 1, 18, 3, 9, 7, 6], fitness: 11.75
+ depth: 7, path: [4, 1, 18, 3, 9, 7, 7], fitness: 11.0
+ depth: 7, path: [4, 1, 18, 3, 9, 7, 8], fitness: 11.25
+ depth: 7, path: [4, 1, 18, 3, 9, 7, 9], fitness: 9.75
+ depth: 7, path: [4, 1, 18, 3, 9, 7, 10], fitness: 13.0
+ depth: 7, path: [4, 1, 18, 3, 9, 7, 11], fitness: 13.0
+ depth: 7, path: [4, 1, 18, 3, 9, 7, 12], fitness: 12.0
+ depth: 7, path: [4, 1, 18, 3, 9, 7, 13], fitness: 11.75
+ depth: 7, path: [4, 1, 18, 3, 9, 7, 14], fitness: 11.75
+ depth: 7, path: [4, 1, 18, 3, 9, 7, 15], fitness: 12.0
+ depth: 7, path: [4, 1, 18, 3, 9, 7, 16], fitness: 12.25
+ depth: 7, path: [4, 1, 18, 3, 9, 7, 17], fitness: 12.25
+ depth: 7, path: [4, 1, 18, 3, 9, 7, 18], fitness: 12.25
+ depth: 4, path: [4, 1, 3, 1], fitness: 12.0
+ depth: 4, path: [4, 1, 3, 2], fitness: 12.0
+ depth: 4, path: [4, 1, 3, 3], fitness: 11.5
+ depth: 4, path: [4, 1, 3, 4], fitness: 12.0
+ depth: 4, path: [4, 1, 3, 5], fitness: 12.0
+ depth: 4, path: [4, 1, 3, 6], fitness: 11.5
+ depth: 4, path: [4, 1, 3, 7], fitness: 9.5
+ depth: 4, path: [4, 1, 3, 8], fitness: 9.0
+ depth: 4, path: [4, 1, 3, 9], fitness: 10.5
+ depth: 4, path: [4, 1, 3, 10], fitness: 12.5
+ depth: 4, path: [4, 1, 3, 11], fitness: 12.5
+ depth: 4, path: [4, 1, 3, 12], fitness: 11.0
+ depth: 4, path: [4, 1, 3, 13], fitness: 11.25
+ depth: 4, path: [4, 1, 3, 14], fitness: 11.25
+ depth: 4, path: [4, 1, 3, 15], fitness: 11.0
+ depth: 4, path: [4, 1, 3, 16], fitness: 11.25
+ depth: 4, path: [4, 1, 3, 17], fitness: 11.25
+ depth: 4, path: [4, 1, 3, 18], fitness: 10.0
+ depth: 5, path: [4, 1, 3, 8, 1], fitness: 12.25
+ depth: 5, path: [4, 1, 3, 8, 2], fitness: 12.25
+ depth: 5, path: [4, 1, 3, 8, 3], fitness: 11.0
+ depth: 5, path: [4, 1, 3, 8, 4], fitness: 12.25
+ depth: 5, path: [4, 1, 3, 8, 5], fitness: 12.25
+ depth: 5, path: [4, 1, 3, 8, 6], fitness: 11.25
+ depth: 5, path: [4, 1, 3, 8, 7], fitness: 11.5
+ depth: 5, path: [4, 1, 3, 8, 8], fitness: 11.5
+ depth: 5, path: [4, 1, 3, 8, 9], fitness: 10.5
+ depth: 5, path: [4, 1, 3, 8, 10], fitness: 12.0
+ depth: 5, path: [4, 1, 3, 8, 11], fitness: 12.0
+ depth: 5, path: [4, 1, 3, 8, 12], fitness: 10.5
+ depth: 5, path: [4, 1, 3, 8, 13], fitness: 11.0
+ depth: 5, path: [4, 1, 3, 8, 14], fitness: 11.0
+ depth: 5, path: [4, 1, 3, 8, 15], fitness: 11.0
+ depth: 5, path: [4, 1, 3, 8, 16], fitness: 11.0
+ depth: 5, path: [4, 1, 3, 8, 17], fitness: 11.0
+ depth: 5, path: [4, 1, 3, 8, 18], fitness: 10.25
+ depth: 5, path: [2, 4, 9, 8, 1], fitness: 12.5
+ depth: 5, path: [2, 4, 9, 8, 2], fitness: 12.5
+ depth: 5, path: [2, 4, 9, 8, 3], fitness: 11.5
+ depth: 5, path: [2, 4, 9, 8, 4], fitness: 12.75
+ depth: 5, path: [2, 4, 9, 8, 5], fitness: 12.75
+ depth: 5, path: [2, 4, 9, 8, 6], fitness: 11.5
+ depth: 5, path: [2, 4, 9, 8, 7], fitness: 11.5
+ depth: 5, path: [2, 4, 9, 8, 8], fitness: 11.5
+ depth: 5, path: [2, 4, 9, 8, 9], fitness: 10.0
+ depth: 5, path: [2, 4, 9, 8, 10], fitness: 12.5
+ depth: 5, path: [2, 4, 9, 8, 11], fitness: 12.5
+ depth: 5, path: [2, 4, 9, 8, 12], fitness: 11.0
+ depth: 5, path: [2, 4, 9, 8, 13], fitness: 11.25
+ depth: 5, path: [2, 4, 9, 8, 14], fitness: 11.25
+ depth: 5, path: [2, 4, 9, 8, 15], fitness: 11.0
+ depth: 5, path: [2, 4, 9, 8, 16], fitness: 11.5
+ depth: 5, path: [2, 4, 9, 8, 17], fitness: 11.5
+ depth: 5, path: [2, 4, 9, 8, 18], fitness: 10.75
+ depth: 5, path: [4, 1, 3, 7, 1], fitness: 12.5
+ depth: 5, path: [4, 1, 3, 7, 2], fitness: 12.5
+ depth: 5, path: [4, 1, 3, 7, 3], fitness: 11.5
+ depth: 5, path: [4, 1, 3, 7, 4], fitness: 12.75
+ depth: 5, path: [4, 1, 3, 7, 5], fitness: 12.75
+ depth: 5, path: [4, 1, 3, 7, 6], fitness: 11.5
+ depth: 5, path: [4, 1, 3, 7, 7], fitness: 11.5
+ depth: 5, path: [4, 1, 3, 7, 8], fitness: 11.5
+ depth: 5, path: [4, 1, 3, 7, 9], fitness: 10.0
+ depth: 5, path: [4, 1, 3, 7, 10], fitness: 12.5
+ depth: 5, path: [4, 1, 3, 7, 11], fitness: 12.5
+ depth: 5, path: [4, 1, 3, 7, 12], fitness: 11.0
+ depth: 5, path: [4, 1, 3, 7, 13], fitness: 11.25
+ depth: 5, path: [4, 1, 3, 7, 14], fitness: 11.25
+ depth: 5, path: [4, 1, 3, 7, 15], fitness: 11.0
+ depth: 5, path: [4, 1, 3, 7, 16], fitness: 11.5
+ depth: 5, path: [4, 1, 3, 7, 17], fitness: 11.5
+ depth: 5, path: [4, 1, 3, 7, 18], fitness: 10.75
+ depth: 3, path: [2, 5, 1], fitness: 12.0
+ depth: 3, path: [2, 5, 2], fitness: 12.0
+ depth: 3, path: [2, 5, 3], fitness: 11.5
+ depth: 3, path: [2, 5, 4], fitness: 11.0
+ depth: 3, path: [2, 5, 5], fitness: 11.0
+ depth: 3, path: [2, 5, 6], fitness: 9.5
+ depth: 3, path: [2, 5, 7], fitness: 10.5
+ depth: 3, path: [2, 5, 8], fitness: 10.25
+ depth: 3, path: [2, 5, 9], fitness: 10.5
+ depth: 3, path: [2, 5, 10], fitness: 11.0
+ depth: 3, path: [2, 5, 11], fitness: 11.0
+ depth: 3, path: [2, 5, 12], fitness: 10.75
+ depth: 3, path: [2, 5, 13], fitness: 10.5
+ depth: 3, path: [2, 5, 14], fitness: 10.5
+ depth: 3, path: [2, 5, 15], fitness: 9.5
+ depth: 3, path: [2, 5, 16], fitness: 11.5
+ depth: 3, path: [2, 5, 17], fitness: 11.5
+ depth: 3, path: [2, 5, 18], fitness: 10.5
+ depth: 4, path: [18, 2, 8, 1], fitness: 12.0
+ depth: 4, path: [18, 2, 8, 2], fitness: 12.0
+ depth: 4, path: [18, 2, 8, 3], fitness: 11.5
+ depth: 4, path: [18, 2, 8, 4], fitness: 10.5
+ depth: 4, path: [18, 2, 8, 5], fitness: 11.0
+ depth: 4, path: [18, 2, 8, 6], fitness: 10.75
+ depth: 4, path: [18, 2, 8, 7], fitness: 11.25
+ depth: 4, path: [18, 2, 8, 8], fitness: 11.25
+ depth: 4, path: [18, 2, 8, 9], fitness: 10.75
+ depth: 4, path: [18, 2, 8, 10], fitness: 11.5
+ depth: 4, path: [18, 2, 8, 11], fitness: 11.5
+ depth: 4, path: [18, 2, 8, 12], fitness: 10.75
+ depth: 4, path: [18, 2, 8, 13], fitness: 11.0
+ depth: 4, path: [18, 2, 8, 14], fitness: 10.5
+ depth: 4, path: [18, 2, 8, 15], fitness: 11.0
+ depth: 4, path: [18, 2, 8, 16], fitness: 11.25
+ depth: 4, path: [18, 2, 8, 17], fitness: 11.5
+ depth: 4, path: [18, 2, 8, 18], fitness: 11.5
+ depth: 2, path: [14, 1], fitness: 9.5
+ depth: 2, path: [14, 2], fitness: 7.75
+ depth: 2, path: [14, 3], fitness: 10.5
+ depth: 2, path: [14, 4], fitness: 7.75
+ depth: 2, path: [14, 5], fitness: 9.5
+ depth: 2, path: [14, 6], fitness: 10.5
+ depth: 2, path: [14, 7], fitness: 11.0
+ depth: 2, path: [14, 8], fitness: 11.0
+ depth: 2, path: [14, 9], fitness: 10.75
+ depth: 2, path: [14, 10], fitness: 11.0
+ depth: 2, path: [14, 11], fitness: 11.0
+ depth: 2, path: [14, 12], fitness: 10.75
+ depth: 2, path: [14, 13], fitness: 11.5
+ depth: 2, path: [14, 14], fitness: 11.5
+ depth: 2, path: [14, 15], fitness: 11.5
+ depth: 2, path: [14, 16], fitness: 10.5
+ depth: 2, path: [14, 17], fitness: 10.5
+ depth: 2, path: [14, 18], fitness: 9.5
+ depth: 3, path: [14, 2, 1], fitness: 11.5
+ depth: 3, path: [14, 2, 2], fitness: 11.5
+ depth: 3, path: [14, 2, 3], fitness: 10.5
+ depth: 3, path: [14, 2, 4], fitness: 6.0
+ depth: 3, path: [14, 2, 5], fitness: 7.75
+ depth: 3, path: [14, 2, 6], fitness: 8.75
+ depth: 3, path: [14, 2, 7], fitness: 10.0
+ depth: 3, path: [14, 2, 8], fitness: 10.0
+ depth: 3, path: [14, 2, 9], fitness: 9.0
+ depth: 3, path: [14, 2, 10], fitness: 10.25
+ depth: 3, path: [14, 2, 11], fitness: 10.25
+ depth: 3, path: [14, 2, 12], fitness: 9.5
+ depth: 3, path: [14, 2, 13], fitness: 9.75
+ depth: 3, path: [14, 2, 14], fitness: 9.75
+ depth: 3, path: [14, 2, 15], fitness: 9.5
+ depth: 3, path: [14, 2, 16], fitness: 9.75
+ depth: 3, path: [14, 2, 17], fitness: 9.75
+ depth: 3, path: [14, 2, 18], fitness: 8.75
+ depth: 4, path: [14, 2, 4, 1], fitness: 9.75
+ depth: 4, path: [14, 2, 4, 2], fitness: 9.75
+ depth: 4, path: [14, 2, 4, 3], fitness: 8.75
+ depth: 4, path: [14, 2, 4, 4], fitness: 9.75
+ depth: 4, path: [14, 2, 4, 5], fitness: 9.75
+ depth: 4, path: [14, 2, 4, 6], fitness: 8.75
+ depth: 4, path: [14, 2, 4, 7], fitness: 9.25
+ depth: 4, path: [14, 2, 4, 8], fitness: 9.25
+ depth: 4, path: [14, 2, 4, 9], fitness: 7.75
+ depth: 4, path: [14, 2, 4, 10], fitness: 9.25
+ depth: 4, path: [14, 2, 4, 11], fitness: 9.25
+ depth: 4, path: [14, 2, 4, 12], fitness: 7.75
+ depth: 4, path: [14, 2, 4, 13], fitness: 9.0
+ depth: 4, path: [14, 2, 4, 14], fitness: 9.0
+ depth: 4, path: [14, 2, 4, 15], fitness: 8.75
+ depth: 4, path: [14, 2, 4, 16], fitness: 8.0
+ depth: 4, path: [14, 2, 4, 17], fitness: 8.0
+ depth: 4, path: [14, 2, 4, 18], fitness: 6.75
+ depth: 5, path: [14, 2, 4, 18, 1], fitness: 9.75
+ depth: 5, path: [14, 2, 4, 18, 2], fitness: 9.75
+ depth: 5, path: [14, 2, 4, 18, 3], fitness: 8.0
+ depth: 5, path: [14, 2, 4, 18, 4], fitness: 10.5
+ depth: 5, path: [14, 2, 4, 18, 5], fitness: 10.5
+ depth: 5, path: [14, 2, 4, 18, 6], fitness: 9.5
+ depth: 5, path: [14, 2, 4, 18, 7], fitness: 10.0
+ depth: 5, path: [14, 2, 4, 18, 8], fitness: 10.0
+ depth: 5, path: [14, 2, 4, 18, 9], fitness: 8.75
+ depth: 5, path: [14, 2, 4, 18, 10], fitness: 10.0
+ depth: 5, path: [14, 2, 4, 18, 11], fitness: 10.0
+ depth: 5, path: [14, 2, 4, 18, 12], fitness: 8.75
+ depth: 5, path: [14, 2, 4, 18, 13], fitness: 9.75
+ depth: 5, path: [14, 2, 4, 18, 14], fitness: 9.75
+ depth: 5, path: [14, 2, 4, 18, 15], fitness: 9.5
+ depth: 5, path: [14, 2, 4, 18, 16], fitness: 9.0
+ depth: 5, path: [14, 2, 4, 18, 17], fitness: 9.0
+ depth: 5, path: [14, 2, 4, 18, 18], fitness: 8.0
+ depth: 3, path: [14, 4, 1], fitness: 7.75
+ depth: 3, path: [14, 4, 2], fitness: 6.0
+ depth: 3, path: [14, 4, 3], fitness: 8.75
+ depth: 3, path: [14, 4, 4], fitness: 11.5
+ depth: 3, path: [14, 4, 5], fitness: 11.5
+ depth: 3, path: [14, 4, 6], fitness: 10.5
+ depth: 3, path: [14, 4, 7], fitness: 10.25
+ depth: 3, path: [14, 4, 8], fitness: 10.25
+ depth: 3, path: [14, 4, 9], fitness: 9.5
+ depth: 3, path: [14, 4, 10], fitness: 10.0
+ depth: 3, path: [14, 4, 11], fitness: 10.0
+ depth: 3, path: [14, 4, 12], fitness: 9.0
+ depth: 3, path: [14, 4, 13], fitness: 10.75
+ depth: 3, path: [14, 4, 14], fitness: 10.75
+ depth: 3, path: [14, 4, 15], fitness: 10.75
+ depth: 3, path: [14, 4, 16], fitness: 8.75
+ depth: 3, path: [14, 4, 17], fitness: 8.75
+ depth: 3, path: [14, 4, 18], fitness: 7.5
+ depth: 4, path: [14, 4, 2, 1], fitness: 9.75
+ depth: 4, path: [14, 4, 2, 2], fitness: 9.75
+ depth: 4, path: [14, 4, 2, 3], fitness: 8.75
+ depth: 4, path: [14, 4, 2, 4], fitness: 9.75
+ depth: 4, path: [14, 4, 2, 5], fitness: 9.75
+ depth: 4, path: [14, 4, 2, 6], fitness: 8.75
+ depth: 4, path: [14, 4, 2, 7], fitness: 9.25
+ depth: 4, path: [14, 4, 2, 8], fitness: 9.25
+ depth: 4, path: [14, 4, 2, 9], fitness: 7.75
+ depth: 4, path: [14, 4, 2, 10], fitness: 9.25
+ depth: 4, path: [14, 4, 2, 11], fitness: 9.25
+ depth: 4, path: [14, 4, 2, 12], fitness: 7.75
+ depth: 4, path: [14, 4, 2, 13], fitness: 9.0
+ depth: 4, path: [14, 4, 2, 14], fitness: 9.0
+ depth: 4, path: [14, 4, 2, 15], fitness: 8.75
+ depth: 4, path: [14, 4, 2, 16], fitness: 8.0
+ depth: 4, path: [14, 4, 2, 17], fitness: 8.0
+ depth: 4, path: [14, 4, 2, 18], fitness: 6.75
+ depth: 5, path: [14, 4, 2, 18, 1], fitness: 9.75
+ depth: 5, path: [14, 4, 2, 18, 2], fitness: 9.75
+ depth: 5, path: [14, 4, 2, 18, 3], fitness: 8.0
+ depth: 5, path: [14, 4, 2, 18, 4], fitness: 10.5
+ depth: 5, path: [14, 4, 2, 18, 5], fitness: 10.5
+ depth: 5, path: [14, 4, 2, 18, 6], fitness: 9.5
+ depth: 5, path: [14, 4, 2, 18, 7], fitness: 10.0
+ depth: 5, path: [14, 4, 2, 18, 8], fitness: 10.0
+ depth: 5, path: [14, 4, 2, 18, 9], fitness: 8.75
+ depth: 5, path: [14, 4, 2, 18, 10], fitness: 10.0
+ depth: 5, path: [14, 4, 2, 18, 11], fitness: 10.0
+ depth: 5, path: [14, 4, 2, 18, 12], fitness: 8.75
+ depth: 5, path: [14, 4, 2, 18, 13], fitness: 9.75
+ depth: 5, path: [14, 4, 2, 18, 14], fitness: 9.75
+ depth: 5, path: [14, 4, 2, 18, 15], fitness: 9.5
+ depth: 5, path: [14, 4, 2, 18, 16], fitness: 9.0
+ depth: 5, path: [14, 4, 2, 18, 17], fitness: 9.0
+ depth: 5, path: [14, 4, 2, 18, 18], fitness: 8.0
+ depth: 4, path: [14, 4, 18, 1], fitness: 8.5
+ depth: 4, path: [14, 4, 18, 2], fitness: 7.5
+ depth: 4, path: [14, 4, 18, 3], fitness: 7.75
+ depth: 4, path: [14, 4, 18, 4], fitness: 9.75
+ depth: 4, path: [14, 4, 18, 5], fitness: 10.25
+ depth: 4, path: [14, 4, 18, 6], fitness: 10.25
+ depth: 4, path: [14, 4, 18, 7], fitness: 10.25
+ depth: 4, path: [14, 4, 18, 8], fitness: 10.25
+ depth: 4, path: [14, 4, 18, 9], fitness: 9.75
+ depth: 4, path: [14, 4, 18, 10], fitness: 10.0
+ depth: 4, path: [14, 4, 18, 11], fitness: 10.0
+ depth: 4, path: [14, 4, 18, 12], fitness: 9.25
+ depth: 4, path: [14, 4, 18, 13], fitness: 10.5
+ depth: 4, path: [14, 4, 18, 14], fitness: 10.5
+ depth: 4, path: [14, 4, 18, 15], fitness: 10.5
+ depth: 4, path: [14, 4, 18, 16], fitness: 9.75
+ depth: 4, path: [14, 4, 18, 17], fitness: 9.75
+ depth: 4, path: [14, 4, 18, 18], fitness: 9.75
+ depth: 5, path: [14, 4, 18, 2, 1], fitness: 9.5
+ depth: 5, path: [14, 4, 18, 2, 2], fitness: 8.75
+ depth: 5, path: [14, 4, 18, 2, 3], fitness: 9.5
+ depth: 5, path: [14, 4, 18, 2, 4], fitness: 9.75
+ depth: 5, path: [14, 4, 18, 2, 5], fitness: 10.25
+ depth: 5, path: [14, 4, 18, 2, 6], fitness: 10.25
+ depth: 5, path: [14, 4, 18, 2, 7], fitness: 10.75
+ depth: 5, path: [14, 4, 18, 2, 8], fitness: 10.75
+ depth: 5, path: [14, 4, 18, 2, 9], fitness: 9.75
+ depth: 5, path: [14, 4, 18, 2, 10], fitness: 10.0
+ depth: 5, path: [14, 4, 18, 2, 11], fitness: 10.0
+ depth: 5, path: [14, 4, 18, 2, 12], fitness: 9.75
+ depth: 5, path: [14, 4, 18, 2, 13], fitness: 10.5
+ depth: 5, path: [14, 4, 18, 2, 14], fitness: 10.5
+ depth: 5, path: [14, 4, 18, 2, 15], fitness: 10.25
+ depth: 5, path: [14, 4, 18, 2, 16], fitness: 10.25
+ depth: 5, path: [14, 4, 18, 2, 17], fitness: 10.25
+ depth: 5, path: [14, 4, 18, 2, 18], fitness: 10.25
+ depth: 5, path: [14, 2, 4, 9, 1], fitness: 11.25
+ depth: 5, path: [14, 2, 4, 9, 2], fitness: 11.25
+ depth: 5, path: [14, 2, 4, 9, 3], fitness: 10.25
+ depth: 5, path: [14, 2, 4, 9, 4], fitness: 11.25
+ depth: 5, path: [14, 2, 4, 9, 5], fitness: 11.25
+ depth: 5, path: [14, 2, 4, 9, 6], fitness: 10.25
+ depth: 5, path: [14, 2, 4, 9, 7], fitness: 10.25
+ depth: 5, path: [14, 2, 4, 9, 8], fitness: 10.25
+ depth: 5, path: [14, 2, 4, 9, 9], fitness: 8.0
+ depth: 5, path: [14, 2, 4, 9, 10], fitness: 11.0
+ depth: 5, path: [14, 2, 4, 9, 11], fitness: 11.0
+ depth: 5, path: [14, 2, 4, 9, 12], fitness: 9.5
+ depth: 5, path: [14, 2, 4, 9, 13], fitness: 10.25
+ depth: 5, path: [14, 2, 4, 9, 14], fitness: 10.25
+ depth: 5, path: [14, 2, 4, 9, 15], fitness: 9.75
+ depth: 5, path: [14, 2, 4, 9, 16], fitness: 10.0
+ depth: 5, path: [14, 2, 4, 9, 17], fitness: 10.0
+ depth: 5, path: [14, 2, 4, 9, 18], fitness: 9.25
+ depth: 4, path: [14, 2, 5, 1], fitness: 11.5
+ depth: 4, path: [14, 2, 5, 2], fitness: 11.5
+ depth: 4, path: [14, 2, 5, 3], fitness: 10.5
+ depth: 4, path: [14, 2, 5, 4], fitness: 9.75
+ depth: 4, path: [14, 2, 5, 5], fitness: 9.75
+ depth: 4, path: [14, 2, 5, 6], fitness: 7.0
+ depth: 4, path: [14, 2, 5, 7], fitness: 10.5
+ depth: 4, path: [14, 2, 5, 8], fitness: 10.5
+ depth: 4, path: [14, 2, 5, 9], fitness: 9.25
+ depth: 4, path: [14, 2, 5, 10], fitness: 10.5
+ depth: 4, path: [14, 2, 5, 11], fitness: 10.5
+ depth: 4, path: [14, 2, 5, 12], fitness: 9.25
+ depth: 4, path: [14, 2, 5, 13], fitness: 9.75
+ depth: 4, path: [14, 2, 5, 14], fitness: 9.75
+ depth: 4, path: [14, 2, 5, 15], fitness: 8.5
+ depth: 4, path: [14, 2, 5, 16], fitness: 10.0
+ depth: 4, path: [14, 2, 5, 17], fitness: 10.0
+ depth: 4, path: [14, 2, 5, 18], fitness: 9.0
+ depth: 5, path: [14, 2, 5, 6, 1], fitness: 10.75
+ depth: 5, path: [14, 2, 5, 6, 2], fitness: 10.75
+ depth: 5, path: [14, 2, 5, 6, 3], fitness: 9.75
+ depth: 5, path: [14, 2, 5, 6, 4], fitness: 10.75
+ depth: 5, path: [14, 2, 5, 6, 5], fitness: 10.75
+ depth: 5, path: [14, 2, 5, 6, 6], fitness: 9.75
+ depth: 5, path: [14, 2, 5, 6, 7], fitness: 10.25
+ depth: 5, path: [14, 2, 5, 6, 8], fitness: 10.25
+ depth: 5, path: [14, 2, 5, 6, 9], fitness: 8.75
+ depth: 5, path: [14, 2, 5, 6, 10], fitness: 10.25
+ depth: 5, path: [14, 2, 5, 6, 11], fitness: 10.25
+ depth: 5, path: [14, 2, 5, 6, 12], fitness: 8.75
+ depth: 5, path: [14, 2, 5, 6, 13], fitness: 10.0
+ depth: 5, path: [14, 2, 5, 6, 14], fitness: 10.0
+ depth: 5, path: [14, 2, 5, 6, 15], fitness: 9.75
+ depth: 5, path: [14, 2, 5, 6, 16], fitness: 9.0
+ depth: 5, path: [14, 2, 5, 6, 17], fitness: 9.0
+ depth: 5, path: [14, 2, 5, 6, 18], fitness: 7.75
+ depth: 5, path: [14, 2, 4, 12, 1], fitness: 11.25
+ depth: 5, path: [14, 2, 4, 12, 2], fitness: 11.25
+ depth: 5, path: [14, 2, 4, 12, 3], fitness: 10.25
+ depth: 5, path: [14, 2, 4, 12, 4], fitness: 11.25
+ depth: 5, path: [14, 2, 4, 12, 5], fitness: 11.25
+ depth: 5, path: [14, 2, 4, 12, 6], fitness: 10.25
+ depth: 5, path: [14, 2, 4, 12, 7], fitness: 11.0
+ depth: 5, path: [14, 2, 4, 12, 8], fitness: 11.0
+ depth: 5, path: [14, 2, 4, 12, 9], fitness: 9.5
+ depth: 5, path: [14, 2, 4, 12, 10], fitness: 10.25
+ depth: 5, path: [14, 2, 4, 12, 11], fitness: 10.25
+ depth: 5, path: [14, 2, 4, 12, 12], fitness: 8.0
+ depth: 5, path: [14, 2, 4, 12, 13], fitness: 10.25
+ depth: 5, path: [14, 2, 4, 12, 14], fitness: 10.25
+ depth: 5, path: [14, 2, 4, 12, 15], fitness: 9.75
+ depth: 5, path: [14, 2, 4, 12, 16], fitness: 10.0
+ depth: 5, path: [14, 2, 4, 12, 17], fitness: 10.0
+ depth: 5, path: [14, 2, 4, 12, 18], fitness: 9.25
+ depth: 6, path: [14, 2, 5, 6, 18, 1], fitness: 10.75
+ depth: 6, path: [14, 2, 5, 6, 18, 2], fitness: 10.75
+ depth: 6, path: [14, 2, 5, 6, 18, 3], fitness: 9.0
+ depth: 6, path: [14, 2, 5, 6, 18, 4], fitness: 11.5
+ depth: 6, path: [14, 2, 5, 6, 18, 5], fitness: 11.5
+ depth: 6, path: [14, 2, 5, 6, 18, 6], fitness: 10.5
+ depth: 6, path: [14, 2, 5, 6, 18, 7], fitness: 11.0
+ depth: 6, path: [14, 2, 5, 6, 18, 8], fitness: 11.0
+ depth: 6, path: [14, 2, 5, 6, 18, 9], fitness: 9.75
+ depth: 6, path: [14, 2, 5, 6, 18, 10], fitness: 11.0
+ depth: 6, path: [14, 2, 5, 6, 18, 11], fitness: 11.0
+ depth: 6, path: [14, 2, 5, 6, 18, 12], fitness: 9.75
+ depth: 6, path: [14, 2, 5, 6, 18, 13], fitness: 10.75
+ depth: 6, path: [14, 2, 5, 6, 18, 14], fitness: 10.75
+ depth: 6, path: [14, 2, 5, 6, 18, 15], fitness: 10.5
+ depth: 6, path: [14, 2, 5, 6, 18, 16], fitness: 10.0
+ depth: 6, path: [14, 2, 5, 6, 18, 17], fitness: 10.0
+ depth: 6, path: [14, 2, 5, 6, 18, 18], fitness: 9.0
+ depth: 5, path: [14, 4, 2, 12, 1], fitness: 11.25
+ depth: 5, path: [14, 4, 2, 12, 2], fitness: 11.25
+ depth: 5, path: [14, 4, 2, 12, 3], fitness: 10.25
+ depth: 5, path: [14, 4, 2, 12, 4], fitness: 11.25
+ depth: 5, path: [14, 4, 2, 12, 5], fitness: 11.25
+ depth: 5, path: [14, 4, 2, 12, 6], fitness: 10.25
+ depth: 5, path: [14, 4, 2, 12, 7], fitness: 11.0
+ depth: 5, path: [14, 4, 2, 12, 8], fitness: 11.0
+ depth: 5, path: [14, 4, 2, 12, 9], fitness: 9.5
+ depth: 5, path: [14, 4, 2, 12, 10], fitness: 10.25
+ depth: 5, path: [14, 4, 2, 12, 11], fitness: 10.25
+ depth: 5, path: [14, 4, 2, 12, 12], fitness: 8.0
+ depth: 5, path: [14, 4, 2, 12, 13], fitness: 10.25
+ depth: 5, path: [14, 4, 2, 12, 14], fitness: 10.25
+ depth: 5, path: [14, 4, 2, 12, 15], fitness: 9.75
+ depth: 5, path: [14, 4, 2, 12, 16], fitness: 10.0
+ depth: 5, path: [14, 4, 2, 12, 17], fitness: 10.0
+ depth: 5, path: [14, 4, 2, 12, 18], fitness: 9.25
+ depth: 5, path: [14, 4, 2, 9, 1], fitness: 11.25
+ depth: 5, path: [14, 4, 2, 9, 2], fitness: 11.25
+ depth: 5, path: [14, 4, 2, 9, 3], fitness: 10.25
+ depth: 5, path: [14, 4, 2, 9, 4], fitness: 11.25
+ depth: 5, path: [14, 4, 2, 9, 5], fitness: 11.25
+ depth: 5, path: [14, 4, 2, 9, 6], fitness: 10.25
+ depth: 5, path: [14, 4, 2, 9, 7], fitness: 10.25
+ depth: 5, path: [14, 4, 2, 9, 8], fitness: 10.25
+ depth: 5, path: [14, 4, 2, 9, 9], fitness: 8.0
+ depth: 5, path: [14, 4, 2, 9, 10], fitness: 11.0
+ depth: 5, path: [14, 4, 2, 9, 11], fitness: 11.0
+ depth: 5, path: [14, 4, 2, 9, 12], fitness: 9.5
+ depth: 5, path: [14, 4, 2, 9, 13], fitness: 10.25
+ depth: 5, path: [14, 4, 2, 9, 14], fitness: 10.25
+ depth: 5, path: [14, 4, 2, 9, 15], fitness: 9.75
+ depth: 5, path: [14, 4, 2, 9, 16], fitness: 10.0
+ depth: 5, path: [14, 4, 2, 9, 17], fitness: 10.0
+ depth: 5, path: [14, 4, 2, 9, 18], fitness: 9.25
+ depth: 4, path: [14, 4, 1, 1], fitness: 9.75
+ depth: 4, path: [14, 4, 1, 2], fitness: 9.75
+ depth: 4, path: [14, 4, 1, 3], fitness: 7.0
+ depth: 4, path: [14, 4, 1, 4], fitness: 11.5
+ depth: 4, path: [14, 4, 1, 5], fitness: 11.5
+ depth: 4, path: [14, 4, 1, 6], fitness: 10.5
+ depth: 4, path: [14, 4, 1, 7], fitness: 10.5
+ depth: 4, path: [14, 4, 1, 8], fitness: 10.5
+ depth: 4, path: [14, 4, 1, 9], fitness: 9.25
+ depth: 4, path: [14, 4, 1, 10], fitness: 10.5
+ depth: 4, path: [14, 4, 1, 11], fitness: 10.5
+ depth: 4, path: [14, 4, 1, 12], fitness: 9.25
+ depth: 4, path: [14, 4, 1, 13], fitness: 11.0
+ depth: 4, path: [14, 4, 1, 14], fitness: 11.0
+ depth: 4, path: [14, 4, 1, 15], fitness: 11.0
+ depth: 4, path: [14, 4, 1, 16], fitness: 8.75
+ depth: 4, path: [14, 4, 1, 17], fitness: 8.75
+ depth: 4, path: [14, 4, 1, 18], fitness: 6.5
+ depth: 5, path: [14, 4, 1, 18, 1], fitness: 8.5
+ depth: 5, path: [14, 4, 1, 18, 2], fitness: 8.5
+ depth: 5, path: [14, 4, 1, 18, 3], fitness: 5.0
+ depth: 5, path: [14, 4, 1, 18, 4], fitness: 11.0
+ depth: 5, path: [14, 4, 1, 18, 5], fitness: 11.0
+ depth: 5, path: [14, 4, 1, 18, 6], fitness: 10.0
+ depth: 5, path: [14, 4, 1, 18, 7], fitness: 9.75
+ depth: 5, path: [14, 4, 1, 18, 8], fitness: 9.75
+ depth: 5, path: [14, 4, 1, 18, 9], fitness: 8.75
+ depth: 5, path: [14, 4, 1, 18, 10], fitness: 9.75
+ depth: 5, path: [14, 4, 1, 18, 11], fitness: 9.75
+ depth: 5, path: [14, 4, 1, 18, 12], fitness: 8.75
+ depth: 5, path: [14, 4, 1, 18, 13], fitness: 9.75
+ depth: 5, path: [14, 4, 1, 18, 14], fitness: 9.75
+ depth: 5, path: [14, 4, 1, 18, 15], fitness: 9.75
+ depth: 5, path: [14, 4, 1, 18, 16], fitness: 9.75
+ depth: 5, path: [14, 4, 1, 18, 17], fitness: 9.75
+ depth: 5, path: [14, 4, 1, 18, 18], fitness: 9.75
+ depth: 6, path: [14, 4, 1, 18, 3, 1], fitness: 9.5
+ depth: 6, path: [14, 4, 1, 18, 3, 2], fitness: 9.5
+ depth: 6, path: [14, 4, 1, 18, 3, 3], fitness: 8.5
+ depth: 6, path: [14, 4, 1, 18, 3, 4], fitness: 9.5
+ depth: 6, path: [14, 4, 1, 18, 3, 5], fitness: 9.5
+ depth: 6, path: [14, 4, 1, 18, 3, 6], fitness: 8.5
+ depth: 6, path: [14, 4, 1, 18, 3, 7], fitness: 9.0
+ depth: 6, path: [14, 4, 1, 18, 3, 8], fitness: 9.0
+ depth: 6, path: [14, 4, 1, 18, 3, 9], fitness: 8.0
+ depth: 6, path: [14, 4, 1, 18, 3, 10], fitness: 9.0
+ depth: 6, path: [14, 4, 1, 18, 3, 11], fitness: 9.0
+ depth: 6, path: [14, 4, 1, 18, 3, 12], fitness: 8.0
+ depth: 6, path: [14, 4, 1, 18, 3, 13], fitness: 9.0
+ depth: 6, path: [14, 4, 1, 18, 3, 14], fitness: 9.0
+ depth: 6, path: [14, 4, 1, 18, 3, 15], fitness: 9.0
+ depth: 6, path: [14, 4, 1, 18, 3, 16], fitness: 9.0
+ depth: 6, path: [14, 4, 1, 18, 3, 17], fitness: 9.0
+ depth: 6, path: [14, 4, 1, 18, 3, 18], fitness: 9.0
  

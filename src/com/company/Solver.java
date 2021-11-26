@@ -18,6 +18,11 @@ public class Solver {
         Open_Node best_node = new Open_Node(20, new byte[]{});
         make_new_nodes(best_node);
 
+        byte[] byte_scramble_path = new byte[cube.scrambled_path.length];
+        for (int i = 0; i < cube.scrambled_path.length; i++) {
+            byte_scramble_path[i] = cube.string_to_byte(cube.scrambled_path[i]);
+        }
+
         while (best_node.get_path().length < max_depth && !cube.is_solved()){
             best_node = all_open_nodes.poll();
             assert best_node != null;
@@ -27,10 +32,6 @@ public class Solver {
                 System.out.println("Amount of nodes opend: " + all_nodes.size());
             }
 
-            byte[] byte_scramble_path = new byte[cube.scrambled_path.length];
-            for (int i = 0; i < cube.scrambled_path.length; i++) {
-                byte_scramble_path[i] = cube.string_to_byte(cube.scrambled_path[i]);
-            }
             cube.create_cube();
             cube.go_to_path(byte_scramble_path);
             cube.go_to_path(move_list);
