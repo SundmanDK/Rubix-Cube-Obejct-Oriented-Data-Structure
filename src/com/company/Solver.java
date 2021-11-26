@@ -41,42 +41,24 @@ public class Solver {
         return move_list;
     }
 
-    public  Open_Node[] make_new_nodes(Open_Node node){
-        Open_Node[] new_open_nodes = new Open_Node[18];
-        int counter = 0;
+    public  void make_new_nodes(Open_Node node){
         for (byte move : cube.byte_moves){
             byte[] new_path = new byte[node.get_path().length + 1];
             duplicate_array(node.get_path(), new_path);
-            // System.out.println("Move: " + move);
             cube.move(cube.byte_to_string(move));
             new_path[new_path.length - 1] = move;
+
             Open_Node new_node = new Open_Node(fitness(new_path), new_path);
             all_nodes.add(new_node);
             all_open_nodes.offer(new_node);
             cube.iterate_back(cube.byte_to_string(move));
-            new_open_nodes[counter] = new_node;
-            counter++;
         }
-        return new_open_nodes;
     }
 
     public void duplicate_array(byte[] old_array, byte[] new_array){
         for (int index = 0; index < old_array.length; index++){
             new_array[index] = old_array[index];
         }
-    }
-
-    public  void extend_node(Open_Node node, int num) {
-        Open_Node[] generation;
-        generation = make_new_nodes(node);
-        for (Open_Node new_node :generation) {
-            make_new_nodes(new_node);
-            if(num < 3) {
-                extend_node(new_node, num);
-            }
-
-        }
-
     }
 
     public  double fitness(byte[] path){
