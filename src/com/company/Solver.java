@@ -71,23 +71,22 @@ public class Solver {
 
     public double moves_until_cubie_is_correct(int z, int y, int x){
         Cubie this_cubie = cube.rubix_Cube[z][y][x];
-        double edge_factor = 1;
-        double corner_factor = 1;
+
         if (!cube.is_cubie_solved(this_cubie, z, y, x)){
             if (this_cubie.getClass() == Edge_Cubie.class){
                 if (cube.is_orientation_correct_edge(this_cubie, z, y, x) == 0){
-                    return 1 * edge_factor;
+                    return 1;
                 } else if (Arrays.equals(this_cubie.correct_coordinate, new int[]{z, y, x}) && !(cube.is_orientation_correct_edge(this_cubie, z, y, x) == 0)){
-                    return 3 * edge_factor;
+                    return 3;
                 } else {
-                    return 2 * edge_factor;
+                    return 2;
                 }
             } else if (this_cubie.getClass() == Corner_Cubie.class){
 
                 if (cube.is_orientation_correct_corner(z, this_cubie) == 0){
-                    return 1 * corner_factor;
+                    return 1;
                 } else {
-                    return 2 * corner_factor;
+                    return 2;
                 }
             }
         }
