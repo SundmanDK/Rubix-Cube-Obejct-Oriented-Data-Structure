@@ -192,12 +192,7 @@ public class Cube {
     }
 
     public void create_cube(){
-        String top;
-        String bottom;
-        String front;
-        String back;
-        String left;
-        String right;
+        String top, bottom, front, back, left, right;
         int[] coord;
         int id = 0;
         rubix_Cube = new Cubie[cube_dimension][cube_dimension][cube_dimension];
@@ -230,7 +225,7 @@ public class Cube {
                         right = null;
                     } else if (index3 == index_Size) {
                         left = null;
-                        right = "RED";
+                        right = "RED\t";
                     } else {
                         left = null;
                         right = null;
