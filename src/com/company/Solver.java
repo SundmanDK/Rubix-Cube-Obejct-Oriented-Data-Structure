@@ -27,16 +27,19 @@ public class Solver {
             best_node = all_open_nodes.poll();
             assert best_node != null;
             move_list = best_node.get_path();
-
+/*
             if (all_nodes.size()%10000 == 0){
                 System.out.println("Amount of nodes opend: " + all_nodes.size());
             }
 
+ */
+
             cube.create_cube();
             cube.go_to_path(byte_scramble_path);
             cube.go_to_path(move_list);
-            make_new_nodes(best_node);
-            WriteToFile.write_to_file(all_nodes);
+            if (!cube.is_solved()) {
+                make_new_nodes(best_node);
+            }
         }
         return move_list;
     }

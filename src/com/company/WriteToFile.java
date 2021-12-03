@@ -8,16 +8,19 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class WriteToFile {
-    public static FileWriter myWriter;
+    public static FileWriter myWriter;// = new FileWriter("Data.txt");
 
-    public static void write_to_file(ArrayList<Open_Node> priority_Queue) {
+    public static void CSV(int[] data) {
+
         try {
             FileWriter myWriter = new FileWriter("Data.txt");
-            for (Open_Node node: priority_Queue) {
-                myWriter.write("depth: " + node.get_path().length + ", path: " + Arrays.toString(node.get_path()) + ", fitness: " + node.get_fitnes() + "\n ");
+            myWriter.write("total nodes, memory used (mb), solve time (ms), scramble length, solution length\n");
+            for (int element: data) {
+                // (total nodes, memory used, solve time, scramble length, solution length)
+                myWriter.write(element + ", ");
             }
+            myWriter.write("\n");
             myWriter.close();
-            //System.out.println("Successfully wrote to the file.");
 
         } catch (IOException e) {
             System.out.println("An error occurred.");
