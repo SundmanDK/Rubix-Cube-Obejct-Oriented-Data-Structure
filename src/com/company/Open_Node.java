@@ -23,13 +23,7 @@ public class Open_Node implements Comparable<Open_Node>{
         return fitness;
     }
 
-    public void set_path(){
-
-    }
-
     public byte[] get_path(){
         return byte_path;
     }
-
-
 }

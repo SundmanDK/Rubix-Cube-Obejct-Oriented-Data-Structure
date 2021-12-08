@@ -47,7 +47,7 @@ public class Solver {
     public  void make_new_nodes(Open_Node node){
         for (byte move : cube.byte_moves){
             byte[] new_path = new byte[node.get_path().length + 1];
-            duplicate_array(node.get_path(), new_path);
+            expand_array(node.get_path(), new_path);
             cube.move(cube.byte_to_string(move));
             new_path[new_path.length - 1] = move;
 
@@ -58,7 +58,7 @@ public class Solver {
         }
     }
 
-    public void duplicate_array(byte[] old_array, byte[] new_array){
+    public void expand_array(byte[] old_array, byte[] new_array){
         for (int index = 0; index < old_array.length; index++){
             new_array[index] = old_array[index];
         }
@@ -108,5 +108,81 @@ public class Solver {
         return how_far_are_the_cubies_from_being_correct;
     }
 
+    // new attempt still doesn't work
+    public byte[] brute_force(){
+        byte[] move_list = new byte[0];
+        for (int depth = 1; depth <= 20; depth++){
+            if (cube.is_solved()) {
+                return move_list;
+            } else {
+                move_list = new byte[depth];
+                brute_step(depth, 0, move_list);
+            }
+            //System.out.println("Depth: " +depth);
+        }
+        //System.out.println("Couldn't find a solution");
+        return null;
+    }
+    public void brute_step(int max_Depth, int current_Depth, byte[] move_list){
+        if (current_Depth < max_Depth){
+            for (byte move : cube.byte_moves){
+                if (cube.is_solved()){
+                    return;
+                } else {
+                    cube.move(cube.byte_to_string(move));
+                    move_list[current_Depth] = move;
+                    brute_step(max_Depth, current_Depth+1, move_list);
+                    if (!cube.is_solved()) {
+                        cube.iterate_back(cube.byte_to_string(move));
+                    }
+                }
+            }
+        }
+    }
+
+    public byte[] algorithm2(int max_depth){
+        byte[] move_list = {};
+        Open_Node best_node = new Open_Node(20, new byte[]{});
+        make_new_nodes2(best_node);
+
+        byte[] byte_scramble_path = new byte[cube.scrambled_path.length];
+        for (int i = 0; i < cube.scrambled_path.length; i++) {
+            byte_scramble_path[i] = cube.string_to_byte(cube.scrambled_path[i]);
+        }
+
+        while (best_node.get_path().length < max_depth && !cube.is_solved()){
+            best_node = all_open_nodes.poll();
+            assert best_node != null;
+            move_list = best_node.get_path();
+            cube.create_cube();
+            cube.go_to_path(byte_scramble_path);
+            cube.go_to_path(move_list);
+            if (!cube.is_solved()) {
+                make_new_nodes2(best_node);
+            }
+        }
+        return move_list;
+    }
+    public  void make_new_nodes2(Open_Node node){
+        for (byte move : cube.byte_moves){
+            byte[] new_path = new byte[node.get_path().length + 1];
+            expand_array(node.get_path(), new_path);
+            cube.move(cube.byte_to_string(move));
+            new_path[new_path.length - 1] = move;
+
+            Open_Node new_node = new Open_Node(fitness2(new_path), new_path);
+            all_nodes.add(new_node);
+            all_open_nodes.offer(new_node);
+            cube.iterate_back(cube.byte_to_string(move));
+        }
+    }
+    public  double fitness2(byte[] path){
+        double fitness_position = 10 - ((double) cube.amount_on_correct_place() / 20) * 10;
+        double fitness_orientation = 10 - ((double) cube.amount_correct_orientation() / 20) * 10;
+        int g = path.length;
+        double h = fitness_orientation + fitness_position;
+        double f = g + h;
+        return f;
+    }
 
 }

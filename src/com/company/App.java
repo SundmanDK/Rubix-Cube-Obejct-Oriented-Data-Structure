@@ -14,7 +14,8 @@ public class App {
         Scanner sc = new Scanner(System.in);
         String command;
         boolean running = true;
-        boolean automatic = false;
+        boolean A_star = false;
+        boolean brute = false;
         byte[] solution_byte;
         long start_time;
         long stop_time;
@@ -25,7 +26,7 @@ public class App {
         while (running) {
             System.out.println("-------------------------------------------------------------------------------------");
             cube.show();
-            if (automatic) {
+            if (A_star) {
                 start_time = System.currentTimeMillis();
                 System.out.println("before solving");
                 runGC();
@@ -44,10 +45,31 @@ public class App {
                 runGC();
                 System.out.println(solver.all_nodes.size());
                 cube.scrambled_path = new String[0];
-                automatic = false;
-            } else {
+                A_star = false;
+            } else /*if (brute) {
+                start_time = System.currentTimeMillis();
+                System.out.println("before solving");
+                runGC();
+
+                System.out.println("Solution moves:");
+                solution_byte = solver.brute_force();
+                stop_time = System.currentTimeMillis();
+                time_to_solve = stop_time - start_time;
+                System.out.println("time to compute: " + time_to_solve + "ms or " + time_to_solve/1000 + " seconds" );
+                String[] solution_string = new String[solution_byte.length];
+                for (int i = 0; i < solution_byte.length; i++) {
+                    solution_string[i] = cube.byte_to_string(solution_byte[i]);
+                }
+                System.out.println(Arrays.toString(solution_string));
+                System.out.println("after solver");
+                runGC();
+                System.out.println(solver.all_nodes.size());
+                cube.scrambled_path = new String[0];
+                brute = false;
+            } else */{
                 System.out.print("Write a command: ");
                 command = sc.nextLine();
+
                 if (string_in_array(Cube.possible_moves, command)) {
 
                     cube.move(command);
@@ -60,7 +82,13 @@ public class App {
                     System.out.println("Loop ended");
 
                 } else if (command.trim().toLowerCase(Locale.ROOT).equals("solve")) {
-                    automatic = true;
+                    System.out.println("which algorithm do you wish to use?: ");
+                    String algoritm = sc.nextLine();
+                    if (algoritm.trim().toLowerCase(Locale.ROOT).equals("a star")) {
+                        A_star = true;
+                    } else if (algoritm.trim().toLowerCase(Locale.ROOT).equals("brute")) {
+                        brute = true;
+                    }
                 } else if (command.trim().toLowerCase(Locale.ROOT).equals("scramble")){
 
                     System.out.println("how many scrambles? ");
@@ -74,31 +102,99 @@ public class App {
                     System.out.println("List of commands:");
                     System.out.println("stop, help, scramble, solve, R, Ri, R180, L, Li, L180, F, Fi, F180, B, Bi, B180, U, Ui, U180, D, Di, D180");
 
-                } else if (command.trim().toLowerCase(Locale.ROOT).equals("data")) {
+                } else if (command.trim().toLowerCase(Locale.ROOT).equals("new")) {
                     try {
                         PrintWriter writer = new PrintWriter("Data.txt", StandardCharsets.UTF_8);
                         writer.println("scramble length, total nodes, memory used (kb), solve time (ms), solution length");
+                        System.out.println("scramble length, total nodes, memory used (kb), solve time (ms), solution length");
 
                         for (int nr_of_scrambles = 1; nr_of_scrambles <= 10; nr_of_scrambles++) {
-                            for (int run = 0; run < 20; run++) {
-                                System.out.println("run: " + nr_of_scrambles);
+                            for (int run = 0; run < 30; run++) {
+                                //System.out.println("run: " + nr_of_scrambles);
                                 cube.scramble(nr_of_scrambles);
                                 int memory_before = runGC();
                                 start_time = System.currentTimeMillis();
                                 solution_byte = solver.algorithm(20);
                                 stop_time = System.currentTimeMillis();
                                 time_to_solve = stop_time - start_time;
+                                int memory_after = runGC();
                                 String[] solution_string = new String[solution_byte.length];
                                 for (int i = 0; i < solution_byte.length; i++) {
                                     solution_string[i] = cube.byte_to_string(solution_byte[i]);
                                 }
-                                int memory_after = runGC();
                                 int total_memory = memory_after - memory_before;
-
-                                writer.println(nr_of_scrambles + "," + solver.all_nodes.size() + "," + total_memory + "," + (int) time_to_solve + "," + solution_byte.length);
+                                System.out.println(nr_of_scrambles + "," + solver.all_nodes.size() + "," + total_memory + "," + (int) time_to_solve + "," + solution_byte.length);
+                                //writer.println(nr_of_scrambles + "," + solver.all_nodes.size() + "," + total_memory + "," + (int) time_to_solve + "," + solution_byte.length);
                                 cube.scrambled_path = new String[0];
                                 solver.all_nodes.clear();
                                 solver.all_open_nodes.clear();
+                                System.gc();
+                            }
+                        }
+                        writer.close();
+                    } catch (IOException e) {
+                        System.out.println("couldn't find file");
+                        e.printStackTrace();
+                    }
+                } else if (command.trim().toLowerCase(Locale.ROOT).equals("brute")) {
+                    try {
+                        PrintWriter writer = new PrintWriter("Data.txt", StandardCharsets.UTF_8);
+                        writer.println("scramble length, total nodes, memory used (kb), solve time (ms), solution length");
+                        System.out.println("scramble length, total nodes, memory used (kb), solve time (ms), solution length");
+                        for (int nr_of_scrambles = 1; nr_of_scrambles <= 10; nr_of_scrambles++) {
+                            for (int run = 0; run < 30; run++) {
+                                //System.out.println("run: " + nr_of_scrambles);
+                                cube.scramble(nr_of_scrambles);
+                                int memory_before = runGC();
+                                start_time = System.currentTimeMillis();
+                                solution_byte = solver.brute_force();
+                                stop_time = System.currentTimeMillis();
+                                int memory_after = runGC();
+                                time_to_solve = stop_time - start_time;
+                                String[] solution_string = new String[solution_byte.length];
+                                for (int i = 0; i < solution_byte.length; i++) {
+                                    solution_string[i] = cube.byte_to_string(solution_byte[i]);
+                                }
+                                int total_memory = memory_after - memory_before;
+                                System.out.println(nr_of_scrambles + "," + solver.all_nodes.size() + "," + total_memory + "," + (int) time_to_solve + "," + solution_byte.length);
+                                //writer.println(nr_of_scrambles + "," + solver.all_nodes.size() + "," + total_memory + "," + (int) time_to_solve + "," + solution_byte.length);
+                                cube.scrambled_path = new String[0];
+                                solver.all_nodes.clear();
+                                solver.all_open_nodes.clear();
+                                System.gc();
+                            }
+                        }
+                        writer.close();
+                    } catch (IOException e) {
+                        System.out.println("couldn't find file");
+                        e.printStackTrace();
+                    }
+                } else if (command.trim().toLowerCase(Locale.ROOT).equals("old")) {
+                    try {
+                        PrintWriter writer = new PrintWriter("Data.txt", StandardCharsets.UTF_8);
+                        writer.println("scramble length, total nodes, memory used (kb), solve time (ms), solution length");
+                        System.out.println("scramble length, total nodes, memory used (kb), solve time (ms), solution length");
+                        for (int nr_of_scrambles = 1; nr_of_scrambles <= 10; nr_of_scrambles++) {
+                            for (int run = 0; run < 30; run++) {
+                                //System.out.println("run: " + nr_of_scrambles);
+                                cube.scramble(nr_of_scrambles);
+                                int memory_before = runGC();
+                                start_time = System.currentTimeMillis();
+                                solution_byte = solver.algorithm2(20);
+                                stop_time = System.currentTimeMillis();
+                                int memory_after = runGC();
+                                time_to_solve = stop_time - start_time;
+                                String[] solution_string = new String[solution_byte.length];
+                                for (int i = 0; i < solution_byte.length; i++) {
+                                    solution_string[i] = cube.byte_to_string(solution_byte[i]);
+                                }
+                                int total_memory = memory_after - memory_before;
+                                System.out.println(nr_of_scrambles + "," + solver.all_nodes.size() + "," + total_memory + "," + (int) time_to_solve + "," + solution_byte.length);
+                                //writer.println(nr_of_scrambles + "," + solver.all_nodes.size() + "," + total_memory + "," + (int) time_to_solve + "," + solution_byte.length);
+                                cube.scrambled_path = new String[0];
+                                solver.all_nodes.clear();
+                                solver.all_open_nodes.clear();
+                                System.gc();
                             }
                         }
                         writer.close();
@@ -118,10 +214,6 @@ public class App {
         Runtime runtime = Runtime.getRuntime();
         long memoryMax = runtime.maxMemory();
         long memoryUsed = runtime.totalMemory() - runtime.freeMemory();
-        double memoryUsedPercent = (memoryUsed * 100.0) / memoryMax;
-        System.out.println("memory Used: " + memoryUsed/1000000 + "mb");
-        if (memoryUsedPercent > 90.0)
-            System.gc();
 
         return (int) memoryUsed/1000;
     }

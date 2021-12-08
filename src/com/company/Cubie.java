@@ -36,30 +36,12 @@ public class Cubie{
         }
     }
 
-    public boolean correct_top(){
-        return side_color[0].equals(guide_color_1);
-    }
-    public boolean correct_bottom(){ return side_color[1].equals(guide_color_1); }
-
-    public boolean left_turned_top(){
-        return side_color[0].equals(guide_color_2);
-    }
-    public boolean left_turned_bottom(){
-        return side_color[1].equals(guide_color_3);
-    }
-
-    public boolean right_turned_top(){
-        return side_color[0].equals(guide_color_3);
-    }
-    public boolean right_turned_bottom(){ return side_color[1].equals(guide_color_2); }
-
-    public String get_top(){
-        return side_color[0];
-    }
-
-    public String get_bottom(){
-        return side_color[1];
-    }
+    public boolean correct_top(){           return side_color[0].equals(guide_color_1); }
+    public boolean correct_bottom(){        return side_color[1].equals(guide_color_1); }
+    public boolean left_turned_top(){       return side_color[0].equals(guide_color_2); }
+    public boolean left_turned_bottom(){    return side_color[1].equals(guide_color_3); }
+    public boolean right_turned_top(){      return side_color[0].equals(guide_color_3); }
+    public boolean right_turned_bottom(){   return side_color[1].equals(guide_color_2); }
 
     public void update_side_color_array(){
         side_color[0] = top;
@@ -79,7 +61,6 @@ public class Cubie{
         update_side_color_array();
         return this;
     }
-
     public Cubie LRi(){
         temp = front;
         front = top;
@@ -89,7 +70,6 @@ public class Cubie{
         update_side_color_array();
         return this;
     }
-
     public Cubie LR180(){
         temp = top;
         top = bottom;
@@ -110,7 +90,6 @@ public class Cubie{
         update_side_color_array();
         return this;
     }
-
     public Cubie BFi(){
         temp = top;
         top = right;
@@ -120,7 +99,6 @@ public class Cubie{
         update_side_color_array();
         return this;
     }
-
     public Cubie BF180(){
         temp = top;
         top = bottom;
@@ -141,7 +119,6 @@ public class Cubie{
         update_side_color_array();
         return this;
     }
-
     public Cubie DUi(){
         temp = back;
         back = right;
@@ -151,7 +128,6 @@ public class Cubie{
         update_side_color_array();
         return this;
     }
-
     public Cubie DU180(){
         temp = front;
         front = back;

@@ -6,7 +6,7 @@ import java.util.Random;
 
 public class Cube {
     public int index_Size;
-    public  Cubie[][][] rubix_Cube;
+    public Cubie[][][] rubix_Cube;
     public Cubie[][] cube_face;
     public int cube_dimension;
     public Cubie[][] transformed_cube_face;
@@ -24,6 +24,7 @@ public class Cube {
         }
         create_cube();
     }
+
     public void show_orientation(){
         for (int index1 = 0; index1 < 2; index1++) {
             for (int index2 = 0; index2 < 2; index2++) {
@@ -86,7 +87,6 @@ public class Cube {
         }
         return true;
     }
-
 
     public void show(){
 
@@ -230,12 +230,10 @@ public class Cube {
                         left = null;
                         right = null;
                     }
-                    //rubix_Cube[index1][index2][index3] = new Cubie(top, bottom, front, back, left, right, id);
+
                     coord = new int[]{index1, index2, index3};
-                    if ((amount_of_1s(coord) >= 1)) { // && (!(index1 == 1 && index2 == 1) || !(index1 == 1 && index3 == 1) || !(index2 == 1 && index3 == 1))) {
+                    if (amount_of_1s(coord) >= 1){
                         rubix_Cube[index1][index2][index3] = new Edge_Cubie(top, bottom, front, back, left, right, id, coord);
-                    //} else if (amount_of_1s(coord) > 1){
-                    //    rubix_Cube[index1][index2][index3] = new Center_Cubie(top, bottom, front, back, left, right, id, coord);
                     } else {
                         rubix_Cube[index1][index2][index3] = new Corner_Cubie(top, bottom, front, back, left, right, id, coord);
                     }

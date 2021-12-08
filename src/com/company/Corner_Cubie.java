@@ -11,12 +11,7 @@ public class Corner_Cubie extends Cubie{
         this.right = right;
         this.correct_coordinate = coord;
 
-        side_color[0] = top;
-        side_color[1] = bottom;
-        side_color[2] = front;
-        side_color[3] = back;
-        side_color[4] = left;
-        side_color[5] = right;
+        update_side_color_array();
 
         assign_guide_colors();
         this.id = id;
