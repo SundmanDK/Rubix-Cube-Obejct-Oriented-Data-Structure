@@ -15,6 +15,7 @@ public class Cube {
     public  byte[] byte_moves = new byte[18];
 
     public Cube(){
+        //initial values and making the cube.
         cube_dimension = 3;
         index_Size = cube_dimension -1;
         cube_face= new Cubie[cube_dimension][cube_dimension];
@@ -25,33 +26,8 @@ public class Cube {
         create_cube();
     }
 
-    public void show_orientation(){
-        for (int index1 = 0; index1 < 2; index1++) {
-            for (int index2 = 0; index2 < 2; index2++) {
-                for (int index3 = 0; index3 < 2; index3++) {
-                    if (rubix_Cube[index1][index2][index3].id == 25) {
-                        System.out.println("orientation: " + rubix_Cube[index1][index2][index3]);
-                    }
-                }
-            }
-        }
-    }
-
-    public int amount_solved(){
-        int counter = 0;
-        for (int z = 0; z <= index_Size; z++) {
-            for (int y = 0; y <= index_Size; y++) {
-                for (int x = 0; x <= index_Size; x++) {
-                    if (is_cubie_solved(rubix_Cube[z][y][x], z, y, x)) {
-                        counter++;
-                    }
-                }
-            }
-        }
-        return counter;
-    }
-
     public void move(String moveName){
+        //Receives a command and calls the appropriate method to apply the move.
         switch (moveName) {
             case "R"    ->  RLi(index_Size); // byte = 1
             case "Ri"   ->  RiL(index_Size); // byte = 2
@@ -75,12 +51,12 @@ public class Cube {
     }
 
     public boolean is_solved() {
-
+        //Checks if the cube is solved
         for (int z = 0; z <= index_Size; z++) {
             for (int y = 0; y <= index_Size; y++) {
                 for (int x = 0; x <= index_Size; x++) {
                     if (!is_cubie_solved(rubix_Cube[z][y][x], z,y,x)) {
-                        return false;
+                        return false;       //If there is a cubie which is not "solved" then the cube is not solved.
                     }
                 }
             }
@@ -89,7 +65,7 @@ public class Cube {
     }
 
     public void show(){
-
+        //Prints the cube in a folded out manner allowing us to verify that everything works as intended.
         for (int outer = 0; outer <= index_Size; outer++){
             for (int inner = 0; inner <= index_Size; inner++) {
                 System.out.print(rubix_Cube[index_Size][outer][inner].top + "\t");
@@ -120,6 +96,7 @@ public class Cube {
     }
 
     public String byte_to_string(byte byte_move){
+        //converts the moves from byte to string, used for calling move() and printing scramble and solution paths.
         String string_move = "";
 
         switch (byte_move) {
@@ -147,6 +124,7 @@ public class Cube {
     }
 
     public byte string_to_byte(String string_move){
+        //converts from string to byte, used when storing the path of the solution to save memory.
         byte byte_move;
         byte R = 1;
         byte Ri = 2;
@@ -192,6 +170,7 @@ public class Cube {
     }
 
     public void create_cube(){
+        //Creates the cube, initializes the cubies and assigns type and colors.
         String top, bottom, front, back, left, right;
         int[] coord;
         int id = 0;
@@ -199,7 +178,7 @@ public class Cube {
 
         for (int index1 = 0; index1 <= index_Size; index1++){
             if (index1 == 0){
-                top = null;
+                top = null;         //null is used on "tiles" facing the inside of the cube.
                 bottom = "WHITE";
             } else if (index1 == index_Size){
                 top = "YELLOW";
@@ -245,6 +224,9 @@ public class Cube {
     }
 
     public int amount_of_1s(int[] list){
+        //Used to determine if the cubie is to be a corner or an edge.
+        //If one or more of its 3 coordinates are 1 then the cubie is an edge or a center.
+        //We do not distinguish between edge and center for sake of simplicity.
         int counter = 0;
         for (int number : list){
             if (number == 1){
@@ -254,80 +236,18 @@ public class Cube {
         return counter;
     }
 
-    public void show_indexes(){
-        for (int outer = 0; outer <= index_Size; outer++){
-            for (int inner = 0; inner <= index_Size; inner++) {
-                System.out.print(index_Size + " " + outer+ " " + inner +"\t");
-            }
-            System.out.print("\n");
-        }
-
-        for (int outer = index_Size; outer >= 0; outer--) {
-            for (int inner = 0; inner <= index_Size; inner++) {
-                System.out.print(outer +" "+ index_Size +" "+ inner + "\t");
-            }
-            for (int inner = index_Size; inner >= 0; inner--) {
-                System.out.print(outer +" "+ inner +" "+ index_Size + "\t");
-            }
-            for (int inner = index_Size; inner >= 0; inner--) {
-                System.out.print(outer +" "+ 0 +" "+ inner + "\t");
-            }
-            for (int inner = 0; inner <= index_Size; inner++) {
-                System.out.print(outer +" "+ inner +" "+ 0 + "\t");
-            }
-            System.out.print("\n");
-        }
-
-        for (int outer = index_Size; outer >= 0; outer--){
-            for (int inner = 0; inner <= index_Size; inner++) {
-                System.out.print(0 +" "+ outer +" "+ inner + "\t");
-            }
-            System.out.print("\n");
-        }
-    }
-
-    public void show_id(){
-        for (int outer = 0; outer <= index_Size; outer++){
-            for (int inner = 0; inner <= index_Size; inner++) {
-                System.out.print(rubix_Cube[index_Size][outer][inner].id + "\t");
-            }
-            System.out.print("\n");
-        }
-
-        for (int outer = index_Size; outer >= 0; outer--) {
-            for (int inner = 0; inner <= index_Size; inner++) {
-                System.out.print(rubix_Cube[outer][index_Size][inner].id + "\t");
-            }
-            for (int inner = index_Size; inner >= 0; inner--) {
-                System.out.print(rubix_Cube[outer][inner][index_Size].id + "\t");
-            }
-            for (int inner = index_Size; inner >= 0; inner--) {
-                System.out.print(rubix_Cube[outer][0][inner].id + "\t");
-            }
-            for (int inner = 0; inner <= index_Size; inner++) {
-                System.out.print(rubix_Cube[outer][inner][0].id + "\t");
-            }
-            System.out.print("\n");
-        }
-
-        for (int outer = index_Size; outer >= 0; outer--){
-            for (int inner = 0; inner <= index_Size; inner++) {
-                System.out.print(rubix_Cube[0][outer][inner].id + "\t");
-            }
-            System.out.print("\n");
-        }
-    }
-
     public String[] scramble(int amount_scrambles){
-        String previous_move;
+        //Part of a 2 method process of scrambling the cube.
+        //It performs an amount of scramble moves based on what it is told.
+        String previous_move;           //Used to avoid repeating moves or moves followed by their inverse.
         if (scrambled_path.length > 0){
             previous_move = scrambled_path[scrambled_path.length - 1];
         } else {
             previous_move = "";
         }
         for (int move = 0; move < amount_scrambles; move++){
-            String current_move = scramble_step(previous_move);
-            move(current_move);
+            String current_move = scramble_step(previous_move);     //receives an applicable move
+            move(current_move);                                     //applies it
             add_to_scrambled_path(current_move);
             previous_move = current_move;
         }
@@ -335,6 +255,9 @@ public class Cube {
     }
 
     public String scramble_step(String previous_move){
+        //Picks the scramble move, making sure it is neither a repeat nor inverse of the previous move.
+        //We could not find a good way of including 180 degree turns in this.
+        //But the scramble is still better than it was without excluding repeats and inverses.
         Random r = new Random();
         int nr_of_moves = possible_moves.length;
         int which_move = r.nextInt(nr_of_moves);
@@ -349,6 +272,9 @@ public class Cube {
     }
 
     public void add_to_scrambled_path(String move){
+        //Adds element to the scramble path, allows multiple calls of scramble to store their moves.
+        //Also means user inputted moves are added to the scramble path.
+        //This is important because of the way our algorithm goes back to the scrambled state.
         String[] old_scramble = scrambled_path;
         scrambled_path = new String[scrambled_path.length + 1];
 
@@ -357,16 +283,20 @@ public class Cube {
     }
 
     public void inherit_from_array(String[] old_array, String[] new_array){
+        //Takes the contents of one array and stores them in a new array.
+        //Mainly used when an array is replaced with an array which is 1 element larger.
         for (int index = 0; index < old_array.length; index++){
             new_array[index] = old_array[index];
         }
     }
     //Move functions 90 degree
     public  void iterate_back(String move){
-        move(reverse_move(move));
+        move(reverse_move(move));       //applies the inverse move of the move given.
     }
 
     public  int amount_on_correct_place(){
+        //Finds how many cubies are on the correct place.
+        //Used in the old heuristic.
         int counter = 0;
         for (int z = 0; z <= index_Size; z++) {
             for (int y = 0; y <= index_Size; y++) {
@@ -381,6 +311,8 @@ public class Cube {
     }
 
     public  int amount_correct_orientation(){
+        //Finds how many cubies have correct orientation.
+        //Used in the old heuristic.
         int orientation = 1;
         int counter = 0;
         for (int z = 0; z <= index_Size; z++) {
@@ -399,6 +331,11 @@ public class Cube {
         }
         return counter;
     }
+
+    //Following 9 methods works the same, but on different faces of the cube.
+    //We found that a move and the inverse of the move on the opposite side of the cube turn the cubies the same direction.
+    //First the cubies on a face are saved in an array, then the array is transformed and the new placement
+    // of the cubes is saved in the rubix_cube array.
     public  void RLi(int side){
         for (int index1 = index_Size; index1 >= 0; index1--){
             for (int index2 = index_Size; index2 >= 0; index2--){
@@ -504,7 +441,6 @@ public class Cube {
             }
         }
     }
-    //180 degree
     public  void RL180(int side){
         for (int index1 = index_Size; index1 >= 0; index1--){
             for (int index2 = index_Size; index2 >= 0; index2--){
@@ -543,6 +479,7 @@ public class Cube {
     }
 
     public  String reverse_move(String move){
+        //Defines the reverse move of any given move.
         switch (move) {
             case "R" -> {
                 return "Ri";
@@ -603,10 +540,11 @@ public class Cube {
     }
 
     public  int is_orientation_correct_edge(Cubie cubie, int z, int y, int x){
+        //Checks and returns if am edge cubie has correct orientation.
         if (Arrays.equals(new int[]{y, x}, new int[]{1, 1})){
-            return 0; // Correct orientation for center cubies
+            return 0;       //Always correct orientation for center cubies.
         }
-
+        //First checks if the cube is on the front or back face, this covers 8 of 12 edge cubies.
         int face = cubie.correct_coordinate[1];
         if (face == 2){ // front
             if (rubix_Cube[1][face][1].side_color[2].equals(cubie.side_color[2])){
@@ -620,7 +558,7 @@ public class Cube {
             return 1;
         }
 
-        // followed by left and right
+        //If the cubie is not on the front or back face it checks on the left and right faces catching the last 4 edge cubies.
         face = cubie.correct_coordinate[2];
         if (face == 0){ // left
             if (rubix_Cube[1][1][face].side_color[4].equals(cubie.side_color[4])){
@@ -637,29 +575,35 @@ public class Cube {
     }
 
     public  int is_orientation_correct_corner(int layer, Cubie cubie){
+        //checks orientation of corner cubies.
+        //First checks if the cubie it on the top face, where 4 out of 8 corner cubies reside.
         if (layer == 2) { //top
             if (cubie.correct_top()){
                 return 0;
             } else if (cubie.left_turned_top()){
                 return -1;
             } else if (cubie.right_turned_top()){
-                return -1;
+                return 1;
             }
         }
+        //If the cubie is not on the top face it is checked for on the bottom face.
         if (cubie.correct_bottom()){
             return 0;
         } else if (cubie.left_turned_bottom()){
             return -1;
         } else if (cubie.right_turned_bottom()){
-            return -1;
+            return 1;
         }
-        return Integer.parseInt(null);
+        return Integer.parseInt(null);      //The method never reaches this. If it does then we know something is wrong.
     }
 
     public  boolean is_cubie_solved(Cubie cubie, int z, int y, int x) {
+        //Checks if the cubie has correct placement and correct orientation.
+        //Calls orientation methods for corner and edge cubies.
         int orientation = 1;
         boolean position = Arrays.equals(cubie.correct_coordinate, new int[]{z, y, x});
 
+        //Subclasses are used to distinguish how we deal with orientation.
         if (cubie.getClass() == Edge_Cubie.class) {
             orientation = is_orientation_correct_edge(cubie, z,y,x);
         } else if (cubie.getClass() == Corner_Cubie.class){
@@ -669,6 +613,7 @@ public class Cube {
     }
 
     public  void go_to_path(byte[] path){
+        //Takes the cube from one state to another, following scramble path or solution path.
         for (byte move: path) {
             move(byte_to_string(move));
 

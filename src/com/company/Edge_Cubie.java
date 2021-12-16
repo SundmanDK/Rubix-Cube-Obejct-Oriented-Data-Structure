@@ -2,7 +2,6 @@ package com.company;
 
 public class Edge_Cubie extends Cubie {
 
-    // Constructor
     public Edge_Cubie(String top, String bottom, String front, String back, String left, String right, int id, int[] coord) {
         this.top = top;
         this.bottom = bottom;
@@ -10,15 +9,9 @@ public class Edge_Cubie extends Cubie {
         this.back = back;
         this.left = left;
         this.right = right;
-        this.correct_coordinate = coord;
+        this.correct_coordinate = coord;    //used when evaluating if position is correct
 
-        side_color[0] = top;
-        side_color[1] = bottom;
-        side_color[2] = front;
-        side_color[3] = back;
-        side_color[4] = left;
-        side_color[5] = right;
-
+        update_side_color_array();          //used when dealing with orientation
         this.id = id;
     }
 }

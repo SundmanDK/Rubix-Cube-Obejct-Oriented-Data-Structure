@@ -9,11 +9,11 @@ public class Corner_Cubie extends Cubie{
         this.back = back;
         this.left = left;
         this.right = right;
-        this.correct_coordinate = coord;
+        this.correct_coordinate = coord;    //used when evaluating if position is correct
 
-        update_side_color_array();
+        update_side_color_array();          //used when dealing with orientation
 
-        assign_guide_colors();
+        assign_guide_colors();              //used when evaluating if orientation is correct
         this.id = id;
-    } // Constructor
+    }
 }

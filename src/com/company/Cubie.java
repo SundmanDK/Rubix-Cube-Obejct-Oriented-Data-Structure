@@ -25,6 +25,7 @@ public class Cubie{
     } // Constructor
 
     public void assign_guide_colors(){
+        //Assigns the guide colors. Used for orientation on corner cubies.
         for (int color = 0; color < side_color.length; color++){
             if (side_color[color] != null && color < 2){
                 guide_color_1 = side_color[color];
@@ -36,6 +37,7 @@ public class Cubie{
         }
     }
 
+    //Following 6 methods checks if a tile matches its guide color, i.e. does the corner cubie have correct orientation.
     public boolean correct_top(){           return side_color[0].equals(guide_color_1); }
     public boolean correct_bottom(){        return side_color[1].equals(guide_color_1); }
     public boolean left_turned_top(){       return side_color[0].equals(guide_color_2); }
@@ -44,6 +46,7 @@ public class Cubie{
     public boolean right_turned_bottom(){   return side_color[1].equals(guide_color_2); }
 
     public void update_side_color_array(){
+        //updates the array every move
         side_color[0] = top;
         side_color[1] = bottom;
         side_color[2] = front;
@@ -52,6 +55,8 @@ public class Cubie{
         side_color[5] = right;
     }
 
+
+    //Following 9 methods deal with turning cubies so their tiles are turn alongside themselves.
     public Cubie LiR(){
         temp = back;
         back = top;
